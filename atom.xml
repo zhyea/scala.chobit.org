@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-04-18T14:59:45.245Z</updated>
+  <updated>2018-04-19T14:21:14.435Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,26 +17,32 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World!</title>
-    <link href="http://yoursite.com/wiki/2018/04/18/Hello-World-0/"/>
-    <id>http://yoursite.com/wiki/2018/04/18/Hello-World-0/</id>
-    <published>2018-04-18T14:59:45.000Z</published>
-    <updated>2018-04-18T14:59:45.245Z</updated>
+    <title>准备开发环境</title>
+    <link href="http://yoursite.com/wiki/2018/04/19/%E5%87%86%E5%A4%87%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/"/>
+    <id>http://yoursite.com/wiki/2018/04/19/准备开发环境/</id>
+    <published>2018-04-19T14:04:33.000Z</published>
+    <updated>2018-04-19T14:21:14.435Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><blockquote><ul><li><a href=""></a></li><li><a href=""></a></li></ul></blockquote>]]></content>
+    <content type="html"><![CDATA[<p>Scala开发环境准备步骤如下：  </p><ul><li>安装JDK环境，建议选择JDK8版本</li><li>安装Scala开发环境，选择最新版就行</li></ul><p>聊作解释：建议JDK选择1.8是因为稍后会用到Gradle，Gradle对JDK9的兼容性目前并不好。不过，稍后许有调整也未可知。  </p><p>IDE可以选择IntelliJ Idea， Eclipse的Scala IDE也未尝不可。我是颜控党，所以选择了IDEA。  </p><p>关于环境就简单说这点儿。简单说下这次的学习计划：接下来的内容多少会和Java有点关系，不过还是以Scala为主，之后争取每天学习一个Scala的特性。在这里立一个Flag。</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;参考资料&quot;&gt;&lt;a href=&quot;#参考资料&quot; class=&quot;headerlink&quot; title=&quot;参考资料&quot;&gt;&lt;/a&gt;参考资料&lt;/h2&gt;&lt;blockquote&gt;
+        &lt;p&gt;Scala开发环境准备步骤如下：  &lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/l
+&lt;li&gt;安装JDK环境，建议选择JDK8版本&lt;/li&gt;
+&lt;li&gt;安装Scala开发环境，选择最新版就行&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;聊作解释：建议JDK选择1.8是因为稍后会用到Gradle，Gradle对JDK9的兼
       
     
     </summary>
     
+      <category term="scala" scheme="http://yoursite.com/categories/scala/"/>
+    
+    
+      <category term="准备" scheme="http://yoursite.com/tags/%E5%87%86%E5%A4%87/"/>
     
   </entry>
   
