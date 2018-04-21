@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-04-21T10:33:07.814Z</updated>
+  <updated>2018-04-21T13:42:59.508Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,13 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>快速体验Scala</title>
+    <title>快速体验Scala - 交互式编程</title>
+    <link href="http://yoursite.com/wiki/2018/04/21/02-ineractiveCoding/"/>
+    <id>http://yoursite.com/wiki/2018/04/21/02-ineractiveCoding/</id>
+    <published>2018-04-21T11:14:21.000Z</published>
+    <updated>2018-04-21T13:42:59.508Z</updated>
+    
+    <content type="html"><![CDATA[<p>scala提供的交互式解释器也是一种快速体验scala的一种方式。  </p><h2 id="使用交互式解释器"><a href="#使用交互式解释器" class="headerlink" title="使用交互式解释器"></a>使用交互式解释器</h2><p>在安装好scala开发环境后，打开命令行工具，输入scala就可以进入scala解释器：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">robin@robin-PC MINGW64 ~</span><br><span class="line">$ scala</span><br><span class="line">Welcome to Scala 2.11.8 (Java HotSpot(TM) 64-Bit Server VM, Java 1.8.0_25).</span><br><span class="line">Type <span class="keyword">in</span> expressions <span class="keyword">for</span> evaluation. Or try :<span class="built_in">help</span>.</span><br><span class="line"></span><br><span class="line">scala&gt;</span><br></pre></td></tr></table></figure></p><p>输入“:quit”或“:q”可以退出scala解释器。<br>接下来我们使用scala的交互式解释器来了解一些scala的基础概念。  </p><h2 id="定义变量"><a href="#定义变量" class="headerlink" title="定义变量"></a>定义变量</h2><p>scala的变量有两种类型：var和val。其中，val变量也可以称为常量，val定义的变量赋值后不可修改，类似于Java中final标记的变量。var变量可以随意赋值修改。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; val msg = <span class="string">"Hello World!"</span></span><br><span class="line">msg: String = Hello World!</span><br></pre></td></tr></table></figure></p><p>代码中声明了一个val变量msg。声明变量时没有显式指明类型，但是解释器也没有报错。scala是可以根据变量的值推断出变量的类型的。<br>当然也可以显式指明变量类型，像下面这样：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; val msg:String = <span class="string">"Hello World!"</span></span><br><span class="line">msg: String = Hello World!</span><br></pre></td></tr></table></figure></p><h2 id="定义函数"><a href="#定义函数" class="headerlink" title="定义函数"></a>定义函数</h2><p>在上一节我们已经在HelloWorld类中定义过一个main方法了，现在我们在交互式解释器中再定义一个新的函数:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; def hello(name:String)&#123;</span><br><span class="line">     | println(s<span class="string">"Hello <span class="variable">$name</span>!"</span>)</span><br><span class="line">     | println(<span class="string">"End"</span>)</span><br><span class="line">     | &#125;</span><br></pre></td></tr></table></figure></p><p>这里是在上一节定义的main函数：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span></span>(args: <span class="type">Array</span>[<span class="type">String</span>]) = println(<span class="string">"Hello World!"</span>)</span><br></pre></td></tr></table></figure></p><p>我们比较一下这两个函数，可以看出scala函数定义的一些规则：  </p><ul><li>scala函数以def关键字定义</li><li>函数的参数列表中，参数名称和参数类型以“:”分隔 </li><li>方法体需要用花括号括起来，但是只有一行时，可以不使用花括号  </li><li>方法的返回类型可以不必声明</li><li>等号不是必需的</li></ul><p>大体上就是这样。scala函数定义的规则还有很多，这里只是管中窥豹，简单说下。  </p><p>另外，在上面的代码中我们可以看到每一行语句末尾都没有使用分号，这是scala和java一个很大的不同。在scala中，分号是可选的。若一行中只有一个语句，分号可以不填；若一行中有多个语句，分号则是必填。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;scala提供的交互式解释器也是一种快速体验scala的一种方式。  &lt;/p&gt;
+&lt;h2 id=&quot;使用交互式解释器&quot;&gt;&lt;a href=&quot;#使用交互式解释器&quot; class=&quot;headerlink&quot; title=&quot;使用交互式解释器&quot;&gt;&lt;/a&gt;使用交互式解释器&lt;/h2&gt;&lt;p&gt;在安装
+      
+    
+    </summary>
+    
+      <category term="scala" scheme="http://yoursite.com/categories/scala/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>快速体验Scala - Scasite</title>
     <link href="http://yoursite.com/wiki/2018/04/21/01-quickStart/"/>
     <id>http://yoursite.com/wiki/2018/04/21/01-quickStart/</id>
     <published>2018-04-21T08:06:42.000Z</published>
-    <updated>2018-04-21T10:33:07.814Z</updated>
+    <updated>2018-04-21T13:04:09.924Z</updated>
     
-    <content type="html"><![CDATA[<p>前面一节简略说了Scala开发环境的准备工作。如果还没有安装Scala的开发环境，也可以快速在<a href="https://scastie.scala-lang.org" title="Scasite" rel="external nofollow noopener noreferrer" target="_blank">Scasite</a>上快速体验一下。  </p><p>还是按传统，来一个HelloWorld：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">object</span> <span class="title">HelloWorld</span> </span>&#123;  </span><br><span class="line">      <span class="function"><span class="keyword">def</span> <span class="title">main</span></span>(args: <span class="type">Array</span>[<span class="type">String</span>]) = println(<span class="string">"Hello World!"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>这段代码中我们使用object关键字声明了一个结构：HelloWorld。之所以用结构这个词，是因为在没有上下文的情况下要描述清楚scala的object需要费些力气。不过可以用Java的一些概念来勉强描述下：scala的object相当于Java中的一个没有构造器，只有静态方法的final类。</p><p>再来看一下这个object里定义方法的形式：声明方法使用了def关键字，然后是方法名，方法名之后的括号中是参数列表，参数列表后一个等号紧跟着方法体。因为方法体只有一行，所以就没有用花括号括起来。参数列表中参数名和参数类型用冒号分隔，参数名在前。</p><p>打开<a href="https://scastie.scala-lang.org" title="Scasite" rel="external nofollow noopener noreferrer" target="_blank">Scasite</a>。将这段代码放在Scasite的编辑框里，点击Run按钮执行。可以看到在下方的Console中输出了Hello Word！。<br>不过同时还出现了一行提示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">You don&apos;t need a main method (or extends Scastie) in Worksheet Mode</span><br></pre></td></tr></table></figure></p><p>说实话，我不太清楚Scasite的Worksheet Mode是什么意思。不过这提醒我了：Scala也是一种脚本语言。所以我们可以直接在Scasite的编辑框里输入下面的代码：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">println(<span class="string">"Hello World!"</span>)</span><br></pre></td></tr></table></figure></p><p>点击Run按钮执行，结果与之前一样。</p>]]></content>
+    <content type="html"><![CDATA[<p>前面一节简略说了Scala开发环境的准备工作。如果还没有安装Scala的开发环境，也可以快速在<a href="https://scastie.scala-lang.org" title="Scasite" rel="external nofollow noopener noreferrer" target="_blank">Scasite</a>上快速体验一下。  </p><p>还是按传统，来一个HelloWorld：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">object</span> <span class="title">HelloWorld</span> </span>&#123;  </span><br><span class="line">      <span class="function"><span class="keyword">def</span> <span class="title">main</span></span>(args: <span class="type">Array</span>[<span class="type">String</span>]) = println(<span class="string">"Hello World!"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>这段代码中我们使用object关键字声明了一个结构：HelloWorld。之所以用“结构”这个词，是因为在没有上下文的情况下要描述清楚scala的object需要费些力气。不过可以用Java的一些概念来勉强描述下：scala的object相当于Java中的一个没有构造器，只有静态方法的final类。</p><p>再来看一下这个object里定义方法的形式：声明方法使用了def关键字，然后是方法名，方法名之后的括号中是参数列表，参数列表后一个等号紧跟着方法体。因为方法体只有一行，所以就没有用花括号括起来。参数列表中参数名和参数类型用冒号分隔，参数名在前。</p><p>打开<a href="https://scastie.scala-lang.org" title="Scasite" rel="external nofollow noopener noreferrer" target="_blank">Scasite</a>。将这段代码放在Scasite的编辑框里，点击Run按钮执行。可以看到在下方的Console中输出了Hello Word！。<br>不过同时还出现了一行提示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">You don&apos;t need a main method (or extends Scastie) in Worksheet Mode</span><br></pre></td></tr></table></figure></p><p>说实话，我不太清楚Scasite的Worksheet Mode是什么意思。不过这提醒我了：Scala也是一种脚本语言。所以我们可以直接在Scasite的编辑框里输入下面的代码：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">println(<span class="string">"Hello World!"</span>)</span><br></pre></td></tr></table></figure></p><p>点击Run按钮执行，结果与之前一样。</p>]]></content>
     
     <summary type="html">
     
