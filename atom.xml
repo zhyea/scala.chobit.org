@@ -68,17 +68,18 @@
     <link href="http://yoursite.com/wiki/20180421/index/"/>
     <id>http://yoursite.com/wiki/20180421/index/</id>
     <published>2018-04-21T03:45:57.000Z</published>
-    <updated>2018-04-21T13:56:11.555Z</updated>
+    <updated>2018-04-21T13:57:44.635Z</updated>
     
-    <content type="html"><![CDATA[<p>scala学习：</p><ol start="0"><li><a href="https://scala.chobit.org/wiki/20180419/00-prepareEnv/" target="_blank" rel="noopener">准备开发环境</a>  </li><li><a href="https://scala.chobit.org/wiki/20180421/01-quickStart/" target="_blank" rel="noopener">快速体验scala - Scasite</a></li><li><a href="https://scala.chobit.org/wiki/20180421/02-ineractiveCoding/" target="_blank" rel="noopener">快速体验scala - 交互式编程</a></li></ol><p>This is Home Page.</p>]]></content>
+    <content type="html"><![CDATA[<p>scala学习：</p><ol><li><a href="https://scala.chobit.org/wiki/20180419/00-prepareEnv/" target="_blank" rel="noopener">准备开发环境</a>  </li><li><a href="https://scala.chobit.org/wiki/20180421/01-quickStart/" target="_blank" rel="noopener">快速体验scala - Scasite</a></li><li><a href="https://scala.chobit.org/wiki/20180421/02-ineractiveCoding/" target="_blank" rel="noopener">快速体验scala - 交互式编程</a></li></ol><p>This is Home Page.</p>]]></content>
     
     <summary type="html">
     
       
       
         &lt;p&gt;scala学习：&lt;/p&gt;
-&lt;ol start=&quot;0&quot;&gt;
-&lt;li&gt;&lt;a href=&quot;https://scala.chobit.org/wiki/20180419/00-prepareEnv/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;准备开发环境&lt;/a&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;https://scala.chobit.org/wiki/20180419/00-prepareEnv/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;准备开发环境&lt;/a&gt;  &lt;/li&gt;
+&lt;l
       
     
     </summary>
