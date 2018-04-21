@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/wiki/20180421/02-ineractiveCoding/</loc>
+    
+    <lastmod>2018-04-21T14:05:46.953Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/wiki/20180421/index/</loc>
     
     <lastmod>2018-04-21T13:57:44.635Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>http://yoursite.com/wiki/20180419/00-prepareEnv/</loc>
     
     <lastmod>2018-04-21T13:46:09.577Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/wiki/20180421/02-ineractiveCoding/</loc>
-    
-    <lastmod>2018-04-21T13:45:53.418Z</lastmod>
     
   </url>
   
