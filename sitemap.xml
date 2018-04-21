@@ -2,7 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/wiki/2018/04/19/%E5%87%86%E5%A4%87%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</loc>
+    <loc>http://yoursite.com/wiki/2018/04/21/01-quickStart/</loc>
+    
+    <lastmod>2018-04-21T10:29:45.546Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/wiki/2018/04/19/00-prepareEnv/</loc>
     
     <lastmod>2018-04-21T10:25:36.113Z</lastmod>
     
@@ -12,13 +19,6 @@
     <loc>http://yoursite.com/wiki/2018/04/21/index/</loc>
     
     <lastmod>2018-04-21T10:20:36.766Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/wiki/2018/04/21/%E5%BF%AB%E9%80%9F%E4%BD%93%E9%AA%8C/</loc>
-    
-    <lastmod>2018-04-21T10:09:12.879Z</lastmod>
     
   </url>
   
