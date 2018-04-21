@@ -76,14 +76,14 @@
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Cari">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么...">
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -95,11 +95,11 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'pos',
-            PAGES: 'Pages',
-            CATEGORIES: 'kategori',
-            TAGS: 'tag',
-            UNTITLED: '(Untitled)',
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -129,7 +129,7 @@
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Cari">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
     </div>
 
                 </td>
@@ -146,10 +146,10 @@
         
     <div class="widget-wrap" id="categories">
         <h3 class="widget-title">
-            <span>kategori</span>
+            <span>分类</span>
             &nbsp;
             <a id="allExpand" href="#">
-                <i class="fa fa-angle-double-up fa-2x"></i>
+                <i class="fa fa-angle-double-down fa-2x"></i>
             </a>
         </h3>
         
@@ -301,7 +301,7 @@
 <nav id="article-nav">
     
         <a href="/wiki/2018/04/21/01-quickStart/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Lebih baru</strong>
+            <strong class="article-nav-caption">上一篇</strong>
             <div class="article-nav-title">
                 
                     快速体验Scala
@@ -311,7 +311,7 @@
     
     
         <a href="/wiki/2018/04/19/00-prepareEnv/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Lebih Tua</strong>
+            <strong class="article-nav-caption">下一篇</strong>
             <div class="article-nav-title">准备开发环境</div>
         </a>
     
