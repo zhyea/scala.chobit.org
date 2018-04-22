@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-04-22T14:12:37.260Z</updated>
+  <updated>2018-04-22T14:16:37.662Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,20 +21,21 @@
     <link href="http://yoursite.com/wiki/20180422/03-comment/"/>
     <id>http://yoursite.com/wiki/20180422/03-comment/</id>
     <published>2018-04-22T13:53:24.000Z</published>
-    <updated>2018-04-22T14:12:37.260Z</updated>
+    <updated>2018-04-22T14:16:37.662Z</updated>
     
-    <content type="html"><![CDATA[<p>简单说下scala中的注释。这里是一段示例代码：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">object</span> <span class="title">HelloWorld</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 这里是多行注释</span></span><br><span class="line"><span class="comment">    *</span></span><br><span class="line"><span class="comment">    * 这里是main方法</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">main</span></span>(args: <span class="type">Array</span>[<span class="type">String</span>]): <span class="type">Unit</span> = &#123;</span><br><span class="line">    <span class="comment">// 这里是单行注释</span></span><br><span class="line">    print(<span class="string">"Hello World!"</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>scala的注释和java的注释是一样的。没有什么需要解释的地方。</p>]]></content>
+    <content type="html"><![CDATA[<p>简单说下scala中的注释。scala的注释和java的注释是一样的，同样有多行注释和单行注释，使用方法也是一样的。  </p><p>这里是一段示例代码：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">object</span> <span class="title">HelloWorld</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 这里是多行注释</span></span><br><span class="line"><span class="comment">    *</span></span><br><span class="line"><span class="comment">    * 这里是main方法</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">main</span></span>(args: <span class="type">Array</span>[<span class="type">String</span>]): <span class="type">Unit</span> = &#123;</span><br><span class="line">    <span class="comment">// 这里是单行注释</span></span><br><span class="line">    print(<span class="string">"Hello World!"</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>就是这样，没有什么需要解释的地方。</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;简单说下scala中的注释。这里是一段示例代码：&lt;br&gt;&lt;figure class=&quot;highlight scala&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class
+        &lt;p&gt;简单说下scala中的注释。scala的注释和java的注释是一样的，同样有多行注释和单行注释，使用方法也是一样的。  &lt;/p&gt;
+&lt;p&gt;这里是一段示例代码：&lt;br&gt;&lt;figure class=&quot;highlight scala&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;g
       
     
     </summary>
     
-      <category term="scala" scheme="http://yoursite.com/categories/scala/"/>
+      <category term="scala学习" scheme="http://yoursite.com/categories/scala%E5%AD%A6%E4%B9%A0/"/>
     
     
   </entry>
@@ -91,7 +92,7 @@
     <link href="http://yoursite.com/wiki/20180421/index/"/>
     <id>http://yoursite.com/wiki/20180421/index/</id>
     <published>2018-04-21T03:45:57.000Z</published>
-    <updated>2018-04-22T14:12:38.732Z</updated>
+    <updated>2018-04-22T14:14:49.137Z</updated>
     
     <content type="html"><![CDATA[<p>scala学习：</p><ol><li><a href="https://scala.chobit.org/wiki/20180419/00-prepareEnv/" target="_blank" rel="noopener">准备开发环境</a>  </li><li><a href="https://scala.chobit.org/wiki/20180421/01-quickStart/" target="_blank" rel="noopener">快速体验scala - Scasite</a></li><li><a href="https://scala.chobit.org/wiki/20180421/02-ineractiveCoding/" target="_blank" rel="noopener">快速体验scala - 交互式编程</a></li><li><a href="https://scala.chobit.org/wiki/20180422/03-comment/" target="_blank" rel="noopener">使用注释</a></li></ol><p>This is Home Page.</p>]]></content>
     
@@ -108,7 +109,7 @@
     </summary>
     
     
-      <category term="scala" scheme="http://yoursite.com/tags/scala/"/>
+      <category term="scala学习" scheme="http://yoursite.com/tags/scala%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
