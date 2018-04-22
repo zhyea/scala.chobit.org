@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>SCALA CHOBIT</title>
+  <title>SCALA 手账</title>
   
-  
+  <subtitle>scala</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
-  <updated>2018-04-22T14:16:37.662Z</updated>
-  <id>http://yoursite.com/</id>
+  <link href="http://scala.chobit.com/"/>
+  <updated>2018-04-22T22:48:29.004Z</updated>
+  <id>http://scala.chobit.com/</id>
   
   <author>
     <name>robin</name>
@@ -17,9 +17,25 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>数据类型</title>
+    <link href="http://scala.chobit.com/wiki/20180423/04-dataType/"/>
+    <id>http://scala.chobit.com/wiki/20180423/04-dataType/</id>
+    <published>2018-04-22T22:46:39.000Z</published>
+    <updated>2018-04-22T22:48:29.004Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="scala学习" scheme="http://scala.chobit.com/categories/scala%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>使用注释</title>
-    <link href="http://yoursite.com/wiki/20180422/03-comment/"/>
-    <id>http://yoursite.com/wiki/20180422/03-comment/</id>
+    <link href="http://scala.chobit.com/wiki/20180422/03-comment/"/>
+    <id>http://scala.chobit.com/wiki/20180422/03-comment/</id>
     <published>2018-04-22T13:53:24.000Z</published>
     <updated>2018-04-22T14:16:37.662Z</updated>
     
@@ -35,15 +51,15 @@
     
     </summary>
     
-      <category term="scala学习" scheme="http://yoursite.com/categories/scala%E5%AD%A6%E4%B9%A0/"/>
+      <category term="scala学习" scheme="http://scala.chobit.com/categories/scala%E5%AD%A6%E4%B9%A0/"/>
     
     
   </entry>
   
   <entry>
     <title>快速体验Scala - 交互式编程</title>
-    <link href="http://yoursite.com/wiki/20180421/02-ineractiveCoding/"/>
-    <id>http://yoursite.com/wiki/20180421/02-ineractiveCoding/</id>
+    <link href="http://scala.chobit.com/wiki/20180421/02-ineractiveCoding/"/>
+    <id>http://scala.chobit.com/wiki/20180421/02-ineractiveCoding/</id>
     <published>2018-04-21T12:14:21.000Z</published>
     <updated>2018-04-21T14:05:46.953Z</updated>
     
@@ -59,15 +75,15 @@
     
     </summary>
     
-      <category term="scala学习" scheme="http://yoursite.com/categories/scala%E5%AD%A6%E4%B9%A0/"/>
+      <category term="scala学习" scheme="http://scala.chobit.com/categories/scala%E5%AD%A6%E4%B9%A0/"/>
     
     
   </entry>
   
   <entry>
     <title>快速体验Scala - Scasite</title>
-    <link href="http://yoursite.com/wiki/20180421/01-quickStart/"/>
-    <id>http://yoursite.com/wiki/20180421/01-quickStart/</id>
+    <link href="http://scala.chobit.com/wiki/20180421/01-quickStart/"/>
+    <id>http://scala.chobit.com/wiki/20180421/01-quickStart/</id>
     <published>2018-04-21T08:06:42.000Z</published>
     <updated>2018-04-21T13:45:47.498Z</updated>
     
@@ -82,17 +98,17 @@
     
     </summary>
     
-      <category term="scala学习" scheme="http://yoursite.com/categories/scala%E5%AD%A6%E4%B9%A0/"/>
+      <category term="scala学习" scheme="http://scala.chobit.com/categories/scala%E5%AD%A6%E4%B9%A0/"/>
     
     
   </entry>
   
   <entry>
-    <title>scala手账</title>
-    <link href="http://yoursite.com/wiki/20180421/index/"/>
-    <id>http://yoursite.com/wiki/20180421/index/</id>
+    <title>scala手账 - 主页</title>
+    <link href="http://scala.chobit.com/wiki/20180421/index/"/>
+    <id>http://scala.chobit.com/wiki/20180421/index/</id>
     <published>2018-04-21T03:45:57.000Z</published>
-    <updated>2018-04-22T14:14:49.137Z</updated>
+    <updated>2018-04-22T22:49:41.082Z</updated>
     
     <content type="html"><![CDATA[<p>scala学习：</p><ol><li><a href="https://scala.chobit.org/wiki/20180419/00-prepareEnv/" target="_blank" rel="noopener">准备开发环境</a>  </li><li><a href="https://scala.chobit.org/wiki/20180421/01-quickStart/" target="_blank" rel="noopener">快速体验scala - Scasite</a></li><li><a href="https://scala.chobit.org/wiki/20180421/02-ineractiveCoding/" target="_blank" rel="noopener">快速体验scala - 交互式编程</a></li><li><a href="https://scala.chobit.org/wiki/20180422/03-comment/" target="_blank" rel="noopener">使用注释</a></li></ol><p>This is Home Page.</p>]]></content>
     
@@ -109,14 +125,14 @@
     </summary>
     
     
-      <category term="scala学习" scheme="http://yoursite.com/tags/scala%E5%AD%A6%E4%B9%A0/"/>
+      <category term="scala学习" scheme="http://scala.chobit.com/tags/scala%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
   <entry>
     <title>准备开发环境</title>
-    <link href="http://yoursite.com/wiki/20180419/00-prepareEnv/"/>
-    <id>http://yoursite.com/wiki/20180419/00-prepareEnv/</id>
+    <link href="http://scala.chobit.com/wiki/20180419/00-prepareEnv/"/>
+    <id>http://scala.chobit.com/wiki/20180419/00-prepareEnv/</id>
     <published>2018-04-19T14:04:33.000Z</published>
     <updated>2018-04-21T13:46:09.577Z</updated>
     
@@ -136,10 +152,10 @@
     
     </summary>
     
-      <category term="scala学习" scheme="http://yoursite.com/categories/scala%E5%AD%A6%E4%B9%A0/"/>
+      <category term="scala学习" scheme="http://scala.chobit.com/categories/scala%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="准备" scheme="http://yoursite.com/tags/%E5%87%86%E5%A4%87/"/>
+      <category term="准备" scheme="http://scala.chobit.com/tags/%E5%87%86%E5%A4%87/"/>
     
   </entry>
   
