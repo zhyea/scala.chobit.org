@@ -3,24 +3,24 @@
 <head>
     <meta charset="utf-8">
     
-    <title>var和val | SCALA 手账</title>
+    <title>var和val变量 | SCALA 手账</title>
     
     
         <meta name="keywords" content="scala, scala学习, scala教程">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="变量声明前面我们提过，在scala中声明变量使用var和val都是可行的。   用val声明的变量是不可变的，被初始化后值就固定下来，不可以再被修改（这类似于java中的final关键字）。用var声明的变量是可变的，可以任意修改。   声明变量的实例如下： 123456789101112scala&amp;gt; var myVar:String = &quot;my var string&quot;myVar: Stri">
+    <meta name="description" content="变量声明前面我们提过，在scala中声明变量使用var和val都是可行的。   用val声明的变量是不可变的，被初始化后值就固定下来，不可以再被修改（这类似于java中的final关键字）。用var声明的变量是可变的，可以任意修改。   在命令行中声明变量的实例如下： 123456789101112scala&amp;gt; var myVar:String = &quot;my var string&quot;myVar:">
 <meta name="keywords" content="scala, scala学习, scala教程">
 <meta property="og:type" content="article">
-<meta property="og:title" content="var和val">
+<meta property="og:title" content="var和val变量">
 <meta property="og:url" content="http://scala.chobit.com/wiki/20180424/05-varAndVal/index.html">
 <meta property="og:site_name" content="SCALA 手账">
-<meta property="og:description" content="变量声明前面我们提过，在scala中声明变量使用var和val都是可行的。   用val声明的变量是不可变的，被初始化后值就固定下来，不可以再被修改（这类似于java中的final关键字）。用var声明的变量是可变的，可以任意修改。   声明变量的实例如下： 123456789101112scala&amp;gt; var myVar:String = &quot;my var string&quot;myVar: Stri">
+<meta property="og:description" content="变量声明前面我们提过，在scala中声明变量使用var和val都是可行的。   用val声明的变量是不可变的，被初始化后值就固定下来，不可以再被修改（这类似于java中的final关键字）。用var声明的变量是可变的，可以任意修改。   在命令行中声明变量的实例如下： 123456789101112scala&amp;gt; var myVar:String = &quot;my var string&quot;myVar:">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-24T14:33:23.346Z">
+<meta property="og:updated_time" content="2018-04-24T22:22:07.414Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="var和val">
-<meta name="twitter:description" content="变量声明前面我们提过，在scala中声明变量使用var和val都是可行的。   用val声明的变量是不可变的，被初始化后值就固定下来，不可以再被修改（这类似于java中的final关键字）。用var声明的变量是可变的，可以任意修改。   声明变量的实例如下： 123456789101112scala&amp;gt; var myVar:String = &quot;my var string&quot;myVar: Stri">
+<meta name="twitter:title" content="var和val变量">
+<meta name="twitter:description" content="变量声明前面我们提过，在scala中声明变量使用var和val都是可行的。   用val声明的变量是不可变的，被初始化后值就固定下来，不可以再被修改（这类似于java中的final关键字）。用var声明的变量是可变的，可以任意修改。   在命令行中声明变量的实例如下： 123456789101112scala&amp;gt; var myVar:String = &quot;my var string&quot;myVar:">
     
 
     
@@ -167,7 +167,7 @@
                             &nbsp;
                             scala学习
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/20180419/00-prepareEnv/">准备开发环境</a></li>  <li class="file"><a href="/wiki/20180421/01-quickStart/">快速体验Scala - Scasite</a></li>  <li class="file"><a href="/wiki/20180421/02-ineractiveCoding/">快速体验Scala - 交互式编程</a></li>  <li class="file"><a href="/wiki/20180422/03-comment/">使用注释</a></li>  <li class="file"><a href="/wiki/20180423/04-basicType/">基本类型</a></li>  <li class="file active"><a href="/wiki/20180424/05-varAndVal/">var和val</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/20180419/00-prepareEnv/">准备开发环境</a></li>  <li class="file"><a href="/wiki/20180421/01-quickStart/">快速体验Scala - Scasite</a></li>  <li class="file"><a href="/wiki/20180421/02-ineractiveCoding/">快速体验Scala - 交互式编程</a></li>  <li class="file"><a href="/wiki/20180422/03-comment/">使用注释</a></li>  <li class="file"><a href="/wiki/20180423/04-basicType/">基本类型</a></li>  <li class="file active"><a href="/wiki/20180424/05-varAndVal/">var和val变量</a></li>  </ul> 
                     </li> 
                      <li class="file"><a href="/wiki/20180421/index/">scala手账 - 主页</a></li>  </ul> 
     </div>
@@ -283,7 +283,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            var和val
+            var和val变量
         </h1>
     
 
@@ -303,7 +303,7 @@
         
             <h2 id="变量声明"><a href="#变量声明" class="headerlink" title="变量声明"></a>变量声明</h2><p>前面我们提过，在scala中声明变量使用var和val都是可行的。  </p>
 <p>用val声明的变量是不可变的，被初始化后值就固定下来，不可以再被修改（这类似于java中的final关键字）。用var声明的变量是可变的，可以任意修改。  </p>
-<p>声明变量的实例如下：</p>
+<p>在命令行中声明变量的实例如下：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; var myVar:String = <span class="string">"my var string"</span></span><br><span class="line">myVar: String = my var string</span><br><span class="line"></span><br><span class="line">scala&gt; myVar = <span class="string">"update my var"</span></span><br><span class="line">myVar: String = update my var</span><br><span class="line"></span><br><span class="line">scala&gt; val myVal:String = <span class="string">"my val string"</span></span><br><span class="line">myVal: String = my val string</span><br><span class="line"></span><br><span class="line">scala&gt; myVal = <span class="string">"update my val"</span></span><br><span class="line">&lt;console&gt;:12: error: reassignment to val</span><br><span class="line">       myVal = <span class="string">"update my val"</span></span><br></pre></td></tr></table></figure>
 <p>可以看到修改var变量是没有问题的。修改val变量时报错了，因为val变量是不可变的。  </p>
 <p>仍然要注意这里说的不可变是针对变量本身而言，而非变量所指向的实例。比如说如果定义了一个StringBuffer的val变量如val buffer = new StringBuffer()，那么变量buffer再执行诸如buffer.append(“robin”)这样的操作来修改buffer实例也是可行的。  </p>
