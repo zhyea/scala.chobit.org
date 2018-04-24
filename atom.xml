@@ -141,9 +141,9 @@
     <link href="http://scala.chobit.com/wiki/20180421/index/"/>
     <id>http://scala.chobit.com/wiki/20180421/index/</id>
     <published>2018-04-21T03:45:57.000Z</published>
-    <updated>2018-04-24T22:22:34.532Z</updated>
+    <updated>2018-04-24T22:33:01.750Z</updated>
     
-    <content type="html"><![CDATA[<p>scala学习：</p><ol><li><a href="https://scala.chobit.org/wiki/20180419/00-prepareEnv/" target="_blank" rel="noopener">准备开发环境</a>  </li><li><a href="https://scala.chobit.org/wiki/20180421/01-quickStart/" target="_blank" rel="noopener">快速体验scala - Scasite</a></li><li><a href="https://scala.chobit.org/wiki/20180421/02-ineractiveCoding/" target="_blank" rel="noopener">快速体验scala - 交互式编程</a></li><li><a href="https://scala.chobit.org/wiki/20180422/03-comment/" target="_blank" rel="noopener">使用注释</a></li><li><a href="https://scala.chobit.org/wiki/20180423/04-basicType/" target="_blank" rel="noopener">基本类型</a></li><li><a href="https://scala.chobit.org/wiki/20180424/05-varAndVal/" target="_blank" rel="noopener">val和var</a></li></ol><p>This is Home Page.</p>]]></content>
+    <content type="html"><![CDATA[<p>scala学习：</p><ol><li><a href="https://scala.chobit.org/wiki/20180419/00-prepareEnv/" target="_blank" rel="noopener">准备开发环境</a>  </li><li><a href="https://scala.chobit.org/wiki/20180421/01-quickStart/" target="_blank" rel="noopener">快速体验scala - Scasite</a></li><li><a href="https://scala.chobit.org/wiki/20180421/02-ineractiveCoding/" target="_blank" rel="noopener">快速体验scala - 交互式编程</a></li><li><a href="https://scala.chobit.org/wiki/20180422/03-comment/" target="_blank" rel="noopener">使用注释</a></li><li><a href="https://scala.chobit.org/wiki/20180423/04-basicType/" target="_blank" rel="noopener">基本类型</a></li><li><a href="https://scala.chobit.org/wiki/20180424/05-varAndVal/" target="_blank" rel="noopener">val和var变量</a></li></ol><p>This is Home Page.</p>]]></content>
     
     <summary type="html">
     
