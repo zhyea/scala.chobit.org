@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://scala.chobit.com/"/>
-  <updated>2018-04-23T22:54:53.737Z</updated>
+  <updated>2018-04-24T14:33:23.346Z</updated>
   <id>http://scala.chobit.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>var和val</title>
+    <link href="http://scala.chobit.com/wiki/20180424/05-varAndval/"/>
+    <id>http://scala.chobit.com/wiki/20180424/05-varAndval/</id>
+    <published>2018-04-24T14:06:20.000Z</published>
+    <updated>2018-04-24T14:33:23.346Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="变量声明"><a href="#变量声明" class="headerlink" title="变量声明"></a>变量声明</h2><p>前面我们提过，在scala中声明变量使用var和val都是可行的。  </p><p>用val声明的变量是不可变的，被初始化后值就固定下来，不可以再被修改（这类似于java中的final关键字）。用var声明的变量是可变的，可以任意修改。  </p><p>声明变量的实例如下：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; var myVar:String = <span class="string">"my var string"</span></span><br><span class="line">myVar: String = my var string</span><br><span class="line"></span><br><span class="line">scala&gt; myVar = <span class="string">"update my var"</span></span><br><span class="line">myVar: String = update my var</span><br><span class="line"></span><br><span class="line">scala&gt; val myVal:String = <span class="string">"my val string"</span></span><br><span class="line">myVal: String = my val string</span><br><span class="line"></span><br><span class="line">scala&gt; myVal = <span class="string">"update my val"</span></span><br><span class="line">&lt;console&gt;:12: error: reassignment to val</span><br><span class="line">       myVal = <span class="string">"update my val"</span></span><br></pre></td></tr></table></figure><p>可以看到修改var变量是没有问题的。修改val变量时报错了，因为val变量是不可变的。  </p><p>仍然要注意这里说的不可变是针对变量本身而言，而非变量所指向的实例。比如说如果定义了一个StringBuffer的val变量如val buffer = new StringBuffer()，那么变量buffer再执行诸如buffer.append(“robin”)这样的操作来修改buffer实例也是可行的。  </p><p>在scala编程中应尽量优先使用val。这可以提升不变性和函数式风格。</p><h2 id="变量类型声明"><a href="#变量类型声明" class="headerlink" title="变量类型声明"></a>变量类型声明</h2><p>前面我们在声明变量时都指定了变量类型：  </p><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> myVal:<span class="type">String</span> = <span class="string">"my val string"</span></span><br></pre></td></tr></table></figure><p>不过在声明变量时，变量类型不是必需要指定的，像下面这样的写法也是完全没问题的：  </p><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> myVal = <span class="string">"my val string"</span></span><br><span class="line"><span class="keyword">var</span> myInt = <span class="number">10</span></span><br></pre></td></tr></table></figure><p>声明变量时，如没有指定变量类型，scala也可以根据变量的初始值来推断出变量的类型。因此，声明变量时如没有指定变量类型，就必须为其指定初始值，不然就会报错：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; var myVar;</span><br><span class="line">&lt;console&gt;:1: error: <span class="string">'='</span> expected but <span class="string">';'</span> found.</span><br><span class="line">var myVar;</span><br></pre></td></tr></table></figure><h2 id="声明多个变量"><a href="#声明多个变量" class="headerlink" title="声明多个变量"></a>声明多个变量</h2><p>scala也支持一次声明多个变量，像下面这样：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; <span class="keyword">var</span> a, b = <span class="number">100</span></span><br><span class="line">a: <span class="type">Int</span> = <span class="number">100</span></span><br><span class="line">b: <span class="type">Int</span> = <span class="number">100</span></span><br></pre></td></tr></table></figure></p><p>示例代码中同时声明了a， b两个变量，并为这两个变量同时赋值为100。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;变量声明&quot;&gt;&lt;a href=&quot;#变量声明&quot; class=&quot;headerlink&quot; title=&quot;变量声明&quot;&gt;&lt;/a&gt;变量声明&lt;/h2&gt;&lt;p&gt;前面我们提过，在scala中声明变量使用var和val都是可行的。  &lt;/p&gt;
+&lt;p&gt;用val声明的变量是不可变的，被初始化
+      
+    
+    </summary>
+    
+      <category term="scala学习" scheme="http://scala.chobit.com/categories/scala%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>基本类型</title>
