@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Scala中的运算符 | SCALA 手账</title>
+    <title>运算符和优先级 | SCALA 手账</title>
     
     
         <meta name="keywords" content="scala, scala学习, scala教程">
@@ -12,14 +12,14 @@
     <meta name="description" content="运算符从语法上来说scala是没有运算符的。scala的运算符实际上是方法名，如1 + 2实际上就是1.+(2)。这些方法之所以能像运算符一样使用，是因为scala的一个特性：    如果方法的参数小于等于1个的话，那么“.”和括号就都是可选的    既然scala的运算符本质上是一个方法，那就说明我们可以自己实现或者重载这些所谓的运算符。下面的代码是一个复数做加法运算的示例，复数有实部和虚部，计">
 <meta name="keywords" content="scala, scala学习, scala教程">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Scala中的运算符">
+<meta property="og:title" content="运算符和优先级">
 <meta property="og:url" content="http://scala.chobit.com/wiki/20180423/a05-operatorsInScala/index.html">
 <meta property="og:site_name" content="SCALA 手账">
 <meta property="og:description" content="运算符从语法上来说scala是没有运算符的。scala的运算符实际上是方法名，如1 + 2实际上就是1.+(2)。这些方法之所以能像运算符一样使用，是因为scala的一个特性：    如果方法的参数小于等于1个的话，那么“.”和括号就都是可选的    既然scala的运算符本质上是一个方法，那就说明我们可以自己实现或者重载这些所谓的运算符。下面的代码是一个复数做加法运算的示例，复数有实部和虚部，计">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-25T14:26:51.420Z">
+<meta property="og:updated_time" content="2018-04-25T14:33:54.732Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Scala中的运算符">
+<meta name="twitter:title" content="运算符和优先级">
 <meta name="twitter:description" content="运算符从语法上来说scala是没有运算符的。scala的运算符实际上是方法名，如1 + 2实际上就是1.+(2)。这些方法之所以能像运算符一样使用，是因为scala的一个特性：    如果方法的参数小于等于1个的话，那么“.”和括号就都是可选的    既然scala的运算符本质上是一个方法，那就说明我们可以自己实现或者重载这些所谓的运算符。下面的代码是一个复数做加法运算的示例，复数有实部和虚部，计">
     
 
@@ -167,7 +167,7 @@
                             &nbsp;
                             scala学习
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/20180419/a00-prepareEnv/">准备开发环境</a></li>  <li class="file"><a href="/wiki/20180421/a01-quickStart/">快速体验Scala - Scasite</a></li>  <li class="file"><a href="/wiki/20180421/a02-ineractiveCoding/">快速体验Scala - 交互式编程</a></li>  <li class="file"><a href="/wiki/20180422/a03-comment/">使用注释</a></li>  <li class="file"><a href="/wiki/20180423/a04-basicType/">基本类型</a></li>  <li class="file active"><a href="/wiki/20180423/a05-operatorsInScala/">Scala中的运算符</a></li>  <li class="file"><a href="/wiki/20180424/a06-varAndVal/">var和val变量</a></li>  <li class="file"><a href="/wiki/20180425/a07-stringAndMultiLineString/">字符串和多行字符串</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/20180419/a00-prepareEnv/">准备开发环境</a></li>  <li class="file"><a href="/wiki/20180421/a01-quickStart/">快速体验Scala - Scasite</a></li>  <li class="file"><a href="/wiki/20180421/a02-ineractiveCoding/">快速体验Scala - 交互式编程</a></li>  <li class="file"><a href="/wiki/20180422/a03-comment/">使用注释</a></li>  <li class="file"><a href="/wiki/20180423/a04-basicType/">基本类型</a></li>  <li class="file active"><a href="/wiki/20180423/a05-operatorsInScala/">运算符和优先级</a></li>  <li class="file"><a href="/wiki/20180424/a06-varAndVal/">var和val变量</a></li>  <li class="file"><a href="/wiki/20180425/a07-stringAndMultiLineString/">字符串和多行字符串</a></li>  </ul> 
                     </li> 
                      <li class="file"><a href="/wiki/20180421/index/">scala手账 - 主页</a></li>  </ul> 
     </div>
@@ -283,7 +283,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            Scala中的运算符
+            运算符和优先级
         </h1>
     
 
