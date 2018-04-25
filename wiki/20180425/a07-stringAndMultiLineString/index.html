@@ -3,23 +3,24 @@
 <head>
     <meta charset="utf-8">
     
-    <title>归档: 2018 | SCALA 手账</title>
+    <title>字符串和多行字符串 | SCALA 手账</title>
     
     
         <meta name="keywords" content="scala, scala学习, scala教程">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="scala学习记录。我的学习记录，大家也可以参考。">
+    <meta name="description" content="scala中的字符串类就是java中的java.lang.String类。不过scala也为String提供了一个富封装类：scala.runtime.RichString。   scala可以将java.lang.String类自动转换为scala.runtime.RichString类。这样就可以非常方便地使用capitalize()、lines()和reverse()等方法相对较便捷的方法。">
 <meta name="keywords" content="scala, scala学习, scala教程">
-<meta property="og:type" content="website">
-<meta property="og:title" content="SCALA 手账">
-<meta property="og:url" content="http://scala.chobit.com/archives/2018/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="字符串和多行字符串">
+<meta property="og:url" content="http://scala.chobit.com/wiki/20180425/a07-stringAndMultiLineString/index.html">
 <meta property="og:site_name" content="SCALA 手账">
-<meta property="og:description" content="scala学习记录。我的学习记录，大家也可以参考。">
+<meta property="og:description" content="scala中的字符串类就是java中的java.lang.String类。不过scala也为String提供了一个富封装类：scala.runtime.RichString。   scala可以将java.lang.String类自动转换为scala.runtime.RichString类。这样就可以非常方便地使用capitalize()、lines()和reverse()等方法相对较便捷的方法。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-04-24T23:05:11.322Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SCALA 手账">
-<meta name="twitter:description" content="scala学习记录。我的学习记录，大家也可以参考。">
+<meta name="twitter:title" content="字符串和多行字符串">
+<meta name="twitter:description" content="scala中的字符串类就是java中的java.lang.String类。不过scala也为String提供了一个富封装类：scala.runtime.RichString。   scala可以将java.lang.String类自动转换为scala.runtime.RichString类。这样就可以非常方便地使用capitalize()、lines()和reverse()等方法相对较便捷的方法。">
     
 
     
@@ -160,13 +161,13 @@
         
         
          <ul class="unstyled" id="tree"> 
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             scala学习
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/20180419/a00-prepareEnv/">准备开发环境</a></li>  <li class="file"><a href="/wiki/20180421/a01-quickStart/">快速体验Scala - Scasite</a></li>  <li class="file"><a href="/wiki/20180421/a02-ineractiveCoding/">快速体验Scala - 交互式编程</a></li>  <li class="file"><a href="/wiki/20180422/a03-comment/">使用注释</a></li>  <li class="file"><a href="/wiki/20180423/a04-basicType/">基本类型</a></li>  <li class="file"><a href="/wiki/20180423/a05-operatorsInScala/">Scala中的运算符</a></li>  <li class="file"><a href="/wiki/20180424/a06-varAndVal/">var和val变量</a></li>  <li class="file"><a href="/wiki/20180425/a07-stringAndMultiLineString/">字符串和多行字符串</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/20180419/a00-prepareEnv/">准备开发环境</a></li>  <li class="file"><a href="/wiki/20180421/a01-quickStart/">快速体验Scala - Scasite</a></li>  <li class="file"><a href="/wiki/20180421/a02-ineractiveCoding/">快速体验Scala - 交互式编程</a></li>  <li class="file"><a href="/wiki/20180422/a03-comment/">使用注释</a></li>  <li class="file"><a href="/wiki/20180423/a04-basicType/">基本类型</a></li>  <li class="file"><a href="/wiki/20180423/a05-operatorsInScala/">Scala中的运算符</a></li>  <li class="file"><a href="/wiki/20180424/a06-varAndVal/">var和val变量</a></li>  <li class="file active"><a href="/wiki/20180425/a07-stringAndMultiLineString/">字符串和多行字符串</a></li>  </ul> 
                     </li> 
                      <li class="file"><a href="/wiki/20180421/index/">scala手账 - 主页</a></li>  </ul> 
     </div>
@@ -239,31 +240,21 @@
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main"><div class="timeline timeline-wrap">
-    
-            <div class="timeline-row timeline-row-major">
-                <span class="node"><i class="fa fa-calendar-o"></i></span>
-                <h1 class="title"><a href="/archives/2018/">2018</a></h1>
-            </div>
-    
-            <div class="timeline-row timeline-row-major">
-                <span class="node"><i class="fa fa-calendar"></i></span>
-                <h1 class="title"><a href="/archives/2018/04/">2018-04</a><span class="archive-list-count">9</span></h1>
-            </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+            <section id="main"><article id="post-a07-stringAndMultiLineString" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
                 
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/wiki/20180425/a07-stringAndMultiLineString/">字符串和多行字符串</a>
-        </h1>
-    
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/scala学习/">scala学习</a>
+    </div>
 
-                
-                <div class="article-meta">
-                    
+                        
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="/wiki/20180425/a07-stringAndMultiLineString/">
@@ -272,288 +263,85 @@
     </div>
 
 
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/scala学习/">scala学习</a>
-    </div>
-
-                    
-                </div>
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href="https://github.com/scalachobit/scalachobit.github.io/raw/writing/source/_posts/a07-stringAndMultiLineString.md" rel="external nofollow noopener noreferrer" target="_blank"> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/scalachobit/scalachobit.github.io/edit/writing/source/_posts/a07-stringAndMultiLineString.md" rel="external nofollow noopener noreferrer" target="_blank"> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/scalachobit/scalachobit.github.io/commits/writing/source/_posts/a07-stringAndMultiLineString.md" rel="external nofollow noopener noreferrer" target="_blank"> History </a>
+                            </div>
+                        
+                    </div>
                 
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/wiki/20180424/a06-varAndVal/">var和val变量</a>
+        <h1 class="article-title" itemprop="name">
+            字符串和多行字符串
         </h1>
     
 
-                
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/wiki/20180424/a06-varAndVal/">
-            <time datetime="2018-04-24T14:06:20.000Z" itemprop="datePublished">2018-04-24</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/scala学习/">scala学习</a>
-    </div>
-
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">文章目录</strong>
                     
                 </div>
-                
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/wiki/20180423/a05-operatorsInScala/">Scala中的运算符</a>
-        </h1>
-    
+            
+        
+        
+            <p>scala中的字符串类就是java中的java.lang.String类。不过scala也为String提供了一个富封装类：scala.runtime.RichString。  </p>
+<p>scala可以将java.lang.String类自动转换为scala.runtime.RichString类。这样就可以非常方便地使用capitalize()、lines()和reverse()等方法相对较便捷的方法。  </p>
+<p>在scala里，对于字符串的支持中最显著的一个特性是对于heredoc的支持，也就是对多行文本的支持。在scala里创建多行字符串非常容易，只要将多行字符串放在三个双引号里就行。在下面的代码里创建了一个四行的字符串：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> info =</span><br><span class="line">  <span class="string">""</span><span class="string">"</span></span><br><span class="line"><span class="string">     这里是robin的信息：</span></span><br><span class="line"><span class="string">          robin的姓名：robin zhang；</span></span><br><span class="line"><span class="string">          robin的年龄：29；</span></span><br><span class="line"><span class="string">          robin的个人主页：zhyea.com</span></span><br><span class="line"><span class="string">  "</span><span class="string">""</span></span><br><span class="line"></span><br><span class="line">println(info)</span><br></pre></td></tr></table></figure></p>
+<p>scala会将三个双引号间的内容保持原样输出。所以这样声明的字符串也被称为原始字符串。需要注意一点：在原始字符串中使用转义字符也不会被转义，仍然会原样输出。在scala解释器中演示一下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; val info =</span><br><span class="line">     | <span class="string">""</span><span class="string">"</span></span><br><span class="line"><span class="string">     |    My name is "</span>robin<span class="string">" \n</span></span><br><span class="line"><span class="string">     | Hello World!</span></span><br><span class="line"><span class="string">     | "</span><span class="string">""</span></span><br><span class="line">info: String =</span><br><span class="line"><span class="string">"</span></span><br><span class="line"><span class="string">   My name is "</span>robin<span class="string">" \n</span></span><br><span class="line"><span class="string">Hello World!</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line"></span><br><span class="line">scala&gt; println(info)</span><br><span class="line"></span><br><span class="line">   My name is <span class="string">"robin"</span> \n</span><br><span class="line">Hello World!</span><br></pre></td></tr></table></figure></p>
+<p>我在原始字符串中使用了空格缩进、双引号和转义字符“\n”，在输出的时候这些都原样保留下来了。  </p>
+<p>RichString提供的方法中比较常用的是stripMargin。这个方法需要配合管道符“|”一起使用。如果管道符用在多行字符串每行的起始位置，stripMargin()方法会去掉先导管道符“|”前所有的空白或控制字符。如果出现在其他地方，而不是每行的开始，就会保留管道符。看个实例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; val info =</span><br><span class="line">     | <span class="string">""</span><span class="string">"</span></span><br><span class="line"><span class="string">     |     |I'm trying to use method stripMargin.</span></span><br><span class="line"><span class="string">     | "</span><span class="string">""</span></span><br><span class="line">info: String =</span><br><span class="line"><span class="string">"</span></span><br><span class="line"><span class="string">I'm trying to use method stripMargin.</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line"></span><br><span class="line">scala&gt; println(info.stripMargin)</span><br><span class="line"></span><br><span class="line">I<span class="string">'m trying to use method stripMargin.</span></span><br></pre></td></tr></table></figure></p>
+<p>如果出于某种原因，管道符号“|”有特殊的用途，可以用stripMargin的重载方法来选择其他字符作为每行字符串的先导字符</p>
 
-                
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/wiki/20180423/a05-operatorsInScala/">
-            <time datetime="2018-04-23T13:42:01.000Z" itemprop="datePublished">2018-04-23</time>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+    
+        <a href="/wiki/20180424/a06-varAndVal/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">var和val变量</div>
         </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/scala学习/">scala学习</a>
-    </div>
-
-                    
-                </div>
-                
-            </div>
-        </div>
     
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
+</nav>
+
+
+
+
+
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/wiki/20180423/a04-basicType/">基本类型</a>
-        </h1>
     
 
-                
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/wiki/20180423/a04-basicType/">
-            <time datetime="2018-04-22T22:46:39.000Z" itemprop="datePublished">2018-04-23</time>
-        </a>
-    </div>
 
 
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/scala学习/">scala学习</a>
-    </div>
 
-                    
-                </div>
-                
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/wiki/20180422/a03-comment/">使用注释</a>
-        </h1>
-    
-
-                
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/wiki/20180422/a03-comment/">
-            <time datetime="2018-04-22T13:53:24.000Z" itemprop="datePublished">2018-04-22</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/scala学习/">scala学习</a>
-    </div>
-
-                    
-                </div>
-                
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/wiki/20180421/a02-ineractiveCoding/">快速体验Scala - 交互式编程</a>
-        </h1>
-    
-
-                
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/wiki/20180421/a02-ineractiveCoding/">
-            <time datetime="2018-04-21T12:14:21.000Z" itemprop="datePublished">2018-04-21</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/scala学习/">scala学习</a>
-    </div>
-
-                    
-                </div>
-                
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/wiki/20180421/a01-quickStart/">快速体验Scala - Scasite</a>
-        </h1>
-    
-
-                
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/wiki/20180421/a01-quickStart/">
-            <time datetime="2018-04-21T08:06:42.000Z" itemprop="datePublished">2018-04-21</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/scala学习/">scala学习</a>
-    </div>
-
-                    
-                </div>
-                
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/wiki/20180421/index/">scala手账 - 主页</a>
-        </h1>
-    
-
-                
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/wiki/20180421/index/">
-            <time datetime="2018-04-21T03:45:57.000Z" itemprop="datePublished">2018-04-21</time>
-        </a>
-    </div>
-
-
-                    
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/scala学习/">scala学习</a>
-    </div>
-
-                </div>
-                
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/wiki/20180419/a00-prepareEnv/">准备开发环境</a>
-        </h1>
-    
-
-                
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/wiki/20180419/a00-prepareEnv/">
-            <time datetime="2018-04-19T14:04:33.000Z" itemprop="datePublished">2018-04-19</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/scala学习/">scala学习</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/准备/">准备</a>
-    </div>
-
-                </div>
-                
-            </div>
-        </div>
-    
-</div>
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
 </section>
         </div>
         <footer id="footer">

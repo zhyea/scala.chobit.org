@@ -18,8 +18,8 @@
   
   <entry>
     <title>字符串和多行字符串</title>
-    <link href="http://scala.chobit.com/wiki/20180425/07-stringAndMultiLineString/"/>
-    <id>http://scala.chobit.com/wiki/20180425/07-stringAndMultiLineString/</id>
+    <link href="http://scala.chobit.com/wiki/20180425/a07-stringAndMultiLineString/"/>
+    <id>http://scala.chobit.com/wiki/20180425/a07-stringAndMultiLineString/</id>
     <published>2018-04-24T22:38:43.000Z</published>
     <updated>2018-04-24T23:05:11.322Z</updated>
     
@@ -42,8 +42,8 @@
   
   <entry>
     <title>var和val变量</title>
-    <link href="http://scala.chobit.com/wiki/20180424/06-varAndVal/"/>
-    <id>http://scala.chobit.com/wiki/20180424/06-varAndVal/</id>
+    <link href="http://scala.chobit.com/wiki/20180424/a06-varAndVal/"/>
+    <id>http://scala.chobit.com/wiki/20180424/a06-varAndVal/</id>
     <published>2018-04-24T14:06:20.000Z</published>
     <updated>2018-04-24T22:35:58.868Z</updated>
     
@@ -65,9 +65,32 @@
   </entry>
   
   <entry>
+    <title>Scala中的运算符</title>
+    <link href="http://scala.chobit.com/wiki/20180423/a05-operatorsInScala/"/>
+    <id>http://scala.chobit.com/wiki/20180423/a05-operatorsInScala/</id>
+    <published>2018-04-23T13:42:01.000Z</published>
+    <updated>2018-04-25T14:26:51.420Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><p>从语法上来说scala是没有运算符的。scala的运算符实际上是方法名，如1 + 2实际上就是1.+(2)。这些方法之所以能像运算符一样使用，是因为scala的一个特性：  </p><blockquote><p>如果方法的参数小于等于1个的话，那么“.”和括号就都是可选的  </p></blockquote><p>既然scala的运算符本质上是一个方法，那就说明我们可以自己实现或者重载这些所谓的运算符。下面的代码是一个复数做加法运算的示例，复数有实部和虚部，计算时需要分别处理：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Complex</span>(<span class="params">val real: <span class="type">Int</span>, val imaginary: <span class="type">Int</span></span>) </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">+</span></span>(operand: <span class="type">Complex</span>): <span class="type">Complex</span> = &#123;</span><br><span class="line">    <span class="keyword">new</span> <span class="type">Complex</span>(real + operand.real, imaginary + operand.imaginary)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">override</span> <span class="function"><span class="keyword">def</span> <span class="title">toString</span></span>(): <span class="type">String</span> = &#123;</span><br><span class="line">    real + (<span class="keyword">if</span> (imaginary &lt; <span class="number">0</span>) <span class="string">""</span> <span class="keyword">else</span> <span class="string">"+"</span>) + imaginary + <span class="string">"i"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">val</span> c1 = <span class="keyword">new</span> <span class="type">Complex</span>(<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line"><span class="keyword">val</span> c2 = <span class="keyword">new</span> <span class="type">Complex</span>(<span class="number">2</span>, <span class="number">-3</span>)</span><br><span class="line"><span class="keyword">val</span> sum = c1 + c2</span><br><span class="line"></span><br><span class="line">println(<span class="string">"("</span> + c1+ <span class="string">")+ ("</span> + c2 + <span class="string">")="</span> + sum)</span><br></pre></td></tr></table></figure></p><p>在代码的第一行创建了一个名为Complex的类、定义了一个有两个参数的构造器。  </p><p>在+方法里创建了一个新的Complex实例作为计算结果。结果的实部和虚部分别对应两个运算数实部和虚部之和。计算时c1+c2实际上就是c1.+(c2)。</p><p>看下上面程序的执行结果：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(1+2i)+ (2-3i)=3-1i</span><br></pre></td></tr></table></figure></p><h2 id="运算符的优先级"><a href="#运算符的优先级" class="headerlink" title="运算符的优先级"></a>运算符的优先级</h2><p>既然scala中看起来像运算符的东西都是方法，那么和运算符相关的一些内容，比如算数优先级，scala是怎样处理的呢？  </p><p>scala中确实没有算数优先级、但是它定义了方法优先级：方法的优先级由方法名的第一个字符决定，如果表达式里有两个相同优先级的方法，那么左边的方法优先级更高。下面从低到高列出了scala中方法名首字符的优先级：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">|</span><br><span class="line">^</span><br><span class="line">&amp;</span><br><span class="line">&lt; &gt;</span><br><span class="line">=  !</span><br><span class="line">: </span><br><span class="line">+   - </span><br><span class="line">*  /  % </span><br><span class="line">所有其他特殊字符</span><br></pre></td></tr></table></figure><p>我们在之前的Complex类中再添加一个乘法运算来演示下scala运算符的优先级：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">*</span></span>(operand: <span class="type">Complex</span>): <span class="type">Complex</span> = &#123;</span><br><span class="line">  println(<span class="string">"Calling *"</span>)</span><br><span class="line">  <span class="keyword">new</span> <span class="type">Complex</span>(real * operand.real - imaginary * operand.imaginary, real * operand.imaginary + imaginary * operand.real)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>调用代码：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> c1 = <span class="keyword">new</span> <span class="type">Complex</span>(<span class="number">1</span>, <span class="number">4</span>)</span><br><span class="line"><span class="keyword">val</span> c2 = <span class="keyword">new</span> <span class="type">Complex</span>(<span class="number">2</span>, <span class="number">-3</span>)</span><br><span class="line"><span class="keyword">val</span> c3 = <span class="keyword">new</span> <span class="type">Complex</span>(<span class="number">2</span>, <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">println(c1 + c2 * c3)</span><br></pre></td></tr></table></figure></p><p>执行结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Calling *</span><br><span class="line">Calling +</span><br><span class="line">11+2i</span><br></pre></td></tr></table></figure></p><p>可以看到*()方法先被执行了。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;运算符&quot;&gt;&lt;a href=&quot;#运算符&quot; class=&quot;headerlink&quot; title=&quot;运算符&quot;&gt;&lt;/a&gt;运算符&lt;/h2&gt;&lt;p&gt;从语法上来说scala是没有运算符的。scala的运算符实际上是方法名，如1 + 2实际上就是1.+(2)。这些方法之所以能像运算符
+      
+    
+    </summary>
+    
+      <category term="scala学习" scheme="http://scala.chobit.com/categories/scala%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>基本类型</title>
-    <link href="http://scala.chobit.com/wiki/20180423/04-basicType/"/>
-    <id>http://scala.chobit.com/wiki/20180423/04-basicType/</id>
+    <link href="http://scala.chobit.com/wiki/20180423/a04-basicType/"/>
+    <id>http://scala.chobit.com/wiki/20180423/a04-basicType/</id>
     <published>2018-04-22T22:46:39.000Z</published>
     <updated>2018-04-23T22:54:53.737Z</updated>
     
@@ -91,8 +114,8 @@
   
   <entry>
     <title>使用注释</title>
-    <link href="http://scala.chobit.com/wiki/20180422/03-comment/"/>
-    <id>http://scala.chobit.com/wiki/20180422/03-comment/</id>
+    <link href="http://scala.chobit.com/wiki/20180422/a03-comment/"/>
+    <id>http://scala.chobit.com/wiki/20180422/a03-comment/</id>
     <published>2018-04-22T13:53:24.000Z</published>
     <updated>2018-04-22T14:16:37.662Z</updated>
     
@@ -115,8 +138,8 @@
   
   <entry>
     <title>快速体验Scala - 交互式编程</title>
-    <link href="http://scala.chobit.com/wiki/20180421/02-ineractiveCoding/"/>
-    <id>http://scala.chobit.com/wiki/20180421/02-ineractiveCoding/</id>
+    <link href="http://scala.chobit.com/wiki/20180421/a02-ineractiveCoding/"/>
+    <id>http://scala.chobit.com/wiki/20180421/a02-ineractiveCoding/</id>
     <published>2018-04-21T12:14:21.000Z</published>
     <updated>2018-04-21T14:05:46.953Z</updated>
     
@@ -139,8 +162,8 @@
   
   <entry>
     <title>快速体验Scala - Scasite</title>
-    <link href="http://scala.chobit.com/wiki/20180421/01-quickStart/"/>
-    <id>http://scala.chobit.com/wiki/20180421/01-quickStart/</id>
+    <link href="http://scala.chobit.com/wiki/20180421/a01-quickStart/"/>
+    <id>http://scala.chobit.com/wiki/20180421/a01-quickStart/</id>
     <published>2018-04-21T08:06:42.000Z</published>
     <updated>2018-04-21T13:45:47.498Z</updated>
     
@@ -165,9 +188,9 @@
     <link href="http://scala.chobit.com/wiki/20180421/index/"/>
     <id>http://scala.chobit.com/wiki/20180421/index/</id>
     <published>2018-04-21T03:45:57.000Z</published>
-    <updated>2018-04-24T23:06:12.559Z</updated>
+    <updated>2018-04-25T14:27:07.602Z</updated>
     
-    <content type="html"><![CDATA[<p>scala学习：</p><ol><li><a href="https://scala.chobit.org/wiki/20180419/00-prepareEnv/" target="_blank" rel="noopener">准备开发环境</a>  </li><li><a href="https://scala.chobit.org/wiki/20180421/01-quickStart/" target="_blank" rel="noopener">快速体验scala - Scasite</a></li><li><a href="https://scala.chobit.org/wiki/20180421/02-ineractiveCoding/" target="_blank" rel="noopener">快速体验scala - 交互式编程</a></li><li><a href="https://scala.chobit.org/wiki/20180422/03-comment/" target="_blank" rel="noopener">使用注释</a></li><li><a href="https://scala.chobit.org/wiki/20180423/04-basicType/" target="_blank" rel="noopener">基本类型</a></li><li><a href="https://scala.chobit.org/wiki/20180424/06-varAndVal/" target="_blank" rel="noopener">val和var变量</a></li><li><a href="https://scala.chobit.org/wiki/20180424/07-stringAndMultiLineString/" target="_blank" rel="noopener">字符串和多行字符串</a></li></ol><p>This is Home Page.</p>]]></content>
+    <content type="html"><![CDATA[<p>scala学习：</p><ol><li><a href="https://scala.chobit.org/wiki/20180419/a00-prepareEnv/" target="_blank" rel="noopener">准备开发环境</a>  </li><li><a href="https://scala.chobit.org/wiki/20180421/a01-quickStart/" target="_blank" rel="noopener">快速体验scala - Scasite</a></li><li><a href="https://scala.chobit.org/wiki/20180421/a02-ineractiveCoding/" target="_blank" rel="noopener">快速体验scala - 交互式编程</a></li><li><a href="https://scala.chobit.org/wiki/20180422/a03-comment/" target="_blank" rel="noopener">使用注释</a></li><li><a href="https://scala.chobit.org/wiki/20180423/a04-basicType/" target="_blank" rel="noopener">基本类型</a></li><li><a href="https://scala.chobit.org/wiki/20180424/a06-varAndVal/" target="_blank" rel="noopener">val和var变量</a></li><li><a href="https://scala.chobit.org/wiki/20180424/a07-stringAndMultiLineString/" target="_blank" rel="noopener">字符串和多行字符串</a></li></ol><p>This is Home Page.</p>]]></content>
     
     <summary type="html">
     
@@ -175,8 +198,8 @@
       
         &lt;p&gt;scala学习：&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;a href=&quot;https://scala.chobit.org/wiki/20180419/00-prepareEnv/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;准备开发环境&lt;/a&gt;  &lt;/li&gt;
-&lt;l
+&lt;li&gt;&lt;a href=&quot;https://scala.chobit.org/wiki/20180419/a00-prepareEnv/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;准备开发环境&lt;/a&gt;  &lt;/li&gt;
+&lt;
       
     
     </summary>
@@ -188,8 +211,8 @@
   
   <entry>
     <title>准备开发环境</title>
-    <link href="http://scala.chobit.com/wiki/20180419/00-prepareEnv/"/>
-    <id>http://scala.chobit.com/wiki/20180419/00-prepareEnv/</id>
+    <link href="http://scala.chobit.com/wiki/20180419/a00-prepareEnv/"/>
+    <id>http://scala.chobit.com/wiki/20180419/a00-prepareEnv/</id>
     <published>2018-04-19T14:04:33.000Z</published>
     <updated>2018-04-21T13:46:09.577Z</updated>
     
