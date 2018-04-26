@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="SCALA 手账">
 <meta property="og:description" content="这次会通过与Java比较的方式来说明scala是如何创建类的。 类定义假设我们要定义一个学生类，先来看一下使用Java是如何定义的：123456789101112131415161718192021222324252627public class Student &amp;#123;        private String name;        private int age;    public">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-26T14:47:54.864Z">
+<meta property="og:updated_time" content="2018-04-26T14:57:10.418Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="类定义和构造器">
 <meta name="twitter:description" content="这次会通过与Java比较的方式来说明scala是如何创建类的。 类定义假设我们要定义一个学生类，先来看一下使用Java是如何定义的：123456789101112131415161718192021222324252627public class Student &amp;#123;        private String name;        private int age;    public">
@@ -309,7 +309,8 @@
 <h2 id="构造器"><a href="#构造器" class="headerlink" title="构造器"></a>构造器</h2><p>除了主构造器，我们也可以在类的内部添加新的构造器。  </p>
 <p>现在我们为Student类新增一个类成员变量gender，并添加一个新的构造函数：</p>
 <figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span>(<span class="params">val name: <span class="type">String</span>, val age: <span class="type">Int</span></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> gender: <span class="type">Short</span> = _</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">this</span></span>(name: <span class="type">String</span>, age: <span class="type">Int</span>, gender: <span class="type">Short</span>) &#123;</span><br><span class="line">    <span class="keyword">this</span>(name, age)</span><br><span class="line">    <span class="keyword">this</span>.gender = gender</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>区别于主构造函数，在类内部新定义的构造函数被称为副构造函数。稍稍关注下副构造函数的实现：如果有主构造函数的话，那么副构造函数的第一行必须是主构造函数或者其它副构造函数的调用。这一点和java继承父类时有点相似。  </p>
+<p>区别于主构造函数，在类内部新定义的构造函数被称为副构造函数。  </p>
+<p>稍稍关注下副构造函数的实现：如果有主构造函数的话，那么副构造函数的第一行必须是主构造函数或者其它副构造函数的调用。这一点和java继承父类时有点相似。  </p>
 <p>此外还值得注意的就是成员变量gender的声明，把这一行单独拎出来看看吧：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> gender: <span class="type">Short</span> = _</span><br></pre></td></tr></table></figure></p>
 <p>这里比较有趣的是初始化赋值，赋的值是一个“_”——下划线。在这里“_”代表相应类型的默认值。对于Int，它的值是0；对于Double，它的值是0.0；对于String，它的值就是null。通过使用“_”，可以很方便地为var成员变量设置初始默认值。  </p>
 <p>不过不能为val成员使用“_”，因为val成员不允许修改，所以必须显式指定初始值。  </p>
