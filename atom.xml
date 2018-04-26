@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://scala.chobit.com/"/>
-  <updated>2018-04-26T14:57:10.418Z</updated>
+  <updated>2018-04-26T22:01:30.575Z</updated>
   <id>http://scala.chobit.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>类继承</title>
+    <link href="http://scala.chobit.com/wiki/20180427/a09-classExtends/"/>
+    <id>http://scala.chobit.com/wiki/20180427/a09-classExtends/</id>
+    <published>2018-04-26T21:57:16.000Z</published>
+    <updated>2018-04-26T22:01:30.575Z</updated>
+    
+    <content type="html"><![CDATA[<p>在scala里，类继承有两点限制：  </p><ul><li>重写方法需要使用override关键字；</li><li>只有主构造函数才能往父类构造函数中传参数。</li></ul><p>在java1.5中引入了override注解，但不强制使用。不过在scala中要想重写方法必须使用override关键字。如果确实重写了父类的方法又不使用override关键字的话，则会在编译时报错，提示没有使用override修饰符。</p><p>scala的副构造函数必须调用主构造函数或是另一个副构造函数。只有在主构造函数中才能向父类的构造函数中传递数据。可以看出来主构造函数如同父类和子类中间的一道关卡：它既负责完成子类的初始化，也负责与父类的沟通。  </p><p>下面的这段代码演示了下上述内容：</p><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Vehicle</span>(<span class="params">val id: <span class="type">Int</span>, val year: <span class="type">Int</span></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">override</span> <span class="function"><span class="keyword">def</span> <span class="title">toString</span></span>(): <span class="type">String</span> = <span class="string">"ID: "</span> + id + <span class="string">" Year: "</span> + year</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Car</span>(<span class="params">override val id: <span class="type">Int</span>, override val year: <span class="type">Int</span>, var fuelLevel: <span class="type">Int</span></span>) <span class="keyword">extends</span> <span class="title">Vehicle</span>(<span class="params">id, year</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">override</span> <span class="function"><span class="keyword">def</span> <span class="title">toString</span></span>(): <span class="type">String</span> = <span class="keyword">super</span>.toString() + <span class="string">" Fuel Level: "</span> + fuelLevel</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>在代码中定义了两个类：Vehicle和Car。Car继承了Vehicle。<br>在继承的时候要向父类传递参数，所以Car类主构造函数的一部分必须能匹配父类的构造函数。<br>Car类构造函数中的id和year两个成员变量源自父类Vehicle，所以需要使用override关键字修饰。<br>此外，这两个类都重写了java.lang.Object的toString方法，所以需要使用override关键字修饰toString方法。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;在scala里，类继承有两点限制：  &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;重写方法需要使用override关键字；&lt;/li&gt;
+&lt;li&gt;只有主构造函数才能往父类构造函数中传参数。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在java1.5中引入了override注解，但不强制使用。不过在scala
+      
+    
+    </summary>
+    
+      <category term="scala学习" scheme="http://scala.chobit.com/categories/scala%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>类定义和构造器</title>
