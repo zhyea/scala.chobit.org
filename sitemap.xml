@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://scala.chobit.com/wiki/20180428/b00-useYield/</loc>
+    
+    <lastmod>2018-04-28T14:57:45.875Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://scala.chobit.com/wiki/20180428/b01-useVeriableArguments/</loc>
+    
+    <lastmod>2018-04-28T14:03:33.275Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://scala.chobit.com/wiki/20180427/a10-independentAndCompanionObject/</loc>
+    
+    <lastmod>2018-04-28T13:34:51.797Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://scala.chobit.com/wiki/20180426/a08-classDefine/</loc>
     
     <lastmod>2018-04-27T13:15:45.655Z</lastmod>

@@ -3,23 +3,24 @@
 <head>
     <meta charset="utf-8">
     
-    <title>SCALA 手账</title>
+    <title>使用yield关键字 | SCALA 手账</title>
     
     
         <meta name="keywords" content="scala, scala学习, scala教程">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="scala学习记录。我的学习记录，大家也可以参考。">
+    <meta name="description" content="基础用法使用yield关键字可以存储for循环返回值。每次循环时，返回值都会存储到一个结构中。在循环完成后，会将结构中的所有值一起返回。存储返回值的结构，和循环值的结构一致。也就是说如果循环的是一个数组返回的就是数组，循环的是一个List返回的就是一个List，循环的是一个Map返回的就是Map。   来看一个例子：12345scala&amp;gt; val result = for &amp;#123;i &amp;">
 <meta name="keywords" content="scala, scala学习, scala教程">
-<meta property="og:type" content="website">
-<meta property="og:title" content="SCALA 手账">
-<meta property="og:url" content="http://scala.chobit.com/page/2/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用yield关键字">
+<meta property="og:url" content="http://scala.chobit.com/wiki/20180428/b00-useYield/index.html">
 <meta property="og:site_name" content="SCALA 手账">
-<meta property="og:description" content="scala学习记录。我的学习记录，大家也可以参考。">
+<meta property="og:description" content="基础用法使用yield关键字可以存储for循环返回值。每次循环时，返回值都会存储到一个结构中。在循环完成后，会将结构中的所有值一起返回。存储返回值的结构，和循环值的结构一致。也就是说如果循环的是一个数组返回的就是数组，循环的是一个List返回的就是一个List，循环的是一个Map返回的就是Map。   来看一个例子：12345scala&amp;gt; val result = for &amp;#123;i &amp;">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-04-28T14:57:45.875Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SCALA 手账">
-<meta name="twitter:description" content="scala学习记录。我的学习记录，大家也可以参考。">
+<meta name="twitter:title" content="使用yield关键字">
+<meta name="twitter:description" content="基础用法使用yield关键字可以存储for循环返回值。每次循环时，返回值都会存储到一个结构中。在循环完成后，会将结构中的所有值一起返回。存储返回值的结构，和循环值的结构一致。也就是说如果循环的是一个数组返回的就是数组，循环的是一个List返回的就是一个List，循环的是一个Map返回的就是Map。   来看一个例子：12345scala&amp;gt; val result = for &amp;#123;i &amp;">
     
 
     
@@ -169,13 +170,13 @@
                          <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/20180419/a00-prepareEnv/">准备开发环境</a></li>  <li class="file"><a href="/wiki/20180421/a01-quickStart/">快速体验Scala - Scasite</a></li>  <li class="file"><a href="/wiki/20180421/a02-ineractiveCoding/">快速体验Scala - 交互式编程</a></li>  <li class="file"><a href="/wiki/20180422/a03-comment/">使用注释</a></li>  <li class="file"><a href="/wiki/20180423/a04-basicType/">基本类型</a></li>  <li class="file"><a href="/wiki/20180423/a05-operatorsInScala/">运算符和优先级</a></li>  <li class="file"><a href="/wiki/20180424/a06-varAndVal/">var和val变量</a></li>  <li class="file"><a href="/wiki/20180425/a07-stringAndMultiLineString/">字符串和多行字符串</a></li>  <li class="file"><a href="/wiki/20180426/a08-classDefine/">类定义和构造器</a></li>  <li class="file"><a href="/wiki/20180427/a09-classExtends/">类继承</a></li>  <li class="file"><a href="/wiki/20180427/a10-independentAndCompanionObject/">单例、独立对象和伴生对象</a></li>  </ul> 
                     </li> 
                     
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             scala杂技
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/20180428/b00-useYield/">使用yield关键字</a></li>  <li class="file"><a href="/wiki/20180428/b01-useVeriableArguments/">使用变长参数</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file active"><a href="/wiki/20180428/b00-useYield/">使用yield关键字</a></li>  <li class="file"><a href="/wiki/20180428/b01-useVeriableArguments/">使用变长参数</a></li>  </ul> 
                     </li> 
                      <li class="file"><a href="/wiki/20180421/index/">scala手账 - 主页</a></li>  </ul> 
     </div>
@@ -248,8 +249,7 @@
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main">
-    <article id="post-index" class="article article-type-post" itemscope="" itemprop="blogPost">
+            <section id="main"><article id="post-b00-useYield" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -257,17 +257,17 @@
                 
                     <div class="article-meta">
                         
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/scala学习/">scala学习</a>
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/scala杂技/">scala杂技</a>
     </div>
 
                         
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/wiki/20180421/index/">
-            <time datetime="2018-04-21T03:45:57.000Z" itemprop="datePublished">2018-04-21</time>
+        <a href="/wiki/20180428/b00-useYield/">
+            <time datetime="2018-04-28T13:36:56.000Z" itemprop="datePublished">2018-04-28</time>
         </a>
     </div>
 
@@ -278,13 +278,13 @@
                         
                         
                             <div class="article-meta-button">
-                                <a href="https://github.com/scalachobit/scalachobit.github.io/raw/writing/source/_posts/index.md" rel="external nofollow noopener noreferrer" target="_blank"> Source </a>
+                                <a href="https://github.com/scalachobit/scalachobit.github.io/raw/writing/source/_posts/b00-useYield.md" rel="external nofollow noopener noreferrer" target="_blank"> Source </a>
                             </div>
                             <div class="article-meta-button">
-                                <a href="https://github.com/scalachobit/scalachobit.github.io/edit/writing/source/_posts/index.md" rel="external nofollow noopener noreferrer" target="_blank"> Edit </a>
+                                <a href="https://github.com/scalachobit/scalachobit.github.io/edit/writing/source/_posts/b00-useYield.md" rel="external nofollow noopener noreferrer" target="_blank"> Edit </a>
                             </div>
                             <div class="article-meta-button">
-                                <a href="https://github.com/scalachobit/scalachobit.github.io/commits/writing/source/_posts/index.md" rel="external nofollow noopener noreferrer" target="_blank"> History </a>
+                                <a href="https://github.com/scalachobit/scalachobit.github.io/commits/writing/source/_posts/b00-useYield.md" rel="external nofollow noopener noreferrer" target="_blank"> History </a>
                             </div>
                         
                     </div>
@@ -292,7 +292,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            scala手账 - 主页
+            使用yield关键字
         </h1>
     
 
@@ -303,22 +303,24 @@
         
         
             
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">文章目录</strong>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基础用法"><span class="toc-number">1.</span> <span class="toc-text">基础用法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结合卫述语句"><span class="toc-number">2.</span> <span class="toc-text">结合卫述语句</span></a></li></ol>
+                </div>
+            
         
         
-            <p>scala学习：</p>
-<ol>
-<li><a href="https://scala.chobit.org/wiki/20180419/a00-prepareEnv/" target="_blank" rel="noopener">准备开发环境</a>  </li>
-<li><a href="https://scala.chobit.org/wiki/20180421/a01-quickStart/" target="_blank" rel="noopener">快速体验scala - Scasite</a></li>
-<li><a href="https://scala.chobit.org/wiki/20180421/a02-ineractiveCoding/" target="_blank" rel="noopener">快速体验scala - 交互式编程</a></li>
-<li><a href="https://scala.chobit.org/wiki/20180422/a03-comment/" target="_blank" rel="noopener">使用注释</a></li>
-<li><a href="https://scala.chobit.org/wiki/20180423/a04-basicType/" target="_blank" rel="noopener">基本类型</a></li>
-<li><a href="https://scala.chobit.org/wiki/20180423/a05-operatorsInScala/" target="_blank" rel="noopener">运算符和优先级</a></li>
-<li><a href="https://scala.chobit.org/wiki/20180424/a06-varAndVal/" target="_blank" rel="noopener">val和var变量</a></li>
-<li><a href="https://scala.chobit.org/wiki/20180424/a07-stringAndMultiLineString/" target="_blank" rel="noopener">字符串和多行字符串</a></li>
-<li><a href="https://scala.chobit.org/wiki/20180426/a08-classDefine/" target="_blank" rel="noopener">类定义和构造器</a></li>
-<li><a href="https://scala.chobit.org/wiki/20180427/a09-classExtends/" target="_blank" rel="noopener">类继承</a></li>
-</ol>
-<p>This is Home Page.</p>
+            <h2 id="基础用法"><a href="#基础用法" class="headerlink" title="基础用法"></a>基础用法</h2><p>使用yield关键字可以存储for循环返回值。每次循环时，返回值都会存储到一个结构中。在循环完成后，会将结构中的所有值一起返回。存储返回值的结构，和循环值的结构一致。也就是说如果循环的是一个数组返回的就是数组，循环的是一个List返回的就是一个List，循环的是一个Map返回的就是Map。  </p>
+<p>来看一个例子：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; val result = <span class="keyword">for</span> &#123;i &lt;- List(1, 2, 3, 4)&#125; yield i</span><br><span class="line">result: List[Int] = List(1, 2, 3, 4)</span><br><span class="line"></span><br><span class="line">scala&gt; val result = <span class="keyword">for</span> &#123;i &lt;- Array(1, 2, 3, 4)&#125; yield i</span><br><span class="line">result: Array[Int] = Array(1, 2, 3, 4)</span><br></pre></td></tr></table></figure></p>
+<p>在示例中，我们先后循环了一个List和一个整型数组。循环的返回值也分别是List和整型数组。  </p>
+<p>使用yield关键字还可以对返回值做进一步的加工：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; val result = <span class="keyword">for</span> &#123;i &lt;- Array(1, 2, 3, 4)&#125; yield i*2</span><br><span class="line">result: Array[Int] = Array(2, 4, 6, 8)</span><br></pre></td></tr></table></figure></p>
+<p>在使用yield关键字的同时，对每个返回值都做了乘以2的处理。所以最后返回的数组中的每个值都是循环值的2倍。</p>
+<p>使用yield关键字还可以修改集合中值的类型，如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; val result = <span class="keyword">for</span> &#123;i &lt;- Array(1, 2, 3, 4)&#125; yield i*2.0</span><br><span class="line">result: Array[Double] = Array(2.0, 4.0, 6.0, 8.0)</span><br></pre></td></tr></table></figure></p>
+<p>原来循环的是一个整型数值数组，返回的则是Double值数组。  </p>
+<p>这里yield的用法有些类似于集合的map方法，所不同的是map方法是修改集合的原始值，yield则是返回一个新集合。  </p>
+<h2 id="结合卫述语句"><a href="#结合卫述语句" class="headerlink" title="结合卫述语句"></a>结合卫述语句</h2><p>在scala中if语句常被作为卫述语句。卫述语句是指被用来检查关键的先决条件的合法性并在检查未通过的情况下立即终止当前代码块的执行的语句。</p>
+<p>yield结合卫述语句可以对循环值进行过滤处理。看一下示例代码：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; val result = <span class="keyword">for</span> &#123;i &lt;- Array(1, 2, 3, 4) <span class="keyword">if</span>(i%2==0)&#125; yield i</span><br><span class="line">result: Array[Int] = Array(2, 4)</span><br></pre></td></tr></table></figure></p>
+<p>这里使用if语句筛选出了循环的数组中所有的偶数。</p>
 
             </div>
         
@@ -331,19 +333,19 @@
     
 <nav id="article-nav">
     
-        <a href="/wiki/20180421/a01-quickStart/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/wiki/20180428/b01-useVeriableArguments/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">上一篇</strong>
             <div class="article-nav-title">
                 
-                    快速体验Scala - Scasite
+                    使用变长参数
                 
             </div>
         </a>
     
     
-        <a href="/wiki/20180419/a00-prepareEnv/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/wiki/20180427/a10-independentAndCompanionObject/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">准备开发环境</div>
+            <div class="article-nav-title">单例、独立对象和伴生对象</div>
         </a>
     
 </nav>
@@ -362,8 +364,6 @@
 <script type="text/javascript">
     !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
 </script>     
-
-
 </section>
         </div>
         <footer id="footer">
