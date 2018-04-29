@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://scala.chobit.com/"/>
-  <updated>2018-04-29T01:31:32.219Z</updated>
+  <updated>2018-04-29T01:37:05.515Z</updated>
   <id>http://scala.chobit.com/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>scala的等于符号</title>
+    <title>scala等于符号“==”</title>
     <link href="http://scala.chobit.com/wiki/20180429/b03-equalitySymbol/"/>
     <id>http://scala.chobit.com/wiki/20180429/b03-equalitySymbol/</id>
     <published>2018-04-29T01:27:28.000Z</published>
-    <updated>2018-04-29T01:31:32.219Z</updated>
+    <updated>2018-04-29T01:37:05.515Z</updated>
     
     <content type="html"><![CDATA[<p>在java中，基本类型和引用类型对==运算有着不同的解释方式：</p><ul><li>对于基本类型来说，==运算比较的就是两边表达式的值；</li><li>对于引用类型来说，==运算比较的是两边对象的引用而非是对象的值；在Java中比较对象的值使用的是equals方法。</li></ul><p>在scala中没有对象，不论类型如何，==运算都是面向值的。这一点由scala的Any类（scala中所有的类都是由它派生而来）提供了保证：它将==()方法实现为final的方法。因此在scala中进行值的比较就可以简单使用==运算，如果还有一些特殊化的比较，就需要改写equals方法了。在scala中如果想执行对于引用的比较可以使用eq()方法。看一下下面这段程序：</p><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> str1 = <span class="string">"hello"</span></span><br><span class="line"><span class="keyword">val</span> str2 = <span class="string">"hello"</span></span><br><span class="line"><span class="keyword">val</span> str3 = <span class="keyword">new</span> <span class="type">String</span>(<span class="string">"hello"</span>)</span><br><span class="line"></span><br><span class="line">println(str1 == str2) <span class="comment">// Equivalent to Java's str1.equals(str2)</span></span><br><span class="line">println(str1 eq str2) <span class="comment">// Equivalent to Java's str1 == str2</span></span><br><span class="line">println(str1 == str3)</span><br><span class="line">println(str1 eq str3)</span><br></pre></td></tr></table></figure><p>程序的执行结果：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">true</span><br><span class="line">true</span><br><span class="line">true</span><br><span class="line">false</span><br></pre></td></tr></table></figure><p>结果很清楚了。</p>]]></content>
     
@@ -43,11 +43,11 @@
   </entry>
   
   <entry>
-    <title>scala的赋值符号=</title>
+    <title>scala赋值符号“=”</title>
     <link href="http://scala.chobit.com/wiki/20180429/b02-assignmentSymbol/"/>
     <id>http://scala.chobit.com/wiki/20180429/b02-assignmentSymbol/</id>
     <published>2018-04-29T01:15:04.000Z</published>
-    <updated>2018-04-29T01:27:02.802Z</updated>
+    <updated>2018-04-29T01:36:04.346Z</updated>
     
     <content type="html"><![CDATA[<p>scala的赋值运算和java的赋值运算有着很大的不同。如a=b这样的赋值运算，在Java中的返回值是a的值，在scala中返回的则是Unit。Unit是值类型，全局只存在唯一的值，即()，通常Unit只用来声明函数或方法的返回值，其他场景基本是没有意义的。这样就很容易导致一些错误地使用，比如a=b=c这样的赋值运算在java中是绝对可以的，但是在scala中使用就会报错。  </p><p>看一段代码：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a, b, c = <span class="number">1</span></span><br><span class="line">a =  b=c</span><br><span class="line">println(a)</span><br></pre></td></tr></table></figure></p><p>上面这段代码还没有执行就在IDE中提示错误了，勉强执行下看看会报什么错：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Error:(6, 9) type mismatch;</span><br><span class="line"> found   : Unit</span><br><span class="line"> required: Int</span><br><span class="line">  a = b = c</span><br></pre></td></tr></table></figure><p>报了类型不匹配的错误，因为在第一行代码中scala推断出a是一个Int型的变量，后又将b=c的运算结果——一个Unit值——赋值给它，所以会报错了。</p><p>即使只在scala中看赋值运算符“=”号也是一个比较奇怪的东西：scala中的大部分运算符都是方法，但“=”不是方法，在默认情况下不可以这样使用：a.=(1)。对于这个问题，有心人可以深究下。</p>]]></content>
     
@@ -386,9 +386,9 @@
     <link href="http://scala.chobit.com/wiki/20180421/index/"/>
     <id>http://scala.chobit.com/wiki/20180421/index/</id>
     <published>2018-04-21T03:45:57.000Z</published>
-    <updated>2018-04-28T15:02:49.753Z</updated>
+    <updated>2018-04-29T01:37:02.283Z</updated>
     
-    <content type="html"><![CDATA[<p>scala学习：</p><ol><li><a href="https://scala.chobit.org/wiki/20180419/a00-prepareEnv/" target="_blank" rel="noopener">准备开发环境</a>  </li><li><a href="https://scala.chobit.org/wiki/20180421/a01-quickStart/" target="_blank" rel="noopener">快速体验scala - Scasite</a></li><li><a href="https://scala.chobit.org/wiki/20180421/a02-ineractiveCoding/" target="_blank" rel="noopener">快速体验scala - 交互式编程</a></li><li><a href="https://scala.chobit.org/wiki/20180422/a03-comment/" target="_blank" rel="noopener">使用注释</a></li><li><a href="https://scala.chobit.org/wiki/20180423/a04-basicType/" target="_blank" rel="noopener">基本类型</a></li><li><a href="https://scala.chobit.org/wiki/20180423/a05-operatorsInScala/" target="_blank" rel="noopener">运算符和优先级</a></li><li><a href="https://scala.chobit.org/wiki/20180424/a06-varAndVal/" target="_blank" rel="noopener">val和var变量</a></li><li><a href="https://scala.chobit.org/wiki/20180424/a07-stringAndMultiLineString/" target="_blank" rel="noopener">字符串和多行字符串</a></li><li><a href="https://scala.chobit.org/wiki/20180426/a08-classDefine/" target="_blank" rel="noopener">类定义和构造器</a></li><li><a href="https://scala.chobit.org/wiki/20180427/a09-classExtends/" target="_blank" rel="noopener">类继承</a></li><li><a href="https://scala.chobit.org/wiki/20180427/a10-independentAndCompanionObject/" target="_blank" rel="noopener">单例、独立对象和伴生对象</a>  </li></ol><p>scala杂技：  </p><ol><li><a href="https://scala.chobit.org/wiki/20180428/b00-useYield/" target="_blank" rel="noopener">使用yield关键字</a></li><li><a href="https://scala.chobit.org/wiki/20180428/b01-useVeriableArguments/" target="_blank" rel="noopener">使用变长参数</a></li></ol><p>This is Home Page.</p>]]></content>
+    <content type="html"><![CDATA[<p>scala学习：</p><ol><li><a href="https://scala.chobit.org/wiki/20180419/a00-prepareEnv/" target="_blank" rel="noopener">准备开发环境</a>  </li><li><a href="https://scala.chobit.org/wiki/20180421/a01-quickStart/" target="_blank" rel="noopener">快速体验scala - Scasite</a></li><li><a href="https://scala.chobit.org/wiki/20180421/a02-ineractiveCoding/" target="_blank" rel="noopener">快速体验scala - 交互式编程</a></li><li><a href="https://scala.chobit.org/wiki/20180422/a03-comment/" target="_blank" rel="noopener">使用注释</a></li><li><a href="https://scala.chobit.org/wiki/20180423/a04-basicType/" target="_blank" rel="noopener">基本类型</a></li><li><a href="https://scala.chobit.org/wiki/20180423/a05-operatorsInScala/" target="_blank" rel="noopener">运算符和优先级</a></li><li><a href="https://scala.chobit.org/wiki/20180424/a06-varAndVal/" target="_blank" rel="noopener">val和var变量</a></li><li><a href="https://scala.chobit.org/wiki/20180424/a07-stringAndMultiLineString/" target="_blank" rel="noopener">字符串和多行字符串</a></li><li><a href="https://scala.chobit.org/wiki/20180426/a08-classDefine/" target="_blank" rel="noopener">类定义和构造器</a></li><li><a href="https://scala.chobit.org/wiki/20180427/a09-classExtends/" target="_blank" rel="noopener">类继承</a></li><li><a href="https://scala.chobit.org/wiki/20180427/a10-independentAndCompanionObject/" target="_blank" rel="noopener">单例、独立对象和伴生对象</a>  </li><li><a href="https://scala.chobit.org/wiki/20180429/a11-accessModifier/" target="_blank" rel="noopener">访问修饰符</a></li></ol><p>scala杂技：  </p><ol><li><a href="https://scala.chobit.org/wiki/20180428/b00-useYield/" target="_blank" rel="noopener">使用yield关键字</a></li><li><a href="https://scala.chobit.org/wiki/20180428/b01-useVeriableArguments/" target="_blank" rel="noopener">使用变长参数</a></li><li><a href="https://scala.chobit.org/wiki/20180429/b02-assignmentSymbol/" target="_blank" rel="noopener">scala赋值符号“=”</a></li><li><a href="https://scala.chobit.org/wiki/20180429/b03-equalitySymbol/" target="_blank" rel="noopener">scala等于符号“==”</a></li></ol><p>This is Home Page.</p>]]></content>
     
     <summary type="html">
     
