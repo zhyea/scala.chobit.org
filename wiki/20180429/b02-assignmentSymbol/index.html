@@ -3,24 +3,24 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Tags | SCALA 手账</title>
+    <title>scala的赋值符号= | SCALA 手账</title>
     
     
         <meta name="keywords" content="scala, scala学习, scala教程">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="scala学习记录。我的学习记录，大家也可以参考。">
+    <meta name="description" content="scala的赋值运算和java的赋值运算有着很大的不同。如a=b这样的赋值运算，在Java中的返回值是a的值，在scala中返回的则是Unit。Unit是值类型，全局只存在唯一的值，即()，通常Unit只用来声明函数或方法的返回值，其他场景基本是没有意义的。这样就很容易导致一些错误地使用，比如a=b=c这样的赋值运算在java中是绝对可以的，但是在scala中使用就会报错。   看一段代码：123">
 <meta name="keywords" content="scala, scala学习, scala教程">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Tags">
-<meta property="og:url" content="http://scala.chobit.com/tags/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="scala的赋值符号=">
+<meta property="og:url" content="http://scala.chobit.com/wiki/20180429/b02-assignmentSymbol/index.html">
 <meta property="og:site_name" content="SCALA 手账">
-<meta property="og:description" content="scala学习记录。我的学习记录，大家也可以参考。">
+<meta property="og:description" content="scala的赋值运算和java的赋值运算有着很大的不同。如a=b这样的赋值运算，在Java中的返回值是a的值，在scala中返回的则是Unit。Unit是值类型，全局只存在唯一的值，即()，通常Unit只用来声明函数或方法的返回值，其他场景基本是没有意义的。这样就很容易导致一些错误地使用，比如a=b=c这样的赋值运算在java中是绝对可以的，但是在scala中使用就会报错。   看一段代码：123">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-17T15:04:45.229Z">
+<meta property="og:updated_time" content="2018-04-29T01:27:02.802Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tags">
-<meta name="twitter:description" content="scala学习记录。我的学习记录，大家也可以参考。">
+<meta name="twitter:title" content="scala的赋值符号=">
+<meta name="twitter:description" content="scala的赋值运算和java的赋值运算有着很大的不同。如a=b这样的赋值运算，在Java中的返回值是a的值，在scala中返回的则是Unit。Unit是值类型，全局只存在唯一的值，即()，通常Unit只用来声明函数或方法的返回值，其他场景基本是没有意义的。这样就很容易导致一些错误地使用，比如a=b=c这样的赋值运算在java中是绝对可以的，但是在scala中使用就会报错。   看一段代码：123">
     
 
     
@@ -170,13 +170,13 @@
                          <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/20180419/a00-prepareEnv/">准备开发环境</a></li>  <li class="file"><a href="/wiki/20180421/a01-quickStart/">快速体验Scala - Scasite</a></li>  <li class="file"><a href="/wiki/20180421/a02-ineractiveCoding/">快速体验Scala - 交互式编程</a></li>  <li class="file"><a href="/wiki/20180422/a03-comment/">使用注释</a></li>  <li class="file"><a href="/wiki/20180423/a04-basicType/">基本类型</a></li>  <li class="file"><a href="/wiki/20180423/a05-operatorsInScala/">运算符和优先级</a></li>  <li class="file"><a href="/wiki/20180424/a06-varAndVal/">var和val变量</a></li>  <li class="file"><a href="/wiki/20180425/a07-stringAndMultiLineString/">字符串和多行字符串</a></li>  <li class="file"><a href="/wiki/20180426/a08-classDefine/">类定义和构造器</a></li>  <li class="file"><a href="/wiki/20180427/a09-classExtends/">类继承</a></li>  <li class="file"><a href="/wiki/20180427/a10-independentAndCompanionObject/">单例、独立对象和伴生对象</a></li>  <li class="file"><a href="/wiki/20180429/a11-accessModifier/">访问修饰符</a></li>  </ul> 
                     </li> 
                     
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             scala杂技
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/20180428/b00-useYield/">使用yield关键字</a></li>  <li class="file"><a href="/wiki/20180428/b01-useVeriableArguments/">使用变长参数</a></li>  <li class="file"><a href="/wiki/20180429/b02-assignmentSymbol/">scala的赋值符号=</a></li>  <li class="file"><a href="/wiki/20180429/b03-equalitySymbol/">scala的等于符号</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/20180428/b00-useYield/">使用yield关键字</a></li>  <li class="file"><a href="/wiki/20180428/b01-useVeriableArguments/">使用变长参数</a></li>  <li class="file active"><a href="/wiki/20180429/b02-assignmentSymbol/">scala的赋值符号=</a></li>  <li class="file"><a href="/wiki/20180429/b03-equalitySymbol/">scala的等于符号</a></li>  </ul> 
                     </li> 
                      <li class="file"><a href="/wiki/20180421/index/">scala手账 - 主页</a></li>  </ul> 
     </div>
@@ -249,16 +249,117 @@
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main"><section class="layout-wrap">
-    <div class="layout-title">
-        <span>Tags</span>
-    </div>
-    <div class="layout-wrap-inner tag-cloud">
+            <section id="main"><article id="post-b02-assignmentSymbol" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
         
-            <a href="/tags/scala学习/" style="font-size: 14px;">scala学习</a> <a href="/tags/准备/" style="font-size: 14px;">准备</a>
         
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/scala杂技/">scala杂技</a>
     </div>
-</section></section>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/20180429/b02-assignmentSymbol/">
+            <time datetime="2018-04-29T01:15:04.000Z" itemprop="datePublished">2018-04-29</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href="https://github.com/scalachobit/scalachobit.github.io/raw/writing/source/_posts/b02-assignmentSymbol.md" rel="external nofollow noopener noreferrer" target="_blank"> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/scalachobit/scalachobit.github.io/edit/writing/source/_posts/b02-assignmentSymbol.md" rel="external nofollow noopener noreferrer" target="_blank"> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/scalachobit/scalachobit.github.io/commits/writing/source/_posts/b02-assignmentSymbol.md" rel="external nofollow noopener noreferrer" target="_blank"> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            scala的赋值符号=
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">文章目录</strong>
+                    
+                </div>
+            
+        
+        
+            <p>scala的赋值运算和java的赋值运算有着很大的不同。如a=b这样的赋值运算，在Java中的返回值是a的值，在scala中返回的则是Unit。Unit是值类型，全局只存在唯一的值，即()，通常Unit只用来声明函数或方法的返回值，其他场景基本是没有意义的。这样就很容易导致一些错误地使用，比如a=b=c这样的赋值运算在java中是绝对可以的，但是在scala中使用就会报错。  </p>
+<p>看一段代码：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a, b, c = <span class="number">1</span></span><br><span class="line">a =  b=c</span><br><span class="line">println(a)</span><br></pre></td></tr></table></figure></p>
+<p>上面这段代码还没有执行就在IDE中提示错误了，勉强执行下看看会报什么错：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Error:(6, 9) type mismatch;</span><br><span class="line"> found   : Unit</span><br><span class="line"> required: Int</span><br><span class="line">  a = b = c</span><br></pre></td></tr></table></figure>
+<p>报了类型不匹配的错误，因为在第一行代码中scala推断出a是一个Int型的变量，后又将b=c的运算结果——一个Unit值——赋值给它，所以会报错了。</p>
+<p>即使只在scala中看赋值运算符“=”号也是一个比较奇怪的东西：scala中的大部分运算符都是方法，但“=”不是方法，在默认情况下不可以这样使用：a.=(1)。对于这个问题，有心人可以深究下。</p>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/wiki/20180429/b03-equalitySymbol/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    scala的等于符号
+                
+            </div>
+        </a>
+    
+    
+        <a href="/wiki/20180429/a11-accessModifier/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">访问修饰符</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
         </div>
         <footer id="footer">
     <div class="outer">
