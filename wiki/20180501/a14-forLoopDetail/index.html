@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    
+    <title>for循环详述 | SCALA 手账</title>
+    
+    
+        <meta name="keywords" content="scala, scala学习, scala教程">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="scala的for循环能做的事情很多，这里简单介绍下。 遍历集合元素示例代码如下：12345val list = List(1, 2, 3)for (e &amp;lt;- list) &amp;#123;  println(s&quot;Current value is: $e&quot;)&amp;#125; 这里有些类似于java中的增强循环。代码中先创建了一个List集合，而后使用for循环遍历输出集合中的元素。   代码中的“e&amp;">
+<meta name="keywords" content="scala, scala学习, scala教程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="for循环详述">
+<meta property="og:url" content="http://scala.chobit.com/wiki/20180501/a14-forLoopDetail/index.html">
+<meta property="og:site_name" content="SCALA 手账">
+<meta property="og:description" content="scala的for循环能做的事情很多，这里简单介绍下。 遍历集合元素示例代码如下：12345val list = List(1, 2, 3)for (e &amp;lt;- list) &amp;#123;  println(s&quot;Current value is: $e&quot;)&amp;#125; 这里有些类似于java中的增强循环。代码中先创建了一个List集合，而后使用for循环遍历输出集合中的元素。   代码中的“e&amp;">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-05-01T10:52:10.527Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="for循环详述">
+<meta name="twitter:description" content="scala的for循环能做的事情很多，这里简单介绍下。 遍历集合元素示例代码如下：12345val list = List(1, 2, 3)for (e &amp;lt;- list) &amp;#123;  println(s&quot;Current value is: $e&quot;)&amp;#125; 这里有些类似于java中的增强循环。代码中先创建了一个List集合，而后使用for循环遍历输出集合中的元素。   代码中的“e&amp;">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="SCALA 手账" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="/favicon.ico">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+    
+        <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+</head>
+</html>
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">SCALA 手账</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id="categories">
+        <h3 class="widget-title">
+            <span>分类</span>
+            &nbsp;
+            <a id="allExpand" href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree"> 
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            scala学习
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/20180419/a00-prepareEnv/">准备开发环境</a></li>  <li class="file"><a href="/wiki/20180421/a01-quickStart/">快速体验Scala - Scasite</a></li>  <li class="file"><a href="/wiki/20180421/a02-ineractiveCoding/">快速体验Scala - 交互式编程</a></li>  <li class="file"><a href="/wiki/20180422/a03-comment/">使用注释</a></li>  <li class="file"><a href="/wiki/20180423/a04-basicType/">基本类型</a></li>  <li class="file"><a href="/wiki/20180423/a05-operatorsInScala/">运算符和优先级</a></li>  <li class="file"><a href="/wiki/20180424/a06-varAndVal/">var和val变量</a></li>  <li class="file"><a href="/wiki/20180425/a07-stringAndMultiLineString/">字符串和多行字符串</a></li>  <li class="file"><a href="/wiki/20180426/a08-classDefine/">类定义和构造器</a></li>  <li class="file"><a href="/wiki/20180427/a09-classExtends/">类继承</a></li>  <li class="file"><a href="/wiki/20180427/a10-independentAndCompanionObject/">单例、独立对象和伴生对象</a></li>  <li class="file"><a href="/wiki/20180429/a11-accessModifier/">访问修饰符</a></li>  <li class="file"><a href="/wiki/20180429/a13-loopAndLoopControl/">循环和循环控制</a></li>  <li class="file"><a href="/wiki/20180430/a12-defineMethod/">方法的定义</a></li>  <li class="file active"><a href="/wiki/20180501/a14-forLoopDetail/">for循环详述</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            scala技巧
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/20180428/b000-useYield/">使用yield关键字</a></li>  <li class="file"><a href="/wiki/20180428/b001-useVeriableArguments/">使用变长参数</a></li>  <li class="file"><a href="/wiki/20180429/b002-assignmentSymbol/">scala赋值符号“=”</a></li>  <li class="file"><a href="/wiki/20180429/b003-equalitySymbol/">scala等于符号“==”</a></li>  <li class="file"><a href="/wiki/20180501/b004-objectMainMethod/">object中的main方法</a></li>  <li class="file"><a href="/wiki/20180501/b005-adaptivePractice/">scala中的自适应做法</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/20180421/index/">scala手账 - 主页</a></li>  </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-a14-forLoopDetail" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/scala学习/">scala学习</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/20180501/a14-forLoopDetail/">
+            <time datetime="2018-05-01T05:12:49.000Z" itemprop="datePublished">2018-05-01</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href="https://github.com/scalachobit/scalachobit.github.io/raw/writing/source/_posts/a14-forLoopDetail.md" rel="external nofollow noopener noreferrer" target="_blank"> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/scalachobit/scalachobit.github.io/edit/writing/source/_posts/a14-forLoopDetail.md" rel="external nofollow noopener noreferrer" target="_blank"> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/scalachobit/scalachobit.github.io/commits/writing/source/_posts/a14-forLoopDetail.md" rel="external nofollow noopener noreferrer" target="_blank"> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            for循环详述
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">文章目录</strong>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#遍历集合元素"><span class="toc-number">1.</span> <span class="toc-text">遍历集合元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#过滤"><span class="toc-number">2.</span> <span class="toc-text">过滤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多重循环"><span class="toc-number">3.</span> <span class="toc-text">多重循环</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#绑定中间变量"><span class="toc-number">4.</span> <span class="toc-text">绑定中间变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生成新集合"><span class="toc-number">5.</span> <span class="toc-text">生成新集合</span></a></li></ol>
+                </div>
+            
+        
+        
+            <p>scala的for循环能做的事情很多，这里简单介绍下。</p>
+<h2 id="遍历集合元素"><a href="#遍历集合元素" class="headerlink" title="遍历集合元素"></a>遍历集合元素</h2><p>示例代码如下：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> list = <span class="type">List</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (e &lt;- list) &#123;</span><br><span class="line">  println(<span class="string">s"Current value is: <span class="subst">$e</span>"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这里有些类似于java中的增强循环。代码中先创建了一个List集合，而后使用for循环遍历输出集合中的元素。  </p>
+<p>代码中的“e&lt;-list”结构被称为“生成器”，在每次迭代时，变量e会被初始化为List集合中的一个元素。e为val变量。  </p>
+<p>scala的for表达式支持所有的集合类型，比如数组、Range、List、Seq等。  </p>
+<h2 id="过滤"><a href="#过滤" class="headerlink" title="过滤"></a>过滤</h2><p>在遍历集合元素时，如不想处理某些元素，可以使用if语句（if语句也被称为卫述语句）来执行过滤。</p>
+<p>示例代码如下：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (e &lt;- <span class="number">0</span> to <span class="number">6</span>; <span class="keyword">if</span> e % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">  println(<span class="string">s"Current value is: <span class="subst">$e</span>"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>代码中使用生成器“e &lt;- 0 to 6”生成了一个0~6的整型Range；在遍历过程中，使用if语句筛选出了整形序列中所有值为偶数的元素。看下执行结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Current value is: 0</span><br><span class="line">Current value is: 2</span><br><span class="line">Current value is: 4</span><br><span class="line">Current value is: 6</span><br></pre></td></tr></table></figure></p>
+<p>如果有必要的话，可以添加多个过滤器，只需要再添加一个if语句即可。比如下面的代码过滤出了整型序列中值为偶数，且大于3的元素：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (e &lt;- <span class="number">0</span> to <span class="number">6</span></span><br><span class="line">     <span class="keyword">if</span> e % <span class="number">2</span> == <span class="number">0</span></span><br><span class="line">     <span class="keyword">if</span> e &gt; <span class="number">3</span>) &#123;</span><br><span class="line">  println(<span class="string">s"Current value is: <span class="subst">$e</span>"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>结果如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Current value is: 4</span><br><span class="line">Current value is: 6</span><br></pre></td></tr></table></figure></p>
+<h2 id="多重循环"><a href="#多重循环" class="headerlink" title="多重循环"></a>多重循环</h2><p>for表达式支持多重循环。下面是个实例：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> list = <span class="type">List</span>(<span class="string">"com"</span>, <span class="string">"zhyea"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (e &lt;- list; c &lt;- e) &#123;</span><br><span class="line">  println(<span class="string">s"<span class="subst">$c</span> of <span class="subst">$e</span>"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这段代码一重循环遍历了字符串集合中的每个元素，而后在二重循环中遍历了一个字符串元素的每个字符。看下执行结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">c of com</span><br><span class="line">o of com</span><br><span class="line">m of com</span><br><span class="line">z of zhyea</span><br><span class="line">h of zhyea</span><br><span class="line">y of zhyea</span><br><span class="line">e of zhyea</span><br><span class="line">a of zhyea</span><br></pre></td></tr></table></figure></p>
+<p>上面代码中的两个循环间使用“;”做了分隔，因为下面这种写法在scala中是不被允许的：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (e &lt;- list</span><br><span class="line">  c &lt;- e) &#123;</span><br><span class="line">  println(<span class="string">s"<span class="subst">$c</span> of <span class="subst">$e</span>"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>因为scala编译器不会推断在小括号内省略掉的“;”号。要想省略两个生成器中的“;”，可以使用花括号替换for循环的小括号：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> &#123;e &lt;- list</span><br><span class="line">     c &lt;- e&#125; &#123;</span><br><span class="line">  println(<span class="string">s"<span class="subst">$c</span> of <span class="subst">$e</span>"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>使用花括号和使用小括号是等价的，处理逻辑上并无不同。</p>
+<h2 id="绑定中间变量"><a href="#绑定中间变量" class="headerlink" title="绑定中间变量"></a>绑定中间变量</h2><p>在for循环表达式中，scala允许创建一个变量保存中间值。看下示例代码：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> list = <span class="type">List</span>(<span class="string">"com"</span>, <span class="string">"zhyea"</span>)</span><br><span class="line"><span class="keyword">for</span> &#123;e &lt;- list</span><br><span class="line">     c &lt;- e</span><br><span class="line">     index = e.indexOf(c)&#125; &#123;</span><br><span class="line">  println(<span class="string">s"Index of <span class="subst">$c</span> in <span class="subst">$e</span> is <span class="subst">$index</span>"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在上面的for循环表达式中创建了一个index变量保存每个字符在字符串的索引位置。这里的index是val变量，只是不需要使用val声明。  </p>
+<p>如果将index变量移动到for循环的循环体中，则val声明不可省略。</p>
+<h2 id="生成新集合"><a href="#生成新集合" class="headerlink" title="生成新集合"></a>生成新集合</h2><p>在for循环中可以使用yield关键字返回一个新的集合。通常新的集合的类型和循环的集合类型一致。</p>
+<p>这个实例在scala解释器中写比较直观些：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; val nums = <span class="keyword">for</span>(i&lt;-List(<span class="string">"com"</span>, <span class="string">"zhyea"</span>, <span class="string">"robin"</span>)) yield i</span><br><span class="line">nums: List[String] = List(com, zhyea, robin)</span><br></pre></td></tr></table></figure></p>
+<p>下面是一个返回值和循环的集合类型不严格一致的例子：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; val nums = 0 to 6</span><br><span class="line">nums: scala.collection.immutable.Range.Inclusive = Range(0, 1, 2, 3, 4, 5, 6)</span><br><span class="line"></span><br><span class="line">scala&gt; val nums = <span class="keyword">for</span>(i&lt;- 0 to 6)yield i</span><br><span class="line">nums: scala.collection.immutable.IndexedSeq[Int] = Vector(0, 1, 2, 3, 4, 5, 6)</span><br></pre></td></tr></table></figure></p>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+    
+        <a href="/wiki/20180501/b005-adaptivePractice/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">scala中的自适应做法</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            robin &copy; 2018 
+            <a rel="external nofollow noopener noreferrer" href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png"></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a>. Theme - <a href="https://github.com/zthxxx/hexo-theme-Wikitten" rel="external nofollow noopener noreferrer" target="_blank">wikitten</a>
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
