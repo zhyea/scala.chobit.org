@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    
+    <title>循环和循环控制 | SCALA 手账</title>
+    
+    
+        <meta name="keywords" content="scala, scala学习, scala教程">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="循环类型scala中的循环类型和java差不多，大体上有三种：    while循环 do{}while循环 for循环  每样循环都写一段示例代码来看一下。   while循环代码如下：12345var i = 0while (i &amp;lt; 6) &amp;#123;  println(s&quot;Value of i: $i&quot;)  i += 1&amp;#125; 执行结果如下：123456Value of i: 0">
+<meta name="keywords" content="scala, scala学习, scala教程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="循环和循环控制">
+<meta property="og:url" content="http://scala.chobit.com/wiki/20180429/a13-loopAndLoopControl/index.html">
+<meta property="og:site_name" content="SCALA 手账">
+<meta property="og:description" content="循环类型scala中的循环类型和java差不多，大体上有三种：    while循环 do{}while循环 for循环  每样循环都写一段示例代码来看一下。   while循环代码如下：12345var i = 0while (i &amp;lt; 6) &amp;#123;  println(s&quot;Value of i: $i&quot;)  i += 1&amp;#125; 执行结果如下：123456Value of i: 0">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-05-01T09:06:20.140Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="循环和循环控制">
+<meta name="twitter:description" content="循环类型scala中的循环类型和java差不多，大体上有三种：    while循环 do{}while循环 for循环  每样循环都写一段示例代码来看一下。   while循环代码如下：12345var i = 0while (i &amp;lt; 6) &amp;#123;  println(s&quot;Value of i: $i&quot;)  i += 1&amp;#125; 执行结果如下：123456Value of i: 0">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="SCALA 手账" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="/favicon.ico">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+        <script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?580ccff0585d80176b36536ea443032c";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+
+
+</head>
+</html>
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">SCALA 手账</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id="categories">
+        <h3 class="widget-title">
+            <span>分类</span>
+            &nbsp;
+            <a id="allExpand" href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree"> 
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            scala学习
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/20180419/a00-prepareEnv/">准备开发环境</a></li>  <li class="file"><a href="/wiki/20180421/a01-quickStart/">快速体验Scala - Scasite</a></li>  <li class="file"><a href="/wiki/20180421/a02-ineractiveCoding/">快速体验Scala - 交互式编程</a></li>  <li class="file"><a href="/wiki/20180422/a03-comment/">使用注释</a></li>  <li class="file"><a href="/wiki/20180423/a04-basicType/">基本类型</a></li>  <li class="file"><a href="/wiki/20180423/a05-operatorsInScala/">运算符和优先级</a></li>  <li class="file"><a href="/wiki/20180424/a06-varAndVal/">var和val变量</a></li>  <li class="file"><a href="/wiki/20180425/a07-stringAndMultiLineString/">字符串和多行字符串</a></li>  <li class="file"><a href="/wiki/20180426/a08-classDefine/">类定义和构造器</a></li>  <li class="file"><a href="/wiki/20180427/a09-classExtends/">类继承</a></li>  <li class="file"><a href="/wiki/20180427/a10-independentAndCompanionObject/">单例、独立对象和伴生对象</a></li>  <li class="file"><a href="/wiki/20180429/a11-accessModifier/">访问修饰符</a></li>  <li class="file active"><a href="/wiki/20180429/a13-loopAndLoopControl/">循环和循环控制</a></li>  <li class="file"><a href="/wiki/20180430/a12-defineMethod/">方法的定义</a></li>  <li class="file"><a href="/wiki/20180501/a14-forLoopDetail/">for循环详述</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            scala技巧
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/20180428/b000-useYield/">使用yield关键字</a></li>  <li class="file"><a href="/wiki/20180428/b001-useVeriableArguments/">使用变长参数</a></li>  <li class="file"><a href="/wiki/20180429/b002-assignmentSymbol/">scala赋值符号“=”</a></li>  <li class="file"><a href="/wiki/20180429/b003-equalitySymbol/">scala等于符号“==”</a></li>  <li class="file"><a href="/wiki/20180501/b004-objectMainMethod/">object中的main方法</a></li>  <li class="file"><a href="/wiki/20180501/b005-adaptivePractice/">scala中的自适应做法</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/20180421/index/">scala手账 - 主页</a></li>  </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-a13-loopAndLoopControl" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/scala学习/">scala学习</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/20180429/a13-loopAndLoopControl/">
+            <time datetime="2018-04-29T01:40:46.000Z" itemprop="datePublished">2018-04-29</time>
+        </a>
+    </div>
+
+
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            循环和循环控制
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">文章目录</strong>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#循环类型"><span class="toc-number">1.</span> <span class="toc-text">循环类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#while循环"><span class="toc-number">1.1.</span> <span class="toc-text">while循环</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#do-while循环"><span class="toc-number">1.2.</span> <span class="toc-text">do{}while循环</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#for循环"><span class="toc-number">1.3.</span> <span class="toc-text">for循环</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#循环控制"><span class="toc-number">2.</span> <span class="toc-text">循环控制</span></a></li></ol>
+                </div>
+            
+        
+        
+            <h2 id="循环类型"><a href="#循环类型" class="headerlink" title="循环类型"></a>循环类型</h2><p>scala中的循环类型和java差不多，大体上有三种：  </p>
+<ul>
+<li>while循环</li>
+<li>do{}while循环</li>
+<li>for循环</li>
+</ul>
+<p>每样循环都写一段示例代码来看一下。  </p>
+<h3 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h3><p>代码如下：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> (i &lt; <span class="number">6</span>) &#123;</span><br><span class="line">  println(<span class="string">s"Value of i: <span class="subst">$i</span>"</span>)</span><br><span class="line">  i += <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>执行结果如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Value of i: 0</span><br><span class="line">Value of i: 1</span><br><span class="line">Value of i: 2</span><br><span class="line">Value of i: 3</span><br><span class="line">Value of i: 4</span><br><span class="line">Value of i: 5</span><br></pre></td></tr></table></figure></p>
+<h3 id="do-while循环"><a href="#do-while循环" class="headerlink" title="do{}while循环"></a>do{}while循环</h3><p>代码：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i = <span class="number">0</span></span><br><span class="line">do &#123;</span><br><span class="line">  println(<span class="string">s"Value of i: <span class="subst">$i</span>"</span>)</span><br><span class="line">  i += <span class="number">1</span></span><br><span class="line">&#125; <span class="keyword">while</span> (i &lt; <span class="number">6</span>)</span><br></pre></td></tr></table></figure></p>
+<p>执行结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Value of i: 0</span><br><span class="line">Value of i: 1</span><br><span class="line">Value of i: 2</span><br><span class="line">Value of i: 3</span><br><span class="line">Value of i: 4</span><br><span class="line">Value of i: 5</span><br></pre></td></tr></table></figure></p>
+<h3 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h3><p>看一个示例：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (i &lt;- <span class="number">0</span> to <span class="number">5</span>) &#123;</span><br><span class="line">  println(<span class="string">s"Value of i <span class="subst">$i</span>"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>执行结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Value of i 1</span><br><span class="line">Value of i 2</span><br><span class="line">Value of i 3</span><br><span class="line">Value of i 4</span><br><span class="line">Value of i 5</span><br></pre></td></tr></table></figure></p>
+<p>在上面代码中的循环结构里，”i &lt;- 0 to 5”是一个生成器表达式。在这里的每次循环中都会创建一个新的val变量i（而非是给i赋值），用生成器表达式产生出来的连续值进行初始化。  </p>
+<p>生成器表达式“1 to 3”生成的连续值包含了下界[1]和上界[3]，如果用until方法替换to方法后，就可以排除上界。to和until都是scala的RichInt类的方法。</p>
+<p>这里使用1 to 3等价于1.to(3)，即数字1调用了整型的to方法。在scala中，如果方法有0或1个参数，点和括号是可以丢掉的。如果方法的参数多于一个，那么就必须保留括号，但是点仍是可选的。以一个非常常见的表达式为例：1 + 2在scala中实际上就是1.+(2)，+也是一个方法而非是简单的符号。</p>
+<p>我们已经知道1 to 3返回的使一个连续值(Range)，那么也可以考虑使用Range的foreach方法来实现循环。代码如下：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">1</span> to <span class="number">3</span>).foreach(i =&gt; println(<span class="string">s"Value of i <span class="subst">$i</span>"</span>))</span><br></pre></td></tr></table></figure></p>
+<p>for循环的功能非常丰富，值得多多解释一下，所以会另写一篇进行说明。</p>
+<h2 id="循环控制"><a href="#循环控制" class="headerlink" title="循环控制"></a>循环控制</h2><p>通常的循环控制语句就是<strong>continue</strong>和<strong>break</strong>。但是这两个关键字在scala中是不存在的。不过我们可以使用一些技巧来实现这两种控制语句。  </p>
+<p>先来看一个Java的例子：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="number">6</span>; i++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(i==<span class="number">2</span>)&#123;</span><br><span class="line">        <span class="keyword">continue</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(i==<span class="number">4</span>)&#123;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    System.out.println(<span class="string">"Value of i:"</span> + i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>代码要做的事情非常简单，不需要多做解释。  </p>
+<p>要用scala实现这个逻辑，简单点儿的思路是用if判断句来替换continue，用一个bool变量控制循环来替换break。代码如下：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i: <span class="type">Int</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">var</span> <span class="keyword">break</span>: <span class="type">Boolean</span> = <span class="literal">false</span></span><br><span class="line"><span class="keyword">while</span> (i &lt; <span class="number">6</span> &amp;&amp; !<span class="keyword">break</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (i != <span class="number">2</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (i == <span class="number">4</span>) &#123;</span><br><span class="line">      <span class="keyword">break</span> = <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">    println(<span class="string">s"Value of i: <span class="subst">$i</span>"</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  i += <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这段代码实现了前面那段Java代码的功能。期间我们还是使用了两个var变量。这两个var变量一个用来提供循环值，一个用来实现break功能中止循环。scala不鼓励使用var变量。我们尝试去掉这两个var变量。  </p>
+<p>要去掉循环值变量可以考虑将所有的循环值放入一个集合，然后使用for循环来处理。<br>要去掉break控制变量，可以考虑主动抛出异常来中止当前代码块。</p>
+<p>根据这个思路来做一下实现：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="keyword">for</span> (i &lt;- <span class="number">0</span> to <span class="number">6</span>) &#123;</span><br><span class="line">    i <span class="keyword">match</span> &#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="number">2</span> =&gt;</span><br><span class="line">      <span class="keyword">case</span> <span class="number">4</span> =&gt; <span class="keyword">throw</span> <span class="keyword">new</span> <span class="type">RuntimeException</span></span><br><span class="line">      <span class="keyword">case</span> _ =&gt; println(<span class="string">s"Value of i: <span class="subst">$i</span>"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125; <span class="keyword">catch</span> &#123;</span><br><span class="line">  <span class="keyword">case</span> e: <span class="type">RuntimeException</span> =&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在修改后的代码里使用模式匹配替换了if判断，并且演示了scala处理异常的方案。<br>这里用抛出异常来实现break的方式scala中有提供具体的实现方案，即在scala.util.control包中定义的break控制结构，用法如下：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> b = <span class="keyword">new</span> scala.util.control.<span class="type">Breaks</span></span><br><span class="line"></span><br><span class="line">b.breakable &#123;</span><br><span class="line">  <span class="keyword">for</span> (i &lt;- <span class="number">0</span> to <span class="number">6</span>) &#123;</span><br><span class="line">    i <span class="keyword">match</span> &#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="number">2</span> =&gt;</span><br><span class="line">      <span class="keyword">case</span> <span class="number">4</span> =&gt; b.<span class="keyword">break</span>()</span><br><span class="line">      <span class="keyword">case</span> _ =&gt; println(<span class="string">s"Value of i: <span class="subst">$i</span>"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>思路还可以继续展开，比如用递归来替换循环：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">myLoop</span></span>(i: <span class="type">Int</span>): <span class="type">Unit</span> = &#123;</span><br><span class="line">  <span class="keyword">if</span> (i &gt; <span class="number">6</span>) ()</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span> (i == <span class="number">2</span>) myLoop(i + <span class="number">1</span>)</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span> (i != <span class="number">4</span>) &#123;</span><br><span class="line">    println(<span class="string">s"Value of i: <span class="subst">$i</span>"</span>);</span><br><span class="line">    myLoop(i + <span class="number">1</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">myLoop(<span class="number">0</span>)</span><br></pre></td></tr></table></figure></p>
+<p>在函数化编程中使用递归函数来实现循环是非常常见的一种方法，并且这样做很函数式。</p>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/wiki/20180430/a12-defineMethod/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    方法的定义
+                
+            </div>
+        </a>
+    
+    
+        <a href="/wiki/20180429/b003-equalitySymbol/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">scala等于符号“==”</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            robin &copy; 2018 
+            <br> Powered by <a href="http://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a>. Theme - <a href="https://github.com/zthxxx/hexo-theme-Wikitten" rel="external nofollow noopener noreferrer" target="_blank">wikitten</a>
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
