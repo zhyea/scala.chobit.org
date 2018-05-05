@@ -9,18 +9,18 @@
         <meta name="keywords" content="scala, scala学习, scala教程">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="scala支持可变长度参数。在scala中，可变长度参数的特征如下：  在参数列表中处于最后面； 标识方法为在参数类型后放一个分号。  在scala解释器中写了一个示例：1234567scala&amp;gt; def foo(str:String*) = str.foreach&amp;#123;println&amp;#125;foo: (str: String*)Unitscala&amp;gt; foo(&quot;com&quot;, &quot;">
+    <meta name="description" content="scala支持可变长度参数。在scala中，可变长度参数的特征如下：  在参数列表中处于最后面； 标识方法为在参数类型后放一个星号。  在scala解释器中写了一个示例：1234567scala&amp;gt; def foo(str:String*) = str.foreach&amp;#123;println&amp;#125;foo: (str: String*)Unitscala&amp;gt; foo(&quot;com&quot;, &quot;">
 <meta name="keywords" content="scala, scala学习, scala教程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="可变长度参数">
 <meta property="og:url" content="http://scala.chobit.com/wiki/20180502/b006-variableLengthParams/index.html">
 <meta property="og:site_name" content="SCALA 手账">
-<meta property="og:description" content="scala支持可变长度参数。在scala中，可变长度参数的特征如下：  在参数列表中处于最后面； 标识方法为在参数类型后放一个分号。  在scala解释器中写了一个示例：1234567scala&amp;gt; def foo(str:String*) = str.foreach&amp;#123;println&amp;#125;foo: (str: String*)Unitscala&amp;gt; foo(&quot;com&quot;, &quot;">
+<meta property="og:description" content="scala支持可变长度参数。在scala中，可变长度参数的特征如下：  在参数列表中处于最后面； 标识方法为在参数类型后放一个星号。  在scala解释器中写了一个示例：1234567scala&amp;gt; def foo(str:String*) = str.foreach&amp;#123;println&amp;#125;foo: (str: String*)Unitscala&amp;gt; foo(&quot;com&quot;, &quot;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-02T14:53:07.348Z">
+<meta property="og:updated_time" content="2018-05-05T04:50:18.868Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="可变长度参数">
-<meta name="twitter:description" content="scala支持可变长度参数。在scala中，可变长度参数的特征如下：  在参数列表中处于最后面； 标识方法为在参数类型后放一个分号。  在scala解释器中写了一个示例：1234567scala&amp;gt; def foo(str:String*) = str.foreach&amp;#123;println&amp;#125;foo: (str: String*)Unitscala&amp;gt; foo(&quot;com&quot;, &quot;">
+<meta name="twitter:description" content="scala支持可变长度参数。在scala中，可变长度参数的特征如下：  在参数列表中处于最后面； 标识方法为在参数类型后放一个星号。  在scala解释器中写了一个示例：1234567scala&amp;gt; def foo(str:String*) = str.foreach&amp;#123;println&amp;#125;foo: (str: String*)Unitscala&amp;gt; foo(&quot;com&quot;, &quot;">
     
 
     
@@ -45,6 +45,17 @@
     
         <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
     
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-118765535-1', 'auto');
+ga('send', 'pageview');
+
+</script>
     
     
     
@@ -303,17 +314,18 @@ var _hmt = _hmt || [];
             <p>scala支持可变长度参数。在scala中，可变长度参数的特征如下：</p>
 <ul>
 <li>在参数列表中处于最后面；</li>
-<li>标识方法为在参数类型后放一个分号。</li>
+<li>标识方法为在参数类型后放一个星号。</li>
 </ul>
 <p>在scala解释器中写了一个示例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; def foo(str:String*) = str.foreach&#123;println&#125;</span><br><span class="line">foo: (str: String*)Unit</span><br><span class="line"></span><br><span class="line">scala&gt; foo(<span class="string">"com"</span>, <span class="string">"zhyea"</span>, <span class="string">"robin"</span>)</span><br><span class="line">com</span><br><span class="line">zhyea</span><br><span class="line">robin</span><br></pre></td></tr></table></figure></p>
 <p>在代码中定义了一个foo方法，它的参数长度就是可变的，方法体的定义是逐行输出每个参数。在随后的验证代码中可以看到结果和预期是一致的。  </p>
-<p>我们知道，在java中，变长参数是被作为数组来处理的。至于在scala中是否也是一样，则需要进行验证。对刚才的示例代码做了些调整来做一下验证：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; def foo(str: String*) = println(str.getClass)</span><br><span class="line">foo: (str: String*)Unit</span><br><span class="line"></span><br><span class="line">scala&gt; foo(<span class="string">"zhyea"</span>)</span><br><span class="line">class scala.collection.mutable.WrappedArray<span class="variable">$ofRef</span></span><br><span class="line"></span><br><span class="line">scala&gt; foo(<span class="string">"com"</span>, <span class="string">"zhyea"</span>)</span><br><span class="line">class scala.collection.mutable.WrappedArray<span class="variable">$ofRef</span></span><br><span class="line"></span><br><span class="line">scala&gt; def foo(nums:Int*) = println(nums.getClass)</span><br><span class="line">foo: (nums: Int*)Unit</span><br><span class="line"></span><br><span class="line">scala&gt; foo(1, 2, 3)</span><br><span class="line">class scala.collection.mutable.WrappedArray<span class="variable">$ofInt</span></span><br></pre></td></tr></table></figure></p>
-<p>可以看到，在scala中变长参数的类型是scala.collection.mutable.WrappedArray。WrappedArray和数组有什么关系呢？先搁置这个问题，来看一下一个真正的数组调用getClass方法会返回什么样的信息：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; println(Array(1, 2, 3).getClass)</span><br><span class="line">class [I</span><br></pre></td></tr></table></figure></p>
-<p>输出的内容和上面的截然不同。这里输出的“[I”是一个Java描述符，表示int数组类型。可见scala的变长参数至少不是简单的数组结构。<br>再来给带变长参数的方法传递一个数组结构会有什么样的反应：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">scala&gt;  def foo(str: String*) = println(str.getClass)</span><br><span class="line">foo: (str: String*)Unit</span><br><span class="line"></span><br><span class="line">scala&gt; foo(Array(<span class="string">"com"</span>, <span class="string">"zhyea"</span>, <span class="string">"robin"</span>))</span><br><span class="line">&lt;console&gt;:13: error: <span class="built_in">type</span> mismatch;</span><br><span class="line"> found   : Array[String]</span><br><span class="line"> required: String</span><br><span class="line">       foo(Array(<span class="string">"com"</span>, <span class="string">"zhyea"</span>, <span class="string">"robin"</span>))</span><br></pre></td></tr></table></figure></p>
+<p>我们知道，在java中，变长参数是被作为数组来处理的。至于在scala中是否也是一样，则需要进行验证。  </p>
+<p>对刚才的示例代码做了些调整来进行验证：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; def foo(str: String*) = println(str.getClass)</span><br><span class="line">foo: (str: String*)Unit</span><br><span class="line"></span><br><span class="line">scala&gt; foo(<span class="string">"zhyea"</span>)</span><br><span class="line">class scala.collection.mutable.WrappedArray<span class="variable">$ofRef</span></span><br><span class="line"></span><br><span class="line">scala&gt; foo(<span class="string">"com"</span>, <span class="string">"zhyea"</span>)</span><br><span class="line">class scala.collection.mutable.WrappedArray<span class="variable">$ofRef</span></span><br><span class="line"></span><br><span class="line">scala&gt; def foo(nums:Int*) = println(nums.getClass)</span><br><span class="line">foo: (nums: Int*)Unit</span><br><span class="line"></span><br><span class="line">scala&gt; foo(1, 2, 3)</span><br><span class="line">class scala.collection.mutable.WrappedArray<span class="variable">$ofInt</span></span><br></pre></td></tr></table></figure></p>
+<p>可以看到，在scala中变长参数的类型是scala.collection.mutable.WrappedArray的ofXXX子类，并不是一个数组结构。</p>
+<p>再来看看给变长参数的方法传递一个数组结构会有什么样的反应：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">scala&gt;  def foo(str: String*) = println(str.getClass)</span><br><span class="line">foo: (str: String*)Unit</span><br><span class="line"></span><br><span class="line">scala&gt; foo(Array(<span class="string">"com"</span>, <span class="string">"zhyea"</span>, <span class="string">"robin"</span>))</span><br><span class="line">&lt;console&gt;:13: error: <span class="built_in">type</span> mismatch;</span><br><span class="line"> found   : Array[String]</span><br><span class="line"> required: String</span><br><span class="line">       foo(Array(<span class="string">"com"</span>, <span class="string">"zhyea"</span>, <span class="string">"robin"</span>))</span><br></pre></td></tr></table></figure></p>
 <p>可以看到报错了：类型不匹配，需要的是String，传递是String数组。  </p>
 <p>如果我们确实需要把一个类型匹配的数组传递给这个方法，此时我们可以使用“:_<em>”标识符。“:_</em>”作为一个整体，告诉编译器你希望将某个参数当作参数序列处理。  </p>
 <p>看下演示：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; def foo(nums:Int*) = nums.foreach(println)</span><br><span class="line">foo: (nums: Int*)Unit</span><br><span class="line"></span><br><span class="line">scala&gt; foo(Array(1,2,3) :_*)</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td></tr></table></figure></p>
-<p>注意一下，“:_*”不只是能标识数组，还可以标识其他的集合，比如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; foo(1 to 3 :_*)</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td></tr></table></figure></p>
+<p>注意一下，“:_*”不只是能标识数组，还可以标识其他的集合，比如List、Seq、Range等。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; foo(1 to 3 :_\*)</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td></tr></table></figure></p>
 <p>“1 to 3”是一个Range结果，使用“:_*”标识后依然可以被变长参数方法调用。</p>
 
             </div>
