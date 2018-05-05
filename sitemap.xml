@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://scala.chobit.com/wiki/20180421/index/</loc>
+    
+    <lastmod>2018-05-05T02:13:55.519Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://scala.chobit.com/wiki/20180501/a15-functionAndMethod/</loc>
     
     <lastmod>2018-05-04T15:13:10.124Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>http://scala.chobit.com/wiki/20180430/a12-defineMethod/</loc>
     
     <lastmod>2018-05-01T13:42:09.971Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://scala.chobit.com/wiki/20180421/index/</loc>
-    
-    <lastmod>2018-05-01T10:56:46.149Z</lastmod>
     
   </url>
   
