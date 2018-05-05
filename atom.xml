@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://scala.chobit.com/"/>
-  <updated>2018-05-03T14:27:22.060Z</updated>
+  <updated>2018-05-05T02:38:36.572Z</updated>
   <id>http://scala.chobit.com/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>调用方法点和括号是可选的</title>
+    <title>方法的点和括号是可选的</title>
     <link href="http://scala.chobit.com/wiki/20180503/b007-pointlessMethod/"/>
     <id>http://scala.chobit.com/wiki/20180503/b007-pointlessMethod/</id>
     <published>2018-05-03T14:04:13.000Z</published>
-    <updated>2018-05-03T14:27:22.060Z</updated>
+    <updated>2018-05-05T02:38:36.572Z</updated>
     
     <content type="html"><![CDATA[<p>在scala中，如果方法只有0或1个参数，点和括号就是可选的；如果方法的参数多于1个，就必须使用括号，但是点仍然是可选的。   </p><p>比如我们常见的 1 + 2，实际上就是在执行 1.+(2) 。  </p><p>这样做的优势也很明显：代码读起来更加自然，在展现上不至于显得杂乱。</p><p>下面是一段示例代码：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Teacher</span>(<span class="params">val name: <span class="type">String</span></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">teach</span></span>(subject: <span class="type">String</span>) = println(<span class="string">s"<span class="subst">$name</span> teaches <span class="subst">$subject</span>."</span>)</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">teach</span></span>(subject: <span class="type">String</span>, student: <span class="type">String</span>*) = println(<span class="string">s"<span class="subst">$name</span> teaches <span class="subst">$&#123;student.mkString(",")&#125;</span> to learn <span class="subst">$subject</span>"</span>)</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">val</span> teacher = <span class="keyword">new</span> <span class="type">Teacher</span>(<span class="string">"Mr.Chang"</span>)</span><br><span class="line"></span><br><span class="line">teacher teach <span class="string">"Mathematics"</span></span><br><span class="line"></span><br><span class="line">teacher teach (<span class="string">"Mathematics"</span>, <span class="string">"robin"</span>)</span><br></pre></td></tr></table></figure></p><p>执行结果如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Mr.Chang teaches Mathematics.</span><br><span class="line">Mr.Chang teaches robin to learn Mathematics</span><br></pre></td></tr></table></figure></p>]]></content>
     
