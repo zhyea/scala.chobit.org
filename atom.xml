@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://scala.chobit.com/"/>
-  <updated>2018-05-05T02:38:36.572Z</updated>
+  <updated>2018-05-05T15:02:11.940Z</updated>
   <id>http://scala.chobit.com/</id>
   
   <author>
@@ -15,6 +15,108 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>关于import</title>
+    <link href="http://scala.chobit.com/wiki/20180505/a17-aboutImport/"/>
+    <id>http://scala.chobit.com/wiki/20180505/a17-aboutImport/</id>
+    <published>2018-05-05T14:56:26.000Z</published>
+    <updated>2018-05-05T15:02:11.940Z</updated>
+    
+    <content type="html"><![CDATA[<p>介绍几个import相关的特性</p><ul><li><p>特性一: 用import com.zhyea._这种格式，可以导入包下所有的成员</p></li><li><p>特性二: 与java不同，scala在任何地方都可以使用import，比如类内、方法内：</p></li></ul><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">object</span> <span class="title">MyApp</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">main</span></span>(args: <span class="type">Array</span>[<span class="type">String</span>]): <span class="type">Unit</span> = &#123;</span><br><span class="line">        <span class="keyword">import</span> com.zhyea.service._</span><br><span class="line">        <span class="keyword">val</span> service = <span class="keyword">new</span> <span class="type">MyService</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这种方式的好处在于，可以在一定作用域范围内使用导入</p><ul><li><p>特性三: 选择器、重命名、隐藏</p><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.zhyea.service.&#123; <span class="type">MyService</span> &#125; \\仅仅导入com.zhyea.service包下的<span class="type">MyService</span>类，其它不导入</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.zhyea.service.&#123; <span class="type">MyService</span> =&gt; <span class="type">MyServiceImpl</span> &#125; \\将导入的类进行重命名</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.zhyea.service.&#123; <span class="type">MyService</span> =&gt; _, _ &#125; \\导入com.zhyea.service包下所有的类，但是隐藏掉<span class="type">MyService</span>类</span><br></pre></td></tr></table></figure></li></ul><ul><li>特性四: 隐式导入</li></ul><p>每个scala程序默认都会隐式导入以下几个包下所有的成员</p><blockquote><p>import java.lang._<br>import scala._<br>import Predef._</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;介绍几个import相关的特性&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;特性一: 用import com.zhyea._这种格式，可以导入包下所有的成员&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;特性二: 与java不同，scala在任何地方都可以使用import，比如类内、方法内：&lt;/p
+      
+    
+    </summary>
+    
+      <category term="scala学习" scheme="http://scala.chobit.com/categories/scala%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>下划线的作用</title>
+    <link href="http://scala.chobit.com/wiki/20180505/b008-usingOfUnderscore/"/>
+    <id>http://scala.chobit.com/wiki/20180505/b008-usingOfUnderscore/</id>
+    <published>2018-05-05T10:22:46.000Z</published>
+    <updated>2018-05-05T10:23:21.860Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><blockquote><ul><li><a href=""></a></li><li><a href=""></a></li></ul></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;参考资料&quot;&gt;&lt;a href=&quot;#参考资料&quot; class=&quot;headerlink&quot; title=&quot;参考资料&quot;&gt;&lt;/a&gt;参考资料&lt;/h2&gt;&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/l
+      
+    
+    </summary>
+    
+      <category term="scala技巧" scheme="http://scala.chobit.com/categories/scala%E6%8A%80%E5%B7%A7/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>下划线的作用</title>
+    <link href="http://scala.chobit.com/wiki/20180505/b008-usingOfBottomLine/"/>
+    <id>http://scala.chobit.com/wiki/20180505/b008-usingOfBottomLine/</id>
+    <published>2018-05-05T10:22:46.000Z</published>
+    <updated>2018-05-05T11:31:33.231Z</updated>
+    
+    <content type="html"><![CDATA[<p>相关概念暂未能了解，提供两个参考文档：</p><blockquote><p><a href="https://stackoverflow.com/questions/8000903/what-are-all-the-uses-of-an-underscore-in-scala" rel="external nofollow noopener noreferrer" target="_blank">Usage of Underscore In Scala</a><br><a href="https://www.zhihu.com/question/21622725" rel="external nofollow noopener noreferrer" target="_blank">Scala中下划线的应用场景</a></p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;相关概念暂未能了解，提供两个参考文档：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://stackoverflow.com/questions/8000903/what-are-all-the-uses-of-an-underscore-in-sc
+      
+    
+    </summary>
+    
+      <category term="scala技巧" scheme="http://scala.chobit.com/categories/scala%E6%8A%80%E5%B7%A7/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>package的使用</title>
+    <link href="http://scala.chobit.com/wiki/20180505/a16-usingOfPackage/"/>
+    <id>http://scala.chobit.com/wiki/20180505/a16-usingOfPackage/</id>
+    <published>2018-05-05T10:16:34.000Z</published>
+    <updated>2018-05-05T14:55:24.466Z</updated>
+    
+    <content type="html"><![CDATA[<p>这一节介绍一些关于package的内容。本来不想写关于package的内容的，因为一开始觉得没啥好写的。这次写因为发现了点儿可以写的内容。</p><h2 id="package定义"><a href="#package定义" class="headerlink" title="package定义"></a>package定义</h2><p>scala中package定义有如下几种方式：</p><h3 id="在文件顶部定义。"><a href="#在文件顶部定义。" class="headerlink" title="在文件顶部定义。"></a>在文件顶部定义。</h3><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.zhyea.robin</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyApp</span></span></span><br></pre></td></tr></table></figure><p>这种方式和java相同。  </p><h3 id="多层级package定义"><a href="#多层级package定义" class="headerlink" title="多层级package定义"></a>多层级package定义</h3><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com&#123;</span><br><span class="line">    <span class="keyword">package</span> zhyea&#123;</span><br><span class="line">        <span class="keyword">package</span> robin&#123;</span><br><span class="line">            <span class="class"><span class="keyword">class</span> <span class="title">MyApp</span></span></span><br><span class="line"><span class="class">        &#125;</span></span><br><span class="line"><span class="class">    &#125;</span></span><br><span class="line"><span class="class">&#125;</span></span><br></pre></td></tr></table></figure><p>这种定义方式比较繁琐，通常都不会采用。</p><h3 id="串联式package定义"><a href="#串联式package定义" class="headerlink" title="串联式package定义"></a>串联式package定义</h3><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.zhyea&#123;</span><br><span class="line">    <span class="keyword">package</span> robin&#123;</span><br><span class="line">        <span class="class"><span class="keyword">class</span> <span class="title">MyApp</span></span></span><br><span class="line"><span class="class">    &#125;</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">    <span class="title">package</span> <span class="title">tom</span></span>&#123;</span><br><span class="line">        <span class="class"><span class="keyword">class</span> <span class="title">MyApp</span></span></span><br><span class="line"><span class="class">    &#125;</span></span><br><span class="line"><span class="class">&#125;</span></span><br></pre></td></tr></table></figure><p>这种方式算是上一种方式的优化版。  </p><p>有的时候我们需要定义几个结构比较简单的class，又不可以将之放在同一个package下，就可以采用这种方案。</p><h3 id="组合式"><a href="#组合式" class="headerlink" title="组合式"></a>组合式</h3><p>定义package的时候还可以把第一种方式和第二或第三种方式组合起来使用：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.zhyea</span><br><span class="line"></span><br><span class="line"><span class="keyword">package</span> robin&#123;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">MyApp</span></span></span><br><span class="line"><span class="class">&#125;</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class"><span class="title">package</span> <span class="title">tom</span></span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">MyApp</span></span></span><br><span class="line"><span class="class">&#125;</span></span><br></pre></td></tr></table></figure></p><h2 id="package特性"><a href="#package特性" class="headerlink" title="package特性"></a>package特性</h2><p>比较起Java来，scala的package定义有许多特别的地方：</p><ol><li>scala的包定义不受源文件所在目录结构的限制；</li><li>同一个包的定义是可以在不同的源文件中的；</li><li>同一个源文件中是可以存在多个包的。</li></ol><p>java的包声明和文件系统关联比较紧密，比如java的一个public类com.zhyea.Test，我们就可以判断出这个类的源文件是在类路径的com/zhyea路径下。</p><p>scala的包声明不受文件系统的限制，比如一个位于com/zhyea路径下的scala源文件，其顶端的包声明完全可以是“package org.chobit”。另外scala也并不要求源文件的名称要与类名相同。</p><p>根据前面说到的第三种和第四种包定义方式，一个文件中存在多个包是没有问题的。另外一个源文件中定义的多个包可以互相没有任何关系，比如下面这样的定义：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.zhyea&#123;</span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">MyApp</span></span></span><br><span class="line"><span class="class">&#125;</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class"><span class="title">package</span> <span class="title">org</span>.<span class="title">chobit</span></span>&#123;</span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">MyApp</span></span></span><br><span class="line"><span class="class">&#125;</span></span><br></pre></td></tr></table></figure></p><p>这里定义的两个package不必一定要有相同的父级包。</p><h2 id="package的相对路径和绝对路径"><a href="#package的相对路径和绝对路径" class="headerlink" title="package的相对路径和绝对路径"></a>package的相对路径和绝对路径</h2><p>先来看一段代码：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.zhyea &#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">package</span> scala &#123;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">MyApp</span> </span>&#123;</span><br><span class="line">      <span class="keyword">val</span> list = <span class="keyword">new</span> scala.collection.mutable.<span class="type">ArrayBuffer</span>[<span class="type">String</span>] <span class="comment">//会在此处报错，使用了相对路径</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>这段代码会在标明的位置报错。因为scala默认会在当前位置向上的相对路径中去找相关的类。在标明会报错的那一行的父级包正好是scala，所以实际上声明的list是这样的类型：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> list = <span class="keyword">new</span> com.zhyea.scala.collection.mutable.<span class="type">ArrayBuffer</span>[<span class="type">String</span>]</span><br></pre></td></tr></table></figure></p><p>编译器会从com.zhyea.scala中去找声明的类，找不到自然就会报错。</p><p>在编程的时候应当尽量避免出现问题。如果是在无法避免可以使用“_root_”声明通过绝对路径去寻找相关的类。如下：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.zhyea &#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">package</span> scala &#123;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">MyApp</span> </span>&#123;</span><br><span class="line">      <span class="keyword">val</span> list = <span class="keyword">new</span> _root_.scala.collection.mutable.<span class="type">ArrayBuffer</span>[<span class="type">String</span>] <span class="comment">//通过绝对路径查找，不会报错</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>Scala 定义<em>root</em>包为用户可创建的包之外的包，也就是说任何顶层包都被当作是<em>root</em>包的成员。</p><h2 id="package可见性"><a href="#package可见性" class="headerlink" title="package可见性"></a>package可见性</h2><p>关于scala可见性的内容<a href="wiki/20180429/a11-accessModifier/">前面的一篇文</a>已经说了许多了。<br>这里仅提一点：scala子包中的类可以访问父包中的类。</p><p>不多说，直接看个例子好了：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.zhyea</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Fruit</span>(<span class="params">val name: <span class="type">String</span></span>)</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class"><span class="title">package</span> <span class="title">male</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">Worker</span>(<span class="params">name: <span class="type">String</span></span>) </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">eat</span></span>(fruit: <span class="type">Fruit</span>) = println(<span class="string">s"<span class="subst">$name</span> is eating <span class="subst">$&#123;fruit.name&#125;</span>"</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h2 id="package对象"><a href="#package对象" class="headerlink" title="package对象"></a>package对象</h2><p>package对象或者说package object是一种特殊的object。它的定义方式为：</p><blockquote><p>package object packageName{<br>    valueOrVariant<br>    methods<br>}</p></blockquote><p>package对象的名称需要与package的名称一致，否则就没有意义。package下面的类和对象可以直接访问同名package对象中定义的值或方法。</p><p>看个例子：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.zhyea &#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">package</span> <span class="class"><span class="keyword">object</span> <span class="title">student</span> </span>&#123;</span><br><span class="line">    <span class="keyword">val</span> job: <span class="type">String</span> = <span class="string">"Student"</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">duty</span></span>: <span class="type">String</span> = <span class="string">"Study"</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">package</span> student &#123;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Student</span>(<span class="params">val name: <span class="type">String</span></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">override</span> <span class="function"><span class="keyword">def</span> <span class="title">toString</span></span>(): <span class="type">String</span> = <span class="string">s"<span class="subst">$name</span>'s job is <span class="subst">$job</span>, and his/her duty is <span class="subst">$&#123;duty&#125;</span>"</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="class"><span class="keyword">object</span> <span class="title">MyApp</span> <span class="keyword">extends</span> <span class="title">App</span> </span>&#123;</span><br><span class="line">    println(<span class="keyword">new</span> student.<span class="type">Student</span>(<span class="string">"robin"</span>))</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>通过例子可以看出，scala通过package对象在package这一层对功能又做了一次聚合。通过package对象，scala可以解决一些功能增强及版本兼容相关的问题。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;这一节介绍一些关于package的内容。本来不想写关于package的内容的，因为一开始觉得没啥好写的。这次写因为发现了点儿可以写的内容。&lt;/p&gt;
+&lt;h2 id=&quot;package定义&quot;&gt;&lt;a href=&quot;#package定义&quot; class=&quot;headerlink&quot; titl
+      
+    
+    </summary>
+    
+      <category term="scala学习" scheme="http://scala.chobit.com/categories/scala%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>方法的点和括号是可选的</title>
@@ -406,101 +508,6 @@
       
         &lt;p&gt;这次会通过与Java比较的方式来说明scala是如何创建类的。&lt;/p&gt;
 &lt;h2 id=&quot;类定义&quot;&gt;&lt;a href=&quot;#类定义&quot; class=&quot;headerlink&quot; title=&quot;类定义&quot;&gt;&lt;/a&gt;类定义&lt;/h2&gt;&lt;p&gt;假设我们要定义一个学生类，先来看一下使用Java是如何
-      
-    
-    </summary>
-    
-      <category term="scala学习" scheme="http://scala.chobit.com/categories/scala%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>字符串和多行字符串</title>
-    <link href="http://scala.chobit.com/wiki/20180425/a07-stringAndMultiLineString/"/>
-    <id>http://scala.chobit.com/wiki/20180425/a07-stringAndMultiLineString/</id>
-    <published>2018-04-24T22:38:43.000Z</published>
-    <updated>2018-04-24T23:05:11.322Z</updated>
-    
-    <content type="html"><![CDATA[<p>scala中的字符串类就是java中的java.lang.String类。不过scala也为String提供了一个富封装类：scala.runtime.RichString。  </p><p>scala可以将java.lang.String类自动转换为scala.runtime.RichString类。这样就可以非常方便地使用capitalize()、lines()和reverse()等方法相对较便捷的方法。  </p><p>在scala里，对于字符串的支持中最显著的一个特性是对于heredoc的支持，也就是对多行文本的支持。在scala里创建多行字符串非常容易，只要将多行字符串放在三个双引号里就行。在下面的代码里创建了一个四行的字符串：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> info =</span><br><span class="line">  <span class="string">""</span><span class="string">"</span></span><br><span class="line"><span class="string">     这里是robin的信息：</span></span><br><span class="line"><span class="string">          robin的姓名：robin zhang；</span></span><br><span class="line"><span class="string">          robin的年龄：29；</span></span><br><span class="line"><span class="string">          robin的个人主页：zhyea.com</span></span><br><span class="line"><span class="string">  "</span><span class="string">""</span></span><br><span class="line"></span><br><span class="line">println(info)</span><br></pre></td></tr></table></figure></p><p>scala会将三个双引号间的内容保持原样输出。所以这样声明的字符串也被称为原始字符串。需要注意一点：在原始字符串中使用转义字符也不会被转义，仍然会原样输出。在scala解释器中演示一下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; val info =</span><br><span class="line">     | <span class="string">""</span><span class="string">"</span></span><br><span class="line"><span class="string">     |    My name is "</span>robin<span class="string">" \n</span></span><br><span class="line"><span class="string">     | Hello World!</span></span><br><span class="line"><span class="string">     | "</span><span class="string">""</span></span><br><span class="line">info: String =</span><br><span class="line"><span class="string">"</span></span><br><span class="line"><span class="string">   My name is "</span>robin<span class="string">" \n</span></span><br><span class="line"><span class="string">Hello World!</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line"></span><br><span class="line">scala&gt; println(info)</span><br><span class="line"></span><br><span class="line">   My name is <span class="string">"robin"</span> \n</span><br><span class="line">Hello World!</span><br></pre></td></tr></table></figure></p><p>我在原始字符串中使用了空格缩进、双引号和转义字符“\n”，在输出的时候这些都原样保留下来了。  </p><p>RichString提供的方法中比较常用的是stripMargin。这个方法需要配合管道符“|”一起使用。如果管道符用在多行字符串每行的起始位置，stripMargin()方法会去掉先导管道符“|”前所有的空白或控制字符。如果出现在其他地方，而不是每行的开始，就会保留管道符。看个实例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; val info =</span><br><span class="line">     | <span class="string">""</span><span class="string">"</span></span><br><span class="line"><span class="string">     |     |I'm trying to use method stripMargin.</span></span><br><span class="line"><span class="string">     | "</span><span class="string">""</span></span><br><span class="line">info: String =</span><br><span class="line"><span class="string">"</span></span><br><span class="line"><span class="string">I'm trying to use method stripMargin.</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line"></span><br><span class="line">scala&gt; println(info.stripMargin)</span><br><span class="line"></span><br><span class="line">I<span class="string">'m trying to use method stripMargin.</span></span><br></pre></td></tr></table></figure></p><p>如果出于某种原因，管道符号“|”有特殊的用途，可以用stripMargin的重载方法来选择其他字符作为每行字符串的先导字符</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;scala中的字符串类就是java中的java.lang.String类。不过scala也为String提供了一个富封装类：scala.runtime.RichString。  &lt;/p&gt;
-&lt;p&gt;scala可以将java.lang.String类自动转换为scala.runt
-      
-    
-    </summary>
-    
-      <category term="scala学习" scheme="http://scala.chobit.com/categories/scala%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>var和val变量</title>
-    <link href="http://scala.chobit.com/wiki/20180424/a06-varAndVal/"/>
-    <id>http://scala.chobit.com/wiki/20180424/a06-varAndVal/</id>
-    <published>2018-04-24T14:06:20.000Z</published>
-    <updated>2018-05-03T23:02:02.545Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="变量声明"><a href="#变量声明" class="headerlink" title="变量声明"></a>变量声明</h2><p>前面我们提过，在scala中声明变量使用var和val都是可行的。其中val是value（值）的简写，var指的是variant（变量）。</p><p>用val声明的变量是不可变的，被初始化后值就固定下来，不可以再被修改（这类似于java中的final关键字）。用var声明的变量是可变的，可以任意修改。  </p><p>在scala解释器中声明变量实例如下：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; var myVar:String = <span class="string">"my var string"</span></span><br><span class="line">myVar: String = my var string</span><br><span class="line"></span><br><span class="line">scala&gt; myVar = <span class="string">"update my var"</span></span><br><span class="line">myVar: String = update my var</span><br><span class="line"></span><br><span class="line">scala&gt; val myVal:String = <span class="string">"my val string"</span></span><br><span class="line">myVal: String = my val string</span><br><span class="line"></span><br><span class="line">scala&gt; myVal = <span class="string">"update my val"</span></span><br><span class="line">&lt;console&gt;:12: error: reassignment to val</span><br><span class="line">       myVal = <span class="string">"update my val"</span></span><br></pre></td></tr></table></figure><p>可以看到修改var变量是没有问题的。修改val变量时报错了，因为val变量是不可变的。  </p><p>仍然要注意这里说的不可变是针对变量本身而言，而非变量所指向的实例。比如说如果定义了一个StringBuffer的val变量如val buffer = new StringBuffer()，那么变量buffer再执行诸如buffer.append(“robin”)这样的操作来修改buffer实例也是可行的。  </p><p>在scala编程中应尽量优先使用val。这可以提升不变性和函数式风格。</p><h2 id="变量类型声明"><a href="#变量类型声明" class="headerlink" title="变量类型声明"></a>变量类型声明</h2><p>前面我们在声明变量时都指定了变量类型：  </p><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> myVal:<span class="type">String</span> = <span class="string">"my val string"</span></span><br></pre></td></tr></table></figure><p>不过在声明变量时，变量类型不是必需要指定的，像下面这样的写法也是完全没问题的：  </p><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> myVal = <span class="string">"my val string"</span></span><br><span class="line"><span class="keyword">var</span> myInt = <span class="number">10</span></span><br></pre></td></tr></table></figure><p>声明变量时，如没有指定变量类型，scala也可以根据变量的初始值来推断出变量的类型。因此，声明变量时如没有指定变量类型，就必须为其指定初始值，不然就会报错：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; var myVar;</span><br><span class="line">&lt;console&gt;:1: error: <span class="string">'='</span> expected but <span class="string">';'</span> found.</span><br><span class="line">var myVar;</span><br></pre></td></tr></table></figure><h2 id="声明多个变量"><a href="#声明多个变量" class="headerlink" title="声明多个变量"></a>声明多个变量</h2><p>scala也支持一次声明多个变量，像下面这样：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; <span class="keyword">var</span> a, b = <span class="number">100</span></span><br><span class="line">a: <span class="type">Int</span> = <span class="number">100</span></span><br><span class="line">b: <span class="type">Int</span> = <span class="number">100</span></span><br></pre></td></tr></table></figure></p><p>示例代码中同时声明了a， b两个变量，并为这两个变量同时赋值为100。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;变量声明&quot;&gt;&lt;a href=&quot;#变量声明&quot; class=&quot;headerlink&quot; title=&quot;变量声明&quot;&gt;&lt;/a&gt;变量声明&lt;/h2&gt;&lt;p&gt;前面我们提过，在scala中声明变量使用var和val都是可行的。其中val是value（值）的简写，var指的是varia
-      
-    
-    </summary>
-    
-      <category term="scala学习" scheme="http://scala.chobit.com/categories/scala%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>运算符和优先级</title>
-    <link href="http://scala.chobit.com/wiki/20180423/a05-operatorsInScala/"/>
-    <id>http://scala.chobit.com/wiki/20180423/a05-operatorsInScala/</id>
-    <published>2018-04-23T13:42:01.000Z</published>
-    <updated>2018-04-25T14:33:54.732Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><p>从语法上来说scala是没有运算符的。scala的运算符实际上是方法名，如1 + 2实际上就是1.+(2)。这些方法之所以能像运算符一样使用，是因为scala的一个特性：  </p><blockquote><p>如果方法的参数小于等于1个的话，那么“.”和括号就都是可选的  </p></blockquote><p>既然scala的运算符本质上是一个方法，那就说明我们可以自己实现或者重载这些所谓的运算符。下面的代码是一个复数做加法运算的示例，复数有实部和虚部，计算时需要分别处理：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Complex</span>(<span class="params">val real: <span class="type">Int</span>, val imaginary: <span class="type">Int</span></span>) </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">+</span></span>(operand: <span class="type">Complex</span>): <span class="type">Complex</span> = &#123;</span><br><span class="line">    <span class="keyword">new</span> <span class="type">Complex</span>(real + operand.real, imaginary + operand.imaginary)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">override</span> <span class="function"><span class="keyword">def</span> <span class="title">toString</span></span>(): <span class="type">String</span> = &#123;</span><br><span class="line">    real + (<span class="keyword">if</span> (imaginary &lt; <span class="number">0</span>) <span class="string">""</span> <span class="keyword">else</span> <span class="string">"+"</span>) + imaginary + <span class="string">"i"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">val</span> c1 = <span class="keyword">new</span> <span class="type">Complex</span>(<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line"><span class="keyword">val</span> c2 = <span class="keyword">new</span> <span class="type">Complex</span>(<span class="number">2</span>, <span class="number">-3</span>)</span><br><span class="line"><span class="keyword">val</span> sum = c1 + c2</span><br><span class="line"></span><br><span class="line">println(<span class="string">"("</span> + c1+ <span class="string">")+ ("</span> + c2 + <span class="string">")="</span> + sum)</span><br></pre></td></tr></table></figure></p><p>在代码的第一行创建了一个名为Complex的类、定义了一个有两个参数的构造器。  </p><p>在+方法里创建了一个新的Complex实例作为计算结果。结果的实部和虚部分别对应两个运算数实部和虚部之和。计算时c1+c2实际上就是c1.+(c2)。</p><p>看下上面程序的执行结果：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(1+2i)+ (2-3i)=3-1i</span><br></pre></td></tr></table></figure></p><h2 id="运算符的优先级"><a href="#运算符的优先级" class="headerlink" title="运算符的优先级"></a>运算符的优先级</h2><p>既然scala中看起来像运算符的东西都是方法，那么和运算符相关的一些内容，比如算数优先级，scala是怎样处理的呢？  </p><p>scala中确实没有算数优先级、但是它定义了方法优先级：方法的优先级由方法名的第一个字符决定，如果表达式里有两个相同优先级的方法，那么左边的方法优先级更高。下面从低到高列出了scala中方法名首字符的优先级：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">|</span><br><span class="line">^</span><br><span class="line">&amp;</span><br><span class="line">&lt; &gt;</span><br><span class="line">=  !</span><br><span class="line">: </span><br><span class="line">+   - </span><br><span class="line">*  /  % </span><br><span class="line">所有其他特殊字符</span><br></pre></td></tr></table></figure><p>我们在之前的Complex类中再添加一个乘法运算来演示下scala运算符的优先级：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">*</span></span>(operand: <span class="type">Complex</span>): <span class="type">Complex</span> = &#123;</span><br><span class="line">  println(<span class="string">"Calling *"</span>)</span><br><span class="line">  <span class="keyword">new</span> <span class="type">Complex</span>(real * operand.real - imaginary * operand.imaginary, real * operand.imaginary + imaginary * operand.real)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>调用代码：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> c1 = <span class="keyword">new</span> <span class="type">Complex</span>(<span class="number">1</span>, <span class="number">4</span>)</span><br><span class="line"><span class="keyword">val</span> c2 = <span class="keyword">new</span> <span class="type">Complex</span>(<span class="number">2</span>, <span class="number">-3</span>)</span><br><span class="line"><span class="keyword">val</span> c3 = <span class="keyword">new</span> <span class="type">Complex</span>(<span class="number">2</span>, <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">println(c1 + c2 * c3)</span><br></pre></td></tr></table></figure></p><p>执行结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Calling *</span><br><span class="line">Calling +</span><br><span class="line">11+2i</span><br></pre></td></tr></table></figure></p><p>可以看到*()方法先被执行了。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;运算符&quot;&gt;&lt;a href=&quot;#运算符&quot; class=&quot;headerlink&quot; title=&quot;运算符&quot;&gt;&lt;/a&gt;运算符&lt;/h2&gt;&lt;p&gt;从语法上来说scala是没有运算符的。scala的运算符实际上是方法名，如1 + 2实际上就是1.+(2)。这些方法之所以能像运算符
-      
-    
-    </summary>
-    
-      <category term="scala学习" scheme="http://scala.chobit.com/categories/scala%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>基本类型</title>
-    <link href="http://scala.chobit.com/wiki/20180423/a04-basicType/"/>
-    <id>http://scala.chobit.com/wiki/20180423/a04-basicType/</id>
-    <published>2018-04-22T22:46:39.000Z</published>
-    <updated>2018-04-23T22:54:53.737Z</updated>
-    
-    <content type="html"><![CDATA[<p>先声明一点，scala中是没有基本数据类型的。在scala中一切都是对象。  </p><p>在Java中数据类型分为基本类型和引用类型。虽然在JDK1.5以后引入了自动装箱和自动拆箱机制，简化了一些基本类型和引用类型的转换问题。但是我们仍然会遇到一些问题：</p><ul><li>默认值的问题，“Intege i”和“int i”声明的整型数值的默认值是不同的；</li><li>泛型的问题，List&lt;int&gt;这样的写法在Java中是不允许的；</li><li>直接量是不可以调用对象方法的，如1.toString()在Java中就会报错。 </li></ul><p>在scala中不会有这样的问题。一开始就提过了：在scala中一切都是对象。比如1.toString()这样的写法在scala中是完全可以的。对应着Java的每个基本类型，scala都有一个封装类，包括Byte、Char、Short、Int、Long、Float、Double和Boolean。scala的封装类和Java的基本类型是可以直接转换的，比如下面这段代码：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ScalaInt</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">playWithInt</span></span>() &#123;</span><br><span class="line"><span class="keyword">val</span> capacity: <span class="type">Int</span> = <span class="number">10</span></span><br><span class="line"><span class="keyword">val</span> list = <span class="keyword">new</span> java.util.<span class="type">ArrayList</span>[<span class="type">String</span>]  </span><br><span class="line">list.ensureCapacity(capacity)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>在这段代码中首先声明了一个scala.Int类型的值capacity，而后调用java API创建了一个ArrayList实例。ArrayList实例的ensureCapacity方法参数类型是一个Java的整型值。但是，我们直接将scala.Int类型的值capacity传递过去也并没有报错。在这里scala.Int变量capacity被隐式转换为java直接类型的变量。  </p><p>值得一提的是，在封装类之外，scala还有一种富封装类。比如，稍后我们用到循环的时候，通常会有这样的写法：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(i &lt;- <span class="number">1</span> to <span class="number">3</span>&gt;)&#123;</span><br><span class="line">    print(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>代码里有“1 to 3”或者说“1.to(3)”，其中的to方法不是scala.Int类型的方法，而是其对应的富封装类scala.runtime.RichInt中的方法。当scala推断出Int型的值1无法满足要求时就会调用它的intWrapper方法将其转为scala.runtime.RichInt类型，而后再调用它的to方法。  </p><p>在scala中直接量的封装类提供了算术运算方法，富封装类则封装了一些更常用的方法以方便开发使用。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;先声明一点，scala中是没有基本数据类型的。在scala中一切都是对象。  &lt;/p&gt;
-&lt;p&gt;在Java中数据类型分为基本类型和引用类型。虽然在JDK1.5以后引入了自动装箱和自动拆箱机制，简化了一些基本类型和引用类型的转换问题。但是我们仍然会遇到一些问题：&lt;/p&gt;
-&lt;ul
       
     
     </summary>

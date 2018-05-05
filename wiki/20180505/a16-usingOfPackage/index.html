@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    
+    <title>package的使用 | SCALA 手账</title>
+    
+    
+        <meta name="keywords" content="scala, scala学习, scala教程">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="这一节介绍一些关于package的内容。本来不想写关于package的内容的，因为一开始觉得没啥好写的。这次写因为发现了点儿可以写的内容。 package定义scala中package定义有如下几种方式： 在文件顶部定义。123package com.zhyea.robinclass MyApp 这种方式和java相同。   多层级package定义1234567package com&amp;#123;">
+<meta name="keywords" content="scala, scala学习, scala教程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="package的使用">
+<meta property="og:url" content="http://scala.chobit.com/wiki/20180505/a16-usingOfPackage/index.html">
+<meta property="og:site_name" content="SCALA 手账">
+<meta property="og:description" content="这一节介绍一些关于package的内容。本来不想写关于package的内容的，因为一开始觉得没啥好写的。这次写因为发现了点儿可以写的内容。 package定义scala中package定义有如下几种方式： 在文件顶部定义。123package com.zhyea.robinclass MyApp 这种方式和java相同。   多层级package定义1234567package com&amp;#123;">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-05-05T14:55:24.466Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="package的使用">
+<meta name="twitter:description" content="这一节介绍一些关于package的内容。本来不想写关于package的内容的，因为一开始觉得没啥好写的。这次写因为发现了点儿可以写的内容。 package定义scala中package定义有如下几种方式： 在文件顶部定义。123package com.zhyea.robinclass MyApp 这种方式和java相同。   多层级package定义1234567package com&amp;#123;">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="SCALA 手账" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="/favicon.ico">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-118765535-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+    
+        <script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?580ccff0585d80176b36536ea443032c";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+
+
+</head>
+</html>
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">SCALA 手账</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id="categories">
+        <h3 class="widget-title">
+            <span>分类</span>
+            &nbsp;
+            <a id="allExpand" href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree"> 
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            scala学习
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/20180419/a00-prepareEnv/">准备开发环境</a></li>  <li class="file"><a href="/wiki/20180421/a01-quickStart/">快速体验Scala - Scasite</a></li>  <li class="file"><a href="/wiki/20180421/a02-ineractiveCoding/">快速体验Scala - 交互式编程</a></li>  <li class="file"><a href="/wiki/20180422/a03-comment/">使用注释</a></li>  <li class="file"><a href="/wiki/20180423/a04-basicType/">基本类型</a></li>  <li class="file"><a href="/wiki/20180423/a05-operatorsInScala/">运算符和优先级</a></li>  <li class="file"><a href="/wiki/20180424/a06-varAndVal/">var和val变量</a></li>  <li class="file"><a href="/wiki/20180425/a07-stringAndMultiLineString/">字符串和多行字符串</a></li>  <li class="file"><a href="/wiki/20180426/a08-classDefine/">类定义和构造器</a></li>  <li class="file"><a href="/wiki/20180427/a09-classExtends/">类继承</a></li>  <li class="file"><a href="/wiki/20180427/a10-independentAndCompanionObject/">单例、独立对象和伴生对象</a></li>  <li class="file"><a href="/wiki/20180429/a11-accessModifier/">访问修饰符</a></li>  <li class="file"><a href="/wiki/20180429/a13-loopAndLoopControl/">循环和循环控制</a></li>  <li class="file"><a href="/wiki/20180430/a12-defineMethod/">方法的定义</a></li>  <li class="file"><a href="/wiki/20180501/a14-forLoopDetail/">for循环详述</a></li>  <li class="file"><a href="/wiki/20180501/a15-methodVsFunction/">方法VS函数</a></li>  <li class="file active"><a href="/wiki/20180505/a16-usingOfPackage/">package的使用</a></li>  <li class="file"><a href="/wiki/20180505/a17-aboutImport/">关于import</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            scala技巧
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/20180428/b000-useYield/">使用yield关键字</a></li>  <li class="file"><a href="/wiki/20180428/b001-useVeriableArguments/">使用变长参数</a></li>  <li class="file"><a href="/wiki/20180429/b002-assignmentSymbol/">scala赋值符号“=”</a></li>  <li class="file"><a href="/wiki/20180429/b003-equalitySymbol/">scala等于符号“==”</a></li>  <li class="file"><a href="/wiki/20180501/b004-objectMainMethod/">object中的main方法</a></li>  <li class="file"><a href="/wiki/20180501/b005-adaptivePractice/">scala中的自适应做法</a></li>  <li class="file"><a href="/wiki/20180502/b006-variableLengthParams/">可变长度参数</a></li>  <li class="file"><a href="/wiki/20180503/b007-pointlessMethod/">方法的点和括号是可选的</a></li>  <li class="file"><a href="/wiki/20180505/b008-usingOfBottomLine/">下划线的作用</a></li>  <li class="file"><a href="/wiki/20180505/b008-usingOfUnderscore/">下划线的作用</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/20180421/index/">scala手账 - 主页</a></li>  </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-a16-usingOfPackage" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/scala学习/">scala学习</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/20180505/a16-usingOfPackage/">
+            <time datetime="2018-05-05T10:16:34.000Z" itemprop="datePublished">2018-05-05</time>
+        </a>
+    </div>
+
+
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            package的使用
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">文章目录</strong>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#package定义"><span class="toc-number">1.</span> <span class="toc-text">package定义</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#在文件顶部定义。"><span class="toc-number">1.1.</span> <span class="toc-text">在文件顶部定义。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多层级package定义"><span class="toc-number">1.2.</span> <span class="toc-text">多层级package定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#串联式package定义"><span class="toc-number">1.3.</span> <span class="toc-text">串联式package定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#组合式"><span class="toc-number">1.4.</span> <span class="toc-text">组合式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#package特性"><span class="toc-number">2.</span> <span class="toc-text">package特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#package的相对路径和绝对路径"><span class="toc-number">3.</span> <span class="toc-text">package的相对路径和绝对路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#package可见性"><span class="toc-number">4.</span> <span class="toc-text">package可见性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#package对象"><span class="toc-number">5.</span> <span class="toc-text">package对象</span></a></li></ol>
+                </div>
+            
+        
+        
+            <p>这一节介绍一些关于package的内容。本来不想写关于package的内容的，因为一开始觉得没啥好写的。这次写因为发现了点儿可以写的内容。</p>
+<h2 id="package定义"><a href="#package定义" class="headerlink" title="package定义"></a>package定义</h2><p>scala中package定义有如下几种方式：</p>
+<h3 id="在文件顶部定义。"><a href="#在文件顶部定义。" class="headerlink" title="在文件顶部定义。"></a>在文件顶部定义。</h3><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.zhyea.robin</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyApp</span></span></span><br></pre></td></tr></table></figure>
+<p>这种方式和java相同。  </p>
+<h3 id="多层级package定义"><a href="#多层级package定义" class="headerlink" title="多层级package定义"></a>多层级package定义</h3><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com&#123;</span><br><span class="line">    <span class="keyword">package</span> zhyea&#123;</span><br><span class="line">        <span class="keyword">package</span> robin&#123;</span><br><span class="line">            <span class="class"><span class="keyword">class</span> <span class="title">MyApp</span></span></span><br><span class="line"><span class="class">        &#125;</span></span><br><span class="line"><span class="class">    &#125;</span></span><br><span class="line"><span class="class">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>这种定义方式比较繁琐，通常都不会采用。</p>
+<h3 id="串联式package定义"><a href="#串联式package定义" class="headerlink" title="串联式package定义"></a>串联式package定义</h3><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.zhyea&#123;</span><br><span class="line">    <span class="keyword">package</span> robin&#123;</span><br><span class="line">        <span class="class"><span class="keyword">class</span> <span class="title">MyApp</span></span></span><br><span class="line"><span class="class">    &#125;</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">    <span class="title">package</span> <span class="title">tom</span></span>&#123;</span><br><span class="line">        <span class="class"><span class="keyword">class</span> <span class="title">MyApp</span></span></span><br><span class="line"><span class="class">    &#125;</span></span><br><span class="line"><span class="class">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>这种方式算是上一种方式的优化版。  </p>
+<p>有的时候我们需要定义几个结构比较简单的class，又不可以将之放在同一个package下，就可以采用这种方案。</p>
+<h3 id="组合式"><a href="#组合式" class="headerlink" title="组合式"></a>组合式</h3><p>定义package的时候还可以把第一种方式和第二或第三种方式组合起来使用：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.zhyea</span><br><span class="line"></span><br><span class="line"><span class="keyword">package</span> robin&#123;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">MyApp</span></span></span><br><span class="line"><span class="class">&#125;</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class"><span class="title">package</span> <span class="title">tom</span></span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">MyApp</span></span></span><br><span class="line"><span class="class">&#125;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="package特性"><a href="#package特性" class="headerlink" title="package特性"></a>package特性</h2><p>比较起Java来，scala的package定义有许多特别的地方：</p>
+<ol>
+<li>scala的包定义不受源文件所在目录结构的限制；</li>
+<li>同一个包的定义是可以在不同的源文件中的；</li>
+<li>同一个源文件中是可以存在多个包的。</li>
+</ol>
+<p>java的包声明和文件系统关联比较紧密，比如java的一个public类com.zhyea.Test，我们就可以判断出这个类的源文件是在类路径的com/zhyea路径下。</p>
+<p>scala的包声明不受文件系统的限制，比如一个位于com/zhyea路径下的scala源文件，其顶端的包声明完全可以是“package org.chobit”。另外scala也并不要求源文件的名称要与类名相同。</p>
+<p>根据前面说到的第三种和第四种包定义方式，一个文件中存在多个包是没有问题的。另外一个源文件中定义的多个包可以互相没有任何关系，比如下面这样的定义：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.zhyea&#123;</span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">MyApp</span></span></span><br><span class="line"><span class="class">&#125;</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class"><span class="title">package</span> <span class="title">org</span>.<span class="title">chobit</span></span>&#123;</span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">MyApp</span></span></span><br><span class="line"><span class="class">&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>这里定义的两个package不必一定要有相同的父级包。</p>
+<h2 id="package的相对路径和绝对路径"><a href="#package的相对路径和绝对路径" class="headerlink" title="package的相对路径和绝对路径"></a>package的相对路径和绝对路径</h2><p>先来看一段代码：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.zhyea &#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">package</span> scala &#123;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">MyApp</span> </span>&#123;</span><br><span class="line">      <span class="keyword">val</span> list = <span class="keyword">new</span> scala.collection.mutable.<span class="type">ArrayBuffer</span>[<span class="type">String</span>] <span class="comment">//会在此处报错，使用了相对路径</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这段代码会在标明的位置报错。因为scala默认会在当前位置向上的相对路径中去找相关的类。在标明会报错的那一行的父级包正好是scala，所以实际上声明的list是这样的类型：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> list = <span class="keyword">new</span> com.zhyea.scala.collection.mutable.<span class="type">ArrayBuffer</span>[<span class="type">String</span>]</span><br></pre></td></tr></table></figure></p>
+<p>编译器会从com.zhyea.scala中去找声明的类，找不到自然就会报错。</p>
+<p>在编程的时候应当尽量避免出现问题。如果是在无法避免可以使用“_root_”声明通过绝对路径去寻找相关的类。如下：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.zhyea &#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">package</span> scala &#123;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">MyApp</span> </span>&#123;</span><br><span class="line">      <span class="keyword">val</span> list = <span class="keyword">new</span> _root_.scala.collection.mutable.<span class="type">ArrayBuffer</span>[<span class="type">String</span>] <span class="comment">//通过绝对路径查找，不会报错</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Scala 定义<em>root</em>包为用户可创建的包之外的包，也就是说任何顶层包都被当作是<em>root</em>包的成员。</p>
+<h2 id="package可见性"><a href="#package可见性" class="headerlink" title="package可见性"></a>package可见性</h2><p>关于scala可见性的内容<a href="wiki/20180429/a11-accessModifier/">前面的一篇文</a>已经说了许多了。<br>这里仅提一点：scala子包中的类可以访问父包中的类。</p>
+<p>不多说，直接看个例子好了：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.zhyea</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Fruit</span>(<span class="params">val name: <span class="type">String</span></span>)</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class"><span class="title">package</span> <span class="title">male</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">Worker</span>(<span class="params">name: <span class="type">String</span></span>) </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">eat</span></span>(fruit: <span class="type">Fruit</span>) = println(<span class="string">s"<span class="subst">$name</span> is eating <span class="subst">$&#123;fruit.name&#125;</span>"</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="package对象"><a href="#package对象" class="headerlink" title="package对象"></a>package对象</h2><p>package对象或者说package object是一种特殊的object。它的定义方式为：</p>
+<blockquote>
+<p>package object packageName{<br>    valueOrVariant<br>    methods<br>}</p>
+</blockquote>
+<p>package对象的名称需要与package的名称一致，否则就没有意义。package下面的类和对象可以直接访问同名package对象中定义的值或方法。</p>
+<p>看个例子：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.zhyea &#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">package</span> <span class="class"><span class="keyword">object</span> <span class="title">student</span> </span>&#123;</span><br><span class="line">    <span class="keyword">val</span> job: <span class="type">String</span> = <span class="string">"Student"</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">duty</span></span>: <span class="type">String</span> = <span class="string">"Study"</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">package</span> student &#123;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Student</span>(<span class="params">val name: <span class="type">String</span></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">override</span> <span class="function"><span class="keyword">def</span> <span class="title">toString</span></span>(): <span class="type">String</span> = <span class="string">s"<span class="subst">$name</span>'s job is <span class="subst">$job</span>, and his/her duty is <span class="subst">$&#123;duty&#125;</span>"</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="class"><span class="keyword">object</span> <span class="title">MyApp</span> <span class="keyword">extends</span> <span class="title">App</span> </span>&#123;</span><br><span class="line">    println(<span class="keyword">new</span> student.<span class="type">Student</span>(<span class="string">"robin"</span>))</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>通过例子可以看出，scala通过package对象在package这一层对功能又做了一次聚合。通过package对象，scala可以解决一些功能增强及版本兼容相关的问题。</p>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/wiki/20180505/b008-usingOfBottomLine/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    下划线的作用
+                
+            </div>
+        </a>
+    
+    
+        <a href="/wiki/20180503/b007-pointlessMethod/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">方法的点和括号是可选的</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            robin &copy; 2018 
+            <br> Powered by <a href="http://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a>. Theme - <a href="https://github.com/zthxxx/hexo-theme-Wikitten" rel="external nofollow noopener noreferrer" target="_blank">wikitten</a>
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
