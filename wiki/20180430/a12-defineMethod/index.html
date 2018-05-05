@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="SCALA 手账">
 <meta property="og:description" content="scala的方法关键字def声明开始。大致结构如下：1234def methodName ([list of parameters]) : [return type] = &amp;#123;   method body   [return [expr]]&amp;#125; scala方法名可以包含字符、数字以及各种符号。方法名不能以数字开头。虽然scala的方法名不能以数字开头，但是可以以特殊字符开头。可用的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-01T10:31:38.571Z">
+<meta property="og:updated_time" content="2018-05-01T13:42:09.971Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="方法的定义">
 <meta name="twitter:description" content="scala的方法关键字def声明开始。大致结构如下：1234def methodName ([list of parameters]) : [return type] = &amp;#123;   method body   [return [expr]]&amp;#125; scala方法名可以包含字符、数字以及各种符号。方法名不能以数字开头。虽然scala的方法名不能以数字开头，但是可以以特殊字符开头。可用的">
@@ -184,9 +184,9 @@ var _hmt = _hmt || [];
                             &nbsp;
                             scala技巧
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/20180428/b000-useYield/">使用yield关键字</a></li>  <li class="file"><a href="/wiki/20180428/b001-useVeriableArguments/">使用变长参数</a></li>  <li class="file"><a href="/wiki/20180429/b002-assignmentSymbol/">scala赋值符号“=”</a></li>  <li class="file"><a href="/wiki/20180429/b003-equalitySymbol/">scala等于符号“==”</a></li>  <li class="file"><a href="/wiki/20180501/b004-objectMainMethod/">object中的main方法</a></li>  <li class="file"><a href="/wiki/20180501/b005-adaptivePractice/">scala中的自适应做法</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/20180428/b000-useYield/">使用yield关键字</a></li>  <li class="file"><a href="/wiki/20180428/b001-useVeriableArguments/">使用变长参数</a></li>  <li class="file"><a href="/wiki/20180429/b002-assignmentSymbol/">scala赋值符号“=”</a></li>  <li class="file"><a href="/wiki/20180429/b003-equalitySymbol/">scala等于符号“==”</a></li>  <li class="file"><a href="/wiki/20180501/b004-objectMainMethod/">object中的main方法</a></li>  <li class="file"><a href="/wiki/20180501/b005-adaptivePractice/">scala中的自适应做法</a></li>  <li class="file"><a href="/wiki/20180502/b006-variableLengthParams/">可变长度参数</a></li>  <li class="file"><a href="/wiki/20180503/b007-pointlessMethod/">调用方法点和括号是可选的</a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/wiki/20180421/index/">scala手账 - 主页</a></li>  </ul> 
+                     <li class="file"><a href="/wiki/20180421/index/">scala手账 - 主页</a></li>  <li class="file"><a href="/wiki/20180501/a15-functionAndMethod/"></a></li>  </ul> 
     </div>
     <script>
         $(document).ready(function() {
@@ -315,7 +315,8 @@ var _hmt = _hmt || [];
 <li>显式声明了返回值类型时，方法定义中的“等号”不可以省略掉；</li>
 <li>没有显式声明返回值类型时，则默认方法返回值为Unit，此时方法定义中的“=”也可省略掉；</li>
 <li>使用return可以显式返回，但是不推荐这样做；</li>
-<li>方法中的return关键字是可以省略掉的，默认方法中的最后一行就是函数的值。</li>
+<li>方法中的return关键字是可以省略掉的，默认方法中的最后一行就是函数的值；</li>
+<li>对于递归方法，必须显式指明返回值类型。</li>
 </ul>
 <p>多提一点：在scala中分号也是可选的，不必在每个语句的后面都写上分号，这样会使代码更简洁。如果语句太长或者包含多行的话可以换行继续写，scala能够识别语句是否完整。通常使用分号的场景就是一行内有多条语句。</p>
 
