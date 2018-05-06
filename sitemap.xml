@@ -2,23 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://scala.chobit.com/wiki/20180506/b011-namedParam/</loc>
+    <loc>http://scala.chobit.com/wiki/20180506/b012-stringInterpolation/</loc>
     
-    <lastmod>2018-05-06T11:14:06.543Z</lastmod>
+    <lastmod>2018-05-06T13:31:00.169Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://scala.chobit.com/wiki/20180506/b012-stringOperates/</loc>
+    <loc>http://scala.chobit.com/wiki/20180421/index/</loc>
     
-    <lastmod>2018-05-06T11:02:07.419Z</lastmod>
+    <lastmod>2018-05-06T11:29:48.153Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://scala.chobit.com/wiki/20180506/b009-callByNameAndFunctionValue/</loc>
     
-    <lastmod>2018-05-06T10:59:38.815Z</lastmod>
+    <lastmod>2018-05-06T11:23:54.888Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://scala.chobit.com/wiki/20180506/b011-namedParam/</loc>
+    
+    <lastmod>2018-05-06T11:14:06.543Z</lastmod>
     
   </url>
   
@@ -54,13 +61,6 @@
     <loc>http://scala.chobit.com/wiki/20180505/b008-usageOfUnderscore/</loc>
     
     <lastmod>2018-05-05T11:31:33.231Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://scala.chobit.com/wiki/20180421/index/</loc>
-    
-    <lastmod>2018-05-05T05:46:55.890Z</lastmod>
     
   </url>
   
