@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="SCALA 手账">
 <meta property="og:description" content="scala的部分应用函数，是一种特殊的表达式。使用部分应用函数让我们在调用一个方法时可以不必提供全部的参数，只需要提供部分参数，或者完全不提供参数。 先来看一段代码：123456789101112131415161718import java.util.Dateobject PartiallyFunc &amp;#123;  def main(args: Array[String]): Unit = &amp;#">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-07T14:21:51.450Z">
+<meta property="og:updated_time" content="2018-05-07T14:37:23.611Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="部分应用函数">
 <meta name="twitter:description" content="scala的部分应用函数，是一种特殊的表达式。使用部分应用函数让我们在调用一个方法时可以不必提供全部的参数，只需要提供部分参数，或者完全不提供参数。 先来看一段代码：123456789101112131415161718import java.util.Dateobject PartiallyFunc &amp;#123;  def main(args: Array[String]): Unit = &amp;#">
@@ -318,7 +318,7 @@ var _hmt = _hmt || [];
 <p>重构后的代码中定义了一个logWithDateBound函数，并为这个函数绑定了第一个date参数，然后用下划线(_)替换缺失的参数列表。</p>
 <p>看下执行结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Mon May 07 07:29:05 CST 2018 : message1</span><br><span class="line">Mon May 07 07:29:05 CST 2018 : message2</span><br><span class="line">Mon May 07 07:29:05 CST 2018 : message2</span><br></pre></td></tr></table></figure></p>
 <p>通过反编译后的代码查看下logWithBound的类型：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Function1 logWithDateBound = <span class="keyword">new</span> AbstractFunction1() &#123; </span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">0L</span>;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">final</span> Date date$<span class="number">1</span>;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">apply</span><span class="params">(String x$<span class="number">1</span>)</span> </span>&#123; PartiallyFunc..MODULE$.log(<span class="keyword">this</span>.date$<span class="number">1</span>, x$<span class="number">1</span>); &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>在反编译后的代码中看到logWithDateBound的类型是Function1，apply方法参数类型为String，克制logWithDateBound函数是一个类型为(String)=&gt;Unit函数值。</p>
+<p>在反编译后的代码中看到logWithDateBound的类型是Function1，apply方法参数类型为String，可知logWithDateBound函数是一个类型为(String)=&gt;Unit函数值。</p>
 <p>再来总结一次：部分应用函数是在已有函数的基础上，提供部分默认参数，未提供默认参数的地方使用“_”替代，从而创建出一个函数值，在使用这个函数值（部分应用函数）的时候，只需提供“_”部分对应的参数即可。</p>
 <p>部分应用函数的作用就体现在“部分”两个子上。定义部分应用函数时，提供全部参数或者是不提供任何参数都有画蛇添足的嫌疑。</p>
 
