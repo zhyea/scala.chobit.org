@@ -13,11 +13,11 @@
 <meta name="keywords" content="scala, scala学习, scala教程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="scala字符串插值">
-<meta property="og:url" content="http://scala.chobit.com/wiki/20180506/b012-stringInterpolation/index.html">
+<meta property="og:url" content="http://scala.chobit.org/wiki/20180506/b012-stringInterpolation/index.html">
 <meta property="og:site_name" content="SCALA 手账">
 <meta property="og:description" content="简介自2.10.0版本开始，Scala提供了一种新的机制来根据数据生成字符串：字符串插值。字符串插值允许使用者将变量引用直接插入处理过的字面字符中。如下例：12val name=&quot;James&quot;println(s&quot;Hello,$name&quot;)//Hello,James 在上例中， s”Hello,$name” 是待处理字符串字面，编译器会对它做额外的工作。待处理字符串字面通过“号前的字符来标示（例如：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-06T13:54:13.778Z">
+<meta property="og:updated_time" content="2018-05-06T23:11:10.163Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="scala字符串插值">
 <meta name="twitter:description" content="简介自2.10.0版本开始，Scala提供了一种新的机制来根据数据生成字符串：字符串插值。字符串插值允许使用者将变量引用直接插入处理过的字面字符中。如下例：12val name=&quot;James&quot;println(s&quot;Hello,$name&quot;)//Hello,James 在上例中， s”Hello,$name” 是待处理字符串字面，编译器会对它做额外的工作。待处理字符串字面通过“号前的字符来标示（例如：">
@@ -186,7 +186,7 @@ var _hmt = _hmt || [];
                             &nbsp;
                             scala学习
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/20180419/a00-prepareEnv/">准备开发环境</a></li>  <li class="file"><a href="/wiki/20180421/a01-quickStart/">快速体验Scala - Scasite</a></li>  <li class="file"><a href="/wiki/20180421/a02-ineractiveCoding/">快速体验Scala - 交互式编程</a></li>  <li class="file"><a href="/wiki/20180422/a03-comment/">使用注释</a></li>  <li class="file"><a href="/wiki/20180423/a04-basicType/">基本类型</a></li>  <li class="file"><a href="/wiki/20180423/a05-operatorsInScala/">运算符和优先级</a></li>  <li class="file"><a href="/wiki/20180424/a06-varAndVal/">var和val变量</a></li>  <li class="file"><a href="/wiki/20180425/a07-stringAndMultiLineString/">字符串和多行字符串</a></li>  <li class="file"><a href="/wiki/20180426/a08-classDefine/">类定义和构造器</a></li>  <li class="file"><a href="/wiki/20180427/a09-classExtends/">类继承</a></li>  <li class="file"><a href="/wiki/20180427/a10-independentAndCompanionObject/">单例、独立对象和伴生对象</a></li>  <li class="file"><a href="/wiki/20180429/a11-accessModifier/">访问修饰符</a></li>  <li class="file"><a href="/wiki/20180429/a13-loopAndLoopControl/">循环和循环控制</a></li>  <li class="file"><a href="/wiki/20180430/a12-defineMethod/">方法的定义</a></li>  <li class="file"><a href="/wiki/20180501/a14-forLoopDetail/">for循环详述</a></li>  <li class="file"><a href="/wiki/20180501/a15-methodVsFunction/">方法VS函数</a></li>  <li class="file"><a href="/wiki/20180505/a16-usingOfPackage/">package的使用</a></li>  <li class="file"><a href="/wiki/20180505/a17-aboutImport/">关于import</a></li>  <li class="file"><a href="/wiki/20180506/a18-callByName/">传名参数 =>Unit</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/20180419/a00-prepareEnv/">准备开发环境</a></li>  <li class="file"><a href="/wiki/20180421/a01-quickStart/">快速体验Scala - Scasite</a></li>  <li class="file"><a href="/wiki/20180421/a02-ineractiveCoding/">快速体验Scala - 交互式编程</a></li>  <li class="file"><a href="/wiki/20180422/a03-comment/">使用注释</a></li>  <li class="file"><a href="/wiki/20180423/a04-basicType/">基本类型</a></li>  <li class="file"><a href="/wiki/20180423/a05-operatorsInScala/">运算符和优先级</a></li>  <li class="file"><a href="/wiki/20180424/a06-varAndVal/">var和val变量</a></li>  <li class="file"><a href="/wiki/20180425/a07-stringAndMultiLineString/">字符串和多行字符串</a></li>  <li class="file"><a href="/wiki/20180426/a08-classDefine/">类定义和构造器</a></li>  <li class="file"><a href="/wiki/20180427/a09-classExtends/">类继承</a></li>  <li class="file"><a href="/wiki/20180427/a10-independentAndCompanionObject/">单例、独立对象和伴生对象</a></li>  <li class="file"><a href="/wiki/20180429/a11-accessModifier/">访问修饰符</a></li>  <li class="file"><a href="/wiki/20180429/a13-loopAndLoopControl/">循环和循环控制</a></li>  <li class="file"><a href="/wiki/20180430/a12-defineMethod/">方法的定义</a></li>  <li class="file"><a href="/wiki/20180501/a14-forLoopDetail/">for循环详述</a></li>  <li class="file"><a href="/wiki/20180501/a15-methodVsFunction/">方法VS函数</a></li>  <li class="file"><a href="/wiki/20180505/a16-usingOfPackage/">package的使用</a></li>  <li class="file"><a href="/wiki/20180505/a17-aboutImport/">关于import</a></li>  <li class="file"><a href="/wiki/20180506/a18-callByName/">传名参数 =>Unit</a></li>  <li class="file"><a href="/wiki/20180507/a19-partiallyApplyFunction/">部分应用函数</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory open">
@@ -338,7 +338,7 @@ var _hmt = _hmt || [];
 <p>所以，JSON方法可以访问字符串的原生片段而每个表达式都是一个值。这个方法的一个简单但又令人迷惑的例子：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">implicit</span> <span class="class"><span class="keyword">class</span> <span class="title">JsonHelper</span>(<span class="params">val sc:<span class="type">StringContext</span></span>) <span class="keyword">extends</span> <span class="title">AnyVal</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">json</span></span>(args:<span class="type">Any</span>*):<span class="type">JSONObject</span>=&#123;</span><br><span class="line">    <span class="keyword">val</span> strings=sc.parts.iterator</span><br><span class="line">    <span class="keyword">val</span> expressions=args.iterator</span><br><span class="line">    <span class="keyword">var</span> buf=<span class="keyword">new</span> <span class="type">StringBuffer</span>(strings.next)</span><br><span class="line">    <span class="keyword">while</span>(strings.hasNext)&#123;</span><br><span class="line">      buf append expressions.next</span><br><span class="line">      buf append strings.next</span><br><span class="line">    &#125;</span><br><span class="line">    parseJson(buf)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>被处理过的字符串的每部分都是StringContext的成员。每个表达式的值都将传入到JSON方法的args参数。JSON方法接受这些值并合成一个大字符串，然后再解析成JSON格式。有一种更复杂的实现可以避免合成字符串的操作，它只是简单的直接通过原生字符串和表达式值构建JSON。</p>
 <h2 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h2><p>字符串插值目前对模式匹配语句不适用。此特性将在2.11版本中生效。</p>
-<p>本文转载自：<a href="https://docs.scala-lang.org/zh-cn/overviews/core/string-.html" rel="external nofollow noopener noreferrer" target="_blank">字符串插值</a></p>
+<p>本文转载自：<a href="https://docs.scala-lang.org/zh-cn/overviews/core/string-interpolation.html" rel="external nofollow noopener noreferrer" target="_blank">字符串插值</a></p>
 
             </div>
         
@@ -350,6 +350,15 @@ var _hmt = _hmt || [];
 
     
 <nav id="article-nav">
+    
+        <a href="/wiki/20180507/a19-partiallyApplyFunction/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    部分应用函数
+                
+            </div>
+        </a>
     
     
         <a href="/wiki/20180506/b011-namedParam/" id="article-nav-older" class="article-nav-link-wrap">

@@ -5,9 +5,9 @@
   <subtitle>scala</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://scala.chobit.com/"/>
-  <updated>2018-05-06T13:54:13.778Z</updated>
-  <id>http://scala.chobit.com/</id>
+  <link href="http://scala.chobit.org/"/>
+  <updated>2018-05-07T14:21:51.450Z</updated>
+  <id>http://scala.chobit.org/</id>
   
   <author>
     <name>robin</name>
@@ -17,13 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>scala字符串插值</title>
-    <link href="http://scala.chobit.com/wiki/20180506/b012-stringInterpolation/"/>
-    <id>http://scala.chobit.com/wiki/20180506/b012-stringInterpolation/</id>
-    <published>2018-05-06T11:02:07.000Z</published>
-    <updated>2018-05-06T13:54:13.778Z</updated>
+    <title>部分应用函数</title>
+    <link href="http://scala.chobit.org/wiki/20180507/a19-partiallyApplyFunction/"/>
+    <id>http://scala.chobit.org/wiki/20180507/a19-partiallyApplyFunction/</id>
+    <published>2018-05-06T22:50:33.000Z</published>
+    <updated>2018-05-07T14:21:51.450Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>自2.10.0版本开始，Scala提供了一种新的机制来根据数据生成字符串：字符串插值。字符串插值允许使用者将变量引用直接插入处理过的字面字符中。如下例：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> name=<span class="string">"James"</span></span><br><span class="line">println(<span class="string">s"Hello,<span class="subst">$name</span>"</span>)<span class="comment">//Hello,James</span></span><br></pre></td></tr></table></figure></p><p>在上例中， s”Hello,$name” 是待处理字符串字面，编译器会对它做额外的工作。待处理字符串字面通过“号前的字符来标示（例如：上例中是s）。</p><h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><p>Scala 提供了三种创新的字符串插值方法：s,f 和 raw.</p><h3 id="s-字符串插值器"><a href="#s-字符串插值器" class="headerlink" title="s 字符串插值器"></a>s 字符串插值器</h3><p>在任何字符串前加上s，就可以直接在串中使用变量了。你已经见过这个例子：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> name=<span class="string">"James"</span></span><br><span class="line">println(<span class="string">s"Hello,<span class="subst">$name</span>"</span>)<span class="comment">//Hello,James</span></span><br></pre></td></tr></table></figure></p><p>此例中，$name嵌套在一个将被s字符串插值器处理的字符串中。插值器知道在这个字符串的这个地方应该插入这个name变量的值，以使输出字符串为Hello,James。使用s插值器，在这个字符串中可以使用任何在处理范围内的名字。  </p><p>字符串插值器也可以处理任意的表达式。例如：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">println(<span class="string">s"1+1=<span class="subst">$&#123;1+1&#125;</span>"</span>)</span><br></pre></td></tr></table></figure></p><p>将会输出字符串1+1=2。任何表达式都可以嵌入到${}中。</p><h3 id="f-插值器"><a href="#f-插值器" class="headerlink" title="f 插值器"></a>f 插值器</h3><p>在任何字符串字面前加上 f，就可以生成简单的格式化串，功能相似于其他语言中的 printf 函数。当使用 f 插值器的时候，所有的变量引用都应当后跟一个printf-style格式的字符串，如%d。看下面这个例子：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> height=<span class="number">1.9</span>d</span><br><span class="line"><span class="keyword">val</span> name=<span class="string">"James"</span></span><br><span class="line">println(<span class="string">f"<span class="subst">$name</span>%s is <span class="subst">$height</span>%2.2f meters tall"</span>)<span class="comment">//James is 1.90 meters tall</span></span><br></pre></td></tr></table></figure></p><p>f 插值器是类型安全的。如果试图向只支持 int 的格式化串传入一个double 值，编译器则会报错。例如：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">val height:Double=1.9d</span><br><span class="line"></span><br><span class="line">scala&gt;f<span class="string">"<span class="variable">$height</span>%4d"</span></span><br><span class="line">&lt;console&gt;:9: error: <span class="built_in">type</span> mismatch;</span><br><span class="line"> found : Double</span><br><span class="line"> required: Int</span><br><span class="line">           f<span class="string">"<span class="variable">$height</span>%4d"</span></span><br><span class="line">              ^ f</span><br></pre></td></tr></table></figure><p>插值器利用了java中的字符串数据格式。这种以%开头的格式在 [Formatter javadoc] 中有相关概述。如果在具体变量后没有%，则格式化程序默认使用 %s（串型）格式。</p><h3 id="raw-插值器"><a href="#raw-插值器" class="headerlink" title="raw 插值器"></a>raw 插值器</h3><p>除了对字面值中的字符不做编码外，raw 插值器与 s 插值器在功能上是相同的。如下是个被处理过的字符串：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">scala&gt;s<span class="string">"a\nb"</span></span><br><span class="line">res0:String=</span><br><span class="line">a</span><br><span class="line">b</span><br></pre></td></tr></table></figure></p><p>这里，s 插值器用回车代替了\n。而raw插值器却不会如此处理。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scala&gt;raw<span class="string">"a\nb"</span></span><br><span class="line">res1:String=a\nb</span><br></pre></td></tr></table></figure></p><p>当不想输入\n被转换为回车的时候，raw 插值器是非常实用的。  </p><p>除了以上三种字符串插值器外，使用者可以自定义插值器。</p><h2 id="高级用法"><a href="#高级用法" class="headerlink" title="高级用法"></a>高级用法</h2><p>在Scala中，所有处理过的字符串字面值都进行了简单编码转换。任何时候编译器遇到一个如下形式的字符串字面值：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">id"string content"</span></span><br></pre></td></tr></table></figure></p><p>它都会被转换成一个StringContext实例的call(id)方法。这个方法在隐式范围内仍可用。只需要简单得建立一个隐类，给StringContext实例增加一个新方法，便可以定义我们自己的字符串插值器。如下例：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//注意：为了避免运行时实例化，我们从AnyVal中继承。</span></span><br><span class="line"><span class="comment">//更多信息请见值类的说明</span></span><br><span class="line"><span class="keyword">implicit</span> <span class="class"><span class="keyword">class</span> <span class="title">JsonHelper</span>(<span class="params">val sc:<span class="type">StringContext</span></span>) <span class="keyword">extends</span> <span class="title">AnyVal</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">json</span></span>(args:<span class="type">Any</span>*):<span class="type">JSONObject</span>=sys.error(<span class="string">"TODO-IMPLEMENT"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">giveMeSomeJson</span></span>(x:<span class="type">JSONObject</span>):<span class="type">Unit</span>=...</span><br><span class="line"></span><br><span class="line">giveMeSomeJson(<span class="string">json"&#123;name:<span class="subst">$name</span>,id:<span class="subst">$id</span>&#125;"</span>)</span><br></pre></td></tr></table></figure></p><p>在这个例子中，我们试图通过字符串插值生成一个JSON文本语法。隐类JsonHelper作用域内使用该语法，且这个JSON方法需要一个完整的实现。只不过，字符串字面值格式化的结果不是一个字符串，而是一个JSON对象。<br>当编译器遇到“{name:\$name, id:\$id”}”，它将会被重写成如下表达式：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="type">StringContext</span>(<span class="string">"&#123;name:"</span>,<span class="string">",id:"</span>,<span class="string">"&#125;"</span>).json(name,id)</span><br></pre></td></tr></table></figure></p><p>隐类则被重写成如下形式<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="type">JsonHelper</span>(<span class="keyword">new</span> <span class="type">StringContext</span>(<span class="string">"&#123;name:"</span>,<span class="string">",id:"</span>,<span class="string">"&#125;"</span>)).json(name,id)</span><br></pre></td></tr></table></figure></p><p>所以，JSON方法可以访问字符串的原生片段而每个表达式都是一个值。这个方法的一个简单但又令人迷惑的例子：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">implicit</span> <span class="class"><span class="keyword">class</span> <span class="title">JsonHelper</span>(<span class="params">val sc:<span class="type">StringContext</span></span>) <span class="keyword">extends</span> <span class="title">AnyVal</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">json</span></span>(args:<span class="type">Any</span>*):<span class="type">JSONObject</span>=&#123;</span><br><span class="line">    <span class="keyword">val</span> strings=sc.parts.iterator</span><br><span class="line">    <span class="keyword">val</span> expressions=args.iterator</span><br><span class="line">    <span class="keyword">var</span> buf=<span class="keyword">new</span> <span class="type">StringBuffer</span>(strings.next)</span><br><span class="line">    <span class="keyword">while</span>(strings.hasNext)&#123;</span><br><span class="line">      buf append expressions.next</span><br><span class="line">      buf append strings.next</span><br><span class="line">    &#125;</span><br><span class="line">    parseJson(buf)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>被处理过的字符串的每部分都是StringContext的成员。每个表达式的值都将传入到JSON方法的args参数。JSON方法接受这些值并合成一个大字符串，然后再解析成JSON格式。有一种更复杂的实现可以避免合成字符串的操作，它只是简单的直接通过原生字符串和表达式值构建JSON。</p><h2 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h2><p>字符串插值目前对模式匹配语句不适用。此特性将在2.11版本中生效。</p><p>本文转载自：<a href="https://docs.scala-lang.org/zh-cn/overviews/core/string-.html" rel="external nofollow noopener noreferrer" target="_blank">字符串插值</a></p>]]></content>
+    <content type="html"><![CDATA[<p>scala的部分应用函数，是一种特殊的表达式。使用部分应用函数让我们在调用一个方法时可以不必提供全部的参数，只需要提供部分参数，或者完全不提供参数。</p><p>先来看一段代码：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.<span class="type">Date</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">object</span> <span class="title">PartiallyFunc</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">main</span></span>(args: <span class="type">Array</span>[<span class="type">String</span>]): <span class="type">Unit</span> = &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">val</span> date = <span class="keyword">new</span> <span class="type">Date</span>()</span><br><span class="line"></span><br><span class="line">    log(date, <span class="string">"message1"</span>)</span><br><span class="line">    log(date, <span class="string">"message2"</span>)</span><br><span class="line">    log(date, <span class="string">"message2"</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">log</span></span>(date: <span class="type">Date</span>, message: <span class="type">String</span>): <span class="type">Unit</span> = &#123;</span><br><span class="line">    println(<span class="string">s"<span class="subst">$date</span> : <span class="subst">$message</span>"</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>在这段代码中，连续调用了log方法三次，每次传入的参数中date是相同的，message是不同的。<br>要避免每次都输入这个相同的参数date可以考虑使用部分应用函数。部分应用函数要解决的问题就是：在一个比较小的作用域内连续调用一个已有方法或函数时，避免重复输入相同的参数。  </p><p>用部分应用函数重构下刚才的代码：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.<span class="type">Date</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">object</span> <span class="title">PartiallyFunc</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">main</span></span>(args: <span class="type">Array</span>[<span class="type">String</span>]): <span class="type">Unit</span> = &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">val</span> date = <span class="keyword">new</span> <span class="type">Date</span>()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">val</span> logWithDateBound = log(date, _: <span class="type">String</span>) <span class="comment">//需要提供的参数必须使用通配符，不可用参数名</span></span><br><span class="line"></span><br><span class="line">    logWithDateBound(<span class="string">"message1"</span>)</span><br><span class="line">    logWithDateBound(<span class="string">"message2"</span>)</span><br><span class="line">    logWithDateBound(<span class="string">"message2"</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">log</span></span>(date: <span class="type">Date</span>, message: <span class="type">String</span>): <span class="type">Unit</span> = &#123;</span><br><span class="line">    println(<span class="string">s"<span class="subst">$date</span> : <span class="subst">$message</span>"</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>重构后的代码中定义了一个logWithDateBound函数，并为这个函数绑定了第一个date参数，然后用下划线(_)替换缺失的参数列表。</p><p>看下执行结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Mon May 07 07:29:05 CST 2018 : message1</span><br><span class="line">Mon May 07 07:29:05 CST 2018 : message2</span><br><span class="line">Mon May 07 07:29:05 CST 2018 : message2</span><br></pre></td></tr></table></figure></p><p>通过反编译后的代码查看下logWithBound的类型：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Function1 logWithDateBound = <span class="keyword">new</span> AbstractFunction1() &#123; </span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">0L</span>;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">final</span> Date date$<span class="number">1</span>;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">apply</span><span class="params">(String x$<span class="number">1</span>)</span> </span>&#123; PartiallyFunc..MODULE$.log(<span class="keyword">this</span>.date$<span class="number">1</span>, x$<span class="number">1</span>); &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p><p>在反编译后的代码中看到logWithDateBound的类型是Function1，apply方法参数类型为String，克制logWithDateBound函数是一个类型为(String)=&gt;Unit函数值。</p><p>再来总结一次：部分应用函数是在已有函数的基础上，提供部分默认参数，未提供默认参数的地方使用“_”替代，从而创建出一个函数值，在使用这个函数值（部分应用函数）的时候，只需提供“_”部分对应的参数即可。</p><p>部分应用函数的作用就体现在“部分”两个子上。定义部分应用函数时，提供全部参数或者是不提供任何参数都有画蛇添足的嫌疑。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;scala的部分应用函数，是一种特殊的表达式。使用部分应用函数让我们在调用一个方法时可以不必提供全部的参数，只需要提供部分参数，或者完全不提供参数。&lt;/p&gt;
+&lt;p&gt;先来看一段代码：&lt;br&gt;&lt;figure class=&quot;highlight scala&quot;&gt;&lt;table&gt;&lt;tr&gt;
+      
+    
+    </summary>
+    
+      <category term="scala学习" scheme="http://scala.chobit.org/categories/scala%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>scala字符串插值</title>
+    <link href="http://scala.chobit.org/wiki/20180506/b012-stringInterpolation/"/>
+    <id>http://scala.chobit.org/wiki/20180506/b012-stringInterpolation/</id>
+    <published>2018-05-06T11:02:07.000Z</published>
+    <updated>2018-05-06T23:11:10.163Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>自2.10.0版本开始，Scala提供了一种新的机制来根据数据生成字符串：字符串插值。字符串插值允许使用者将变量引用直接插入处理过的字面字符中。如下例：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> name=<span class="string">"James"</span></span><br><span class="line">println(<span class="string">s"Hello,<span class="subst">$name</span>"</span>)<span class="comment">//Hello,James</span></span><br></pre></td></tr></table></figure></p><p>在上例中， s”Hello,$name” 是待处理字符串字面，编译器会对它做额外的工作。待处理字符串字面通过“号前的字符来标示（例如：上例中是s）。</p><h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><p>Scala 提供了三种创新的字符串插值方法：s,f 和 raw.</p><h3 id="s-字符串插值器"><a href="#s-字符串插值器" class="headerlink" title="s 字符串插值器"></a>s 字符串插值器</h3><p>在任何字符串前加上s，就可以直接在串中使用变量了。你已经见过这个例子：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> name=<span class="string">"James"</span></span><br><span class="line">println(<span class="string">s"Hello,<span class="subst">$name</span>"</span>)<span class="comment">//Hello,James</span></span><br></pre></td></tr></table></figure></p><p>此例中，$name嵌套在一个将被s字符串插值器处理的字符串中。插值器知道在这个字符串的这个地方应该插入这个name变量的值，以使输出字符串为Hello,James。使用s插值器，在这个字符串中可以使用任何在处理范围内的名字。  </p><p>字符串插值器也可以处理任意的表达式。例如：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">println(<span class="string">s"1+1=<span class="subst">$&#123;1+1&#125;</span>"</span>)</span><br></pre></td></tr></table></figure></p><p>将会输出字符串1+1=2。任何表达式都可以嵌入到${}中。</p><h3 id="f-插值器"><a href="#f-插值器" class="headerlink" title="f 插值器"></a>f 插值器</h3><p>在任何字符串字面前加上 f，就可以生成简单的格式化串，功能相似于其他语言中的 printf 函数。当使用 f 插值器的时候，所有的变量引用都应当后跟一个printf-style格式的字符串，如%d。看下面这个例子：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> height=<span class="number">1.9</span>d</span><br><span class="line"><span class="keyword">val</span> name=<span class="string">"James"</span></span><br><span class="line">println(<span class="string">f"<span class="subst">$name</span>%s is <span class="subst">$height</span>%2.2f meters tall"</span>)<span class="comment">//James is 1.90 meters tall</span></span><br></pre></td></tr></table></figure></p><p>f 插值器是类型安全的。如果试图向只支持 int 的格式化串传入一个double 值，编译器则会报错。例如：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">val height:Double=1.9d</span><br><span class="line"></span><br><span class="line">scala&gt;f<span class="string">"<span class="variable">$height</span>%4d"</span></span><br><span class="line">&lt;console&gt;:9: error: <span class="built_in">type</span> mismatch;</span><br><span class="line"> found : Double</span><br><span class="line"> required: Int</span><br><span class="line">           f<span class="string">"<span class="variable">$height</span>%4d"</span></span><br><span class="line">              ^ f</span><br></pre></td></tr></table></figure><p>插值器利用了java中的字符串数据格式。这种以%开头的格式在 [Formatter javadoc] 中有相关概述。如果在具体变量后没有%，则格式化程序默认使用 %s（串型）格式。</p><h3 id="raw-插值器"><a href="#raw-插值器" class="headerlink" title="raw 插值器"></a>raw 插值器</h3><p>除了对字面值中的字符不做编码外，raw 插值器与 s 插值器在功能上是相同的。如下是个被处理过的字符串：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">scala&gt;s<span class="string">"a\nb"</span></span><br><span class="line">res0:String=</span><br><span class="line">a</span><br><span class="line">b</span><br></pre></td></tr></table></figure></p><p>这里，s 插值器用回车代替了\n。而raw插值器却不会如此处理。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scala&gt;raw<span class="string">"a\nb"</span></span><br><span class="line">res1:String=a\nb</span><br></pre></td></tr></table></figure></p><p>当不想输入\n被转换为回车的时候，raw 插值器是非常实用的。  </p><p>除了以上三种字符串插值器外，使用者可以自定义插值器。</p><h2 id="高级用法"><a href="#高级用法" class="headerlink" title="高级用法"></a>高级用法</h2><p>在Scala中，所有处理过的字符串字面值都进行了简单编码转换。任何时候编译器遇到一个如下形式的字符串字面值：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">id"string content"</span></span><br></pre></td></tr></table></figure></p><p>它都会被转换成一个StringContext实例的call(id)方法。这个方法在隐式范围内仍可用。只需要简单得建立一个隐类，给StringContext实例增加一个新方法，便可以定义我们自己的字符串插值器。如下例：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//注意：为了避免运行时实例化，我们从AnyVal中继承。</span></span><br><span class="line"><span class="comment">//更多信息请见值类的说明</span></span><br><span class="line"><span class="keyword">implicit</span> <span class="class"><span class="keyword">class</span> <span class="title">JsonHelper</span>(<span class="params">val sc:<span class="type">StringContext</span></span>) <span class="keyword">extends</span> <span class="title">AnyVal</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">json</span></span>(args:<span class="type">Any</span>*):<span class="type">JSONObject</span>=sys.error(<span class="string">"TODO-IMPLEMENT"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">giveMeSomeJson</span></span>(x:<span class="type">JSONObject</span>):<span class="type">Unit</span>=...</span><br><span class="line"></span><br><span class="line">giveMeSomeJson(<span class="string">json"&#123;name:<span class="subst">$name</span>,id:<span class="subst">$id</span>&#125;"</span>)</span><br></pre></td></tr></table></figure></p><p>在这个例子中，我们试图通过字符串插值生成一个JSON文本语法。隐类JsonHelper作用域内使用该语法，且这个JSON方法需要一个完整的实现。只不过，字符串字面值格式化的结果不是一个字符串，而是一个JSON对象。<br>当编译器遇到“{name:\$name, id:\$id”}”，它将会被重写成如下表达式：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="type">StringContext</span>(<span class="string">"&#123;name:"</span>,<span class="string">",id:"</span>,<span class="string">"&#125;"</span>).json(name,id)</span><br></pre></td></tr></table></figure></p><p>隐类则被重写成如下形式<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="type">JsonHelper</span>(<span class="keyword">new</span> <span class="type">StringContext</span>(<span class="string">"&#123;name:"</span>,<span class="string">",id:"</span>,<span class="string">"&#125;"</span>)).json(name,id)</span><br></pre></td></tr></table></figure></p><p>所以，JSON方法可以访问字符串的原生片段而每个表达式都是一个值。这个方法的一个简单但又令人迷惑的例子：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">implicit</span> <span class="class"><span class="keyword">class</span> <span class="title">JsonHelper</span>(<span class="params">val sc:<span class="type">StringContext</span></span>) <span class="keyword">extends</span> <span class="title">AnyVal</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">json</span></span>(args:<span class="type">Any</span>*):<span class="type">JSONObject</span>=&#123;</span><br><span class="line">    <span class="keyword">val</span> strings=sc.parts.iterator</span><br><span class="line">    <span class="keyword">val</span> expressions=args.iterator</span><br><span class="line">    <span class="keyword">var</span> buf=<span class="keyword">new</span> <span class="type">StringBuffer</span>(strings.next)</span><br><span class="line">    <span class="keyword">while</span>(strings.hasNext)&#123;</span><br><span class="line">      buf append expressions.next</span><br><span class="line">      buf append strings.next</span><br><span class="line">    &#125;</span><br><span class="line">    parseJson(buf)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>被处理过的字符串的每部分都是StringContext的成员。每个表达式的值都将传入到JSON方法的args参数。JSON方法接受这些值并合成一个大字符串，然后再解析成JSON格式。有一种更复杂的实现可以避免合成字符串的操作，它只是简单的直接通过原生字符串和表达式值构建JSON。</p><h2 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h2><p>字符串插值目前对模式匹配语句不适用。此特性将在2.11版本中生效。</p><p>本文转载自：<a href="https://docs.scala-lang.org/zh-cn/overviews/core/string-interpolation.html" rel="external nofollow noopener noreferrer" target="_blank">字符串插值</a></p>]]></content>
     
     <summary type="html">
     
@@ -34,15 +58,15 @@
     
     </summary>
     
-      <category term="scala技巧" scheme="http://scala.chobit.com/categories/scala%E6%8A%80%E5%B7%A7/"/>
+      <category term="scala技巧" scheme="http://scala.chobit.org/categories/scala%E6%8A%80%E5%B7%A7/"/>
     
     
   </entry>
   
   <entry>
     <title>带名称的参数值</title>
-    <link href="http://scala.chobit.com/wiki/20180506/b011-namedParam/"/>
-    <id>http://scala.chobit.com/wiki/20180506/b011-namedParam/</id>
+    <link href="http://scala.chobit.org/wiki/20180506/b011-namedParam/"/>
+    <id>http://scala.chobit.org/wiki/20180506/b011-namedParam/</id>
     <published>2018-05-06T11:00:40.000Z</published>
     <updated>2018-05-06T11:14:06.543Z</updated>
     
@@ -57,15 +81,15 @@
     
     </summary>
     
-      <category term="scala技巧" scheme="http://scala.chobit.com/categories/scala%E6%8A%80%E5%B7%A7/"/>
+      <category term="scala技巧" scheme="http://scala.chobit.org/categories/scala%E6%8A%80%E5%B7%A7/"/>
     
     
   </entry>
   
   <entry>
     <title>参数默认值</title>
-    <link href="http://scala.chobit.com/wiki/20180506/b010-defaultParamValue/"/>
-    <id>http://scala.chobit.com/wiki/20180506/b010-defaultParamValue/</id>
+    <link href="http://scala.chobit.org/wiki/20180506/b010-defaultParamValue/"/>
+    <id>http://scala.chobit.org/wiki/20180506/b010-defaultParamValue/</id>
     <published>2018-05-06T10:45:01.000Z</published>
     <updated>2018-05-06T10:56:23.636Z</updated>
     
@@ -81,15 +105,15 @@
     
     </summary>
     
-      <category term="scala技巧" scheme="http://scala.chobit.com/categories/scala%E6%8A%80%E5%B7%A7/"/>
+      <category term="scala技巧" scheme="http://scala.chobit.org/categories/scala%E6%8A%80%E5%B7%A7/"/>
     
     
   </entry>
   
   <entry>
     <title>参数中的 =&gt;U 和 ()=&gt;U</title>
-    <link href="http://scala.chobit.com/wiki/20180506/b009-callByNameAndFunctionValue/"/>
-    <id>http://scala.chobit.com/wiki/20180506/b009-callByNameAndFunctionValue/</id>
+    <link href="http://scala.chobit.org/wiki/20180506/b009-callByNameAndFunctionValue/"/>
+    <id>http://scala.chobit.org/wiki/20180506/b009-callByNameAndFunctionValue/</id>
     <published>2018-05-06T10:06:30.000Z</published>
     <updated>2018-05-06T11:23:54.888Z</updated>
     
@@ -107,15 +131,15 @@
     
     </summary>
     
-      <category term="scala技巧" scheme="http://scala.chobit.com/categories/scala%E6%8A%80%E5%B7%A7/"/>
+      <category term="scala技巧" scheme="http://scala.chobit.org/categories/scala%E6%8A%80%E5%B7%A7/"/>
     
     
   </entry>
   
   <entry>
     <title>传名参数 =&gt;Unit</title>
-    <link href="http://scala.chobit.com/wiki/20180506/a18-callByName/"/>
-    <id>http://scala.chobit.com/wiki/20180506/a18-callByName/</id>
+    <link href="http://scala.chobit.org/wiki/20180506/a18-callByName/"/>
+    <id>http://scala.chobit.org/wiki/20180506/a18-callByName/</id>
     <published>2018-05-05T23:09:35.000Z</published>
     <updated>2018-05-06T10:59:30.758Z</updated>
     
@@ -133,15 +157,15 @@
     
     </summary>
     
-      <category term="scala学习" scheme="http://scala.chobit.com/categories/scala%E5%AD%A6%E4%B9%A0/"/>
+      <category term="scala学习" scheme="http://scala.chobit.org/categories/scala%E5%AD%A6%E4%B9%A0/"/>
     
     
   </entry>
   
   <entry>
     <title>关于import</title>
-    <link href="http://scala.chobit.com/wiki/20180505/a17-aboutImport/"/>
-    <id>http://scala.chobit.com/wiki/20180505/a17-aboutImport/</id>
+    <link href="http://scala.chobit.org/wiki/20180505/a17-aboutImport/"/>
+    <id>http://scala.chobit.org/wiki/20180505/a17-aboutImport/</id>
     <published>2018-05-05T14:56:26.000Z</published>
     <updated>2018-05-05T15:02:11.940Z</updated>
     
@@ -160,15 +184,15 @@
     
     </summary>
     
-      <category term="scala学习" scheme="http://scala.chobit.com/categories/scala%E5%AD%A6%E4%B9%A0/"/>
+      <category term="scala学习" scheme="http://scala.chobit.org/categories/scala%E5%AD%A6%E4%B9%A0/"/>
     
     
   </entry>
   
   <entry>
     <title>下划线的作用</title>
-    <link href="http://scala.chobit.com/wiki/20180505/b008-usageOfUnderscore/"/>
-    <id>http://scala.chobit.com/wiki/20180505/b008-usageOfUnderscore/</id>
+    <link href="http://scala.chobit.org/wiki/20180505/b008-usageOfUnderscore/"/>
+    <id>http://scala.chobit.org/wiki/20180505/b008-usageOfUnderscore/</id>
     <published>2018-05-05T10:22:46.000Z</published>
     <updated>2018-05-05T11:31:33.231Z</updated>
     
@@ -185,15 +209,15 @@
     
     </summary>
     
-      <category term="scala技巧" scheme="http://scala.chobit.com/categories/scala%E6%8A%80%E5%B7%A7/"/>
+      <category term="scala技巧" scheme="http://scala.chobit.org/categories/scala%E6%8A%80%E5%B7%A7/"/>
     
     
   </entry>
   
   <entry>
     <title>package的使用</title>
-    <link href="http://scala.chobit.com/wiki/20180505/a16-usingOfPackage/"/>
-    <id>http://scala.chobit.com/wiki/20180505/a16-usingOfPackage/</id>
+    <link href="http://scala.chobit.org/wiki/20180505/a16-usingOfPackage/"/>
+    <id>http://scala.chobit.org/wiki/20180505/a16-usingOfPackage/</id>
     <published>2018-05-05T10:16:34.000Z</published>
     <updated>2018-05-05T15:12:09.764Z</updated>
     
@@ -209,15 +233,15 @@
     
     </summary>
     
-      <category term="scala学习" scheme="http://scala.chobit.com/categories/scala%E5%AD%A6%E4%B9%A0/"/>
+      <category term="scala学习" scheme="http://scala.chobit.org/categories/scala%E5%AD%A6%E4%B9%A0/"/>
     
     
   </entry>
   
   <entry>
     <title>方法的点和括号是可选的</title>
-    <link href="http://scala.chobit.com/wiki/20180503/b007-pointlessMethod/"/>
-    <id>http://scala.chobit.com/wiki/20180503/b007-pointlessMethod/</id>
+    <link href="http://scala.chobit.org/wiki/20180503/b007-pointlessMethod/"/>
+    <id>http://scala.chobit.org/wiki/20180503/b007-pointlessMethod/</id>
     <published>2018-05-03T14:04:13.000Z</published>
     <updated>2018-05-05T02:38:36.572Z</updated>
     
@@ -234,15 +258,15 @@
     
     </summary>
     
-      <category term="scala技巧" scheme="http://scala.chobit.com/categories/scala%E6%8A%80%E5%B7%A7/"/>
+      <category term="scala技巧" scheme="http://scala.chobit.org/categories/scala%E6%8A%80%E5%B7%A7/"/>
     
     
   </entry>
   
   <entry>
     <title>可变长度参数</title>
-    <link href="http://scala.chobit.com/wiki/20180502/b006-variableLengthParams/"/>
-    <id>http://scala.chobit.com/wiki/20180502/b006-variableLengthParams/</id>
+    <link href="http://scala.chobit.org/wiki/20180502/b006-variableLengthParams/"/>
+    <id>http://scala.chobit.org/wiki/20180502/b006-variableLengthParams/</id>
     <published>2018-05-02T13:53:46.000Z</published>
     <updated>2018-05-05T04:50:18.868Z</updated>
     
@@ -262,15 +286,15 @@
     
     </summary>
     
-      <category term="scala技巧" scheme="http://scala.chobit.com/categories/scala%E6%8A%80%E5%B7%A7/"/>
+      <category term="scala技巧" scheme="http://scala.chobit.org/categories/scala%E6%8A%80%E5%B7%A7/"/>
     
     
   </entry>
   
   <entry>
     <title>for循环详述</title>
-    <link href="http://scala.chobit.com/wiki/20180501/a14-forLoopDetail/"/>
-    <id>http://scala.chobit.com/wiki/20180501/a14-forLoopDetail/</id>
+    <link href="http://scala.chobit.org/wiki/20180501/a14-forLoopDetail/"/>
+    <id>http://scala.chobit.org/wiki/20180501/a14-forLoopDetail/</id>
     <published>2018-05-01T05:12:49.000Z</published>
     <updated>2018-05-01T10:52:10.527Z</updated>
     
@@ -286,15 +310,15 @@
     
     </summary>
     
-      <category term="scala学习" scheme="http://scala.chobit.com/categories/scala%E5%AD%A6%E4%B9%A0/"/>
+      <category term="scala学习" scheme="http://scala.chobit.org/categories/scala%E5%AD%A6%E4%B9%A0/"/>
     
     
   </entry>
   
   <entry>
     <title>方法VS函数</title>
-    <link href="http://scala.chobit.com/wiki/20180501/a15-methodVsFunction/"/>
-    <id>http://scala.chobit.com/wiki/20180501/a15-methodVsFunction/</id>
+    <link href="http://scala.chobit.org/wiki/20180501/a15-methodVsFunction/"/>
+    <id>http://scala.chobit.org/wiki/20180501/a15-methodVsFunction/</id>
     <published>2018-05-01T02:23:25.000Z</published>
     <updated>2018-05-05T02:51:53.954Z</updated>
     
@@ -310,15 +334,15 @@
     
     </summary>
     
-      <category term="scala学习" scheme="http://scala.chobit.com/categories/scala%E5%AD%A6%E4%B9%A0/"/>
+      <category term="scala学习" scheme="http://scala.chobit.org/categories/scala%E5%AD%A6%E4%B9%A0/"/>
     
     
   </entry>
   
   <entry>
     <title>scala中的自适应做法</title>
-    <link href="http://scala.chobit.com/wiki/20180501/b005-adaptivePractice/"/>
-    <id>http://scala.chobit.com/wiki/20180501/b005-adaptivePractice/</id>
+    <link href="http://scala.chobit.org/wiki/20180501/b005-adaptivePractice/"/>
+    <id>http://scala.chobit.org/wiki/20180501/b005-adaptivePractice/</id>
     <published>2018-04-30T23:21:13.000Z</published>
     <updated>2018-05-01T04:31:43.481Z</updated>
     
@@ -337,15 +361,15 @@
     
     </summary>
     
-      <category term="scala技巧" scheme="http://scala.chobit.com/categories/scala%E6%8A%80%E5%B7%A7/"/>
+      <category term="scala技巧" scheme="http://scala.chobit.org/categories/scala%E6%8A%80%E5%B7%A7/"/>
     
     
   </entry>
   
   <entry>
     <title>object中的main方法</title>
-    <link href="http://scala.chobit.com/wiki/20180501/b004-objectMainMethod/"/>
-    <id>http://scala.chobit.com/wiki/20180501/b004-objectMainMethod/</id>
+    <link href="http://scala.chobit.org/wiki/20180501/b004-objectMainMethod/"/>
+    <id>http://scala.chobit.org/wiki/20180501/b004-objectMainMethod/</id>
     <published>2018-04-30T23:20:48.000Z</published>
     <updated>2018-05-01T05:11:55.393Z</updated>
     
@@ -361,15 +385,15 @@
     
     </summary>
     
-      <category term="scala技巧" scheme="http://scala.chobit.com/categories/scala%E6%8A%80%E5%B7%A7/"/>
+      <category term="scala技巧" scheme="http://scala.chobit.org/categories/scala%E6%8A%80%E5%B7%A7/"/>
     
     
   </entry>
   
   <entry>
     <title>方法的定义</title>
-    <link href="http://scala.chobit.com/wiki/20180430/a12-defineMethod/"/>
-    <id>http://scala.chobit.com/wiki/20180430/a12-defineMethod/</id>
+    <link href="http://scala.chobit.org/wiki/20180430/a12-defineMethod/"/>
+    <id>http://scala.chobit.org/wiki/20180430/a12-defineMethod/</id>
     <published>2018-04-30T09:23:00.000Z</published>
     <updated>2018-05-01T13:42:09.971Z</updated>
     
@@ -384,15 +408,15 @@
     
     </summary>
     
-      <category term="scala学习" scheme="http://scala.chobit.com/categories/scala%E5%AD%A6%E4%B9%A0/"/>
+      <category term="scala学习" scheme="http://scala.chobit.org/categories/scala%E5%AD%A6%E4%B9%A0/"/>
     
     
   </entry>
   
   <entry>
     <title>循环和循环控制</title>
-    <link href="http://scala.chobit.com/wiki/20180429/a13-loopAndLoopControl/"/>
-    <id>http://scala.chobit.com/wiki/20180429/a13-loopAndLoopControl/</id>
+    <link href="http://scala.chobit.org/wiki/20180429/a13-loopAndLoopControl/"/>
+    <id>http://scala.chobit.org/wiki/20180429/a13-loopAndLoopControl/</id>
     <published>2018-04-29T01:40:46.000Z</published>
     <updated>2018-05-01T09:06:20.140Z</updated>
     
@@ -410,15 +434,15 @@
     
     </summary>
     
-      <category term="scala学习" scheme="http://scala.chobit.com/categories/scala%E5%AD%A6%E4%B9%A0/"/>
+      <category term="scala学习" scheme="http://scala.chobit.org/categories/scala%E5%AD%A6%E4%B9%A0/"/>
     
     
   </entry>
   
   <entry>
     <title>scala等于符号“==”</title>
-    <link href="http://scala.chobit.com/wiki/20180429/b003-equalitySymbol/"/>
-    <id>http://scala.chobit.com/wiki/20180429/b003-equalitySymbol/</id>
+    <link href="http://scala.chobit.org/wiki/20180429/b003-equalitySymbol/"/>
+    <id>http://scala.chobit.org/wiki/20180429/b003-equalitySymbol/</id>
     <published>2018-04-29T01:27:28.000Z</published>
     <updated>2018-04-29T07:17:21.350Z</updated>
     
@@ -436,15 +460,15 @@
     
     </summary>
     
-      <category term="scala技巧" scheme="http://scala.chobit.com/categories/scala%E6%8A%80%E5%B7%A7/"/>
+      <category term="scala技巧" scheme="http://scala.chobit.org/categories/scala%E6%8A%80%E5%B7%A7/"/>
     
     
   </entry>
   
   <entry>
     <title>scala赋值符号“=”</title>
-    <link href="http://scala.chobit.com/wiki/20180429/b002-assignmentSymbol/"/>
-    <id>http://scala.chobit.com/wiki/20180429/b002-assignmentSymbol/</id>
+    <link href="http://scala.chobit.org/wiki/20180429/b002-assignmentSymbol/"/>
+    <id>http://scala.chobit.org/wiki/20180429/b002-assignmentSymbol/</id>
     <published>2018-04-29T01:15:04.000Z</published>
     <updated>2018-04-29T07:17:09.512Z</updated>
     
@@ -459,15 +483,15 @@
     
     </summary>
     
-      <category term="scala技巧" scheme="http://scala.chobit.com/categories/scala%E6%8A%80%E5%B7%A7/"/>
+      <category term="scala技巧" scheme="http://scala.chobit.org/categories/scala%E6%8A%80%E5%B7%A7/"/>
     
     
   </entry>
   
   <entry>
     <title>访问修饰符</title>
-    <link href="http://scala.chobit.com/wiki/20180429/a11-accessModifier/"/>
-    <id>http://scala.chobit.com/wiki/20180429/a11-accessModifier/</id>
+    <link href="http://scala.chobit.org/wiki/20180429/a11-accessModifier/"/>
+    <id>http://scala.chobit.org/wiki/20180429/a11-accessModifier/</id>
     <published>2018-04-28T22:38:56.000Z</published>
     <updated>2018-04-29T01:12:35.993Z</updated>
     
@@ -486,30 +510,7 @@
     
     </summary>
     
-      <category term="scala学习" scheme="http://scala.chobit.com/categories/scala%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>使用变长参数</title>
-    <link href="http://scala.chobit.com/wiki/20180428/b001-useVeriableArguments/"/>
-    <id>http://scala.chobit.com/wiki/20180428/b001-useVeriableArguments/</id>
-    <published>2018-04-28T13:37:35.000Z</published>
-    <updated>2018-04-29T07:16:57.718Z</updated>
-    
-    <content type="html"><![CDATA[<p>在Java中是可以使用变长参数的，如下面的方法：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">check</span><span class="params">(String... args)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (String tmp : args) &#123;</span><br><span class="line">        System.out.println(tmp);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>在scala中也可以使用变长参数。和java一样，也是只有最后一个参数可以接收可变长度的参数。使用方式是在参数类型后使用特殊符号“*”，如下面的max()方法：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">max</span></span>(values: <span class="type">Int</span>*) = values.foldLeft(<span class="number">0</span>) &#123;</span><br><span class="line">    java.lang.<span class="type">Math</span>.max</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>foldLeft是TraversableOnce类的方法。上面的代码实现了一个从一组整型数值中获取最大值的方法。  </p><p>不过和java不同的是，我们不能将一个数组中的元素当做变长参数直接传递给方法，来个测试案例看看：  </p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; def max(values: Int*) = values.foldLeft(0) &#123;Math.max&#125;</span><br><span class="line">max: (values: Int*)Int</span><br><span class="line"></span><br><span class="line">scala&gt; println(max(2, 5, 3, 7, 1, 6))</span><br><span class="line">7</span><br><span class="line"></span><br><span class="line">scala&gt; println(max( Array(2, 5, 3, 7, 1, 6)))</span><br><span class="line">&lt;console&gt;:13: error: <span class="built_in">type</span> mismatch;</span><br><span class="line"> found   : Array[Int]</span><br><span class="line"> required: Int</span><br><span class="line">       println(max( Array(2, 5, 3, 7, 1, 6)))</span><br></pre></td></tr></table></figure><p>可以看到在给max方法传递多个整型值作为参数时可以正常执行。但是将一个整型数组作为参数就报错了。  </p><p>如果想使用数组中的元素作为变长参数，可以将数组展开成为离散值：这里需要使用“:_*”符号组合。测试看看：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; println(max( Array(2, 5, 3, 7, 1, 6):_*))</span><br><span class="line">7</span><br></pre></td></tr></table></figure></p><p>这次执行成功了。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;在Java中是可以使用变长参数的，如下面的方法：&lt;br&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=
-      
-    
-    </summary>
-    
-      <category term="scala技巧" scheme="http://scala.chobit.com/categories/scala%E6%8A%80%E5%B7%A7/"/>
+      <category term="scala学习" scheme="http://scala.chobit.org/categories/scala%E5%AD%A6%E4%B9%A0/"/>
     
     
   </entry>

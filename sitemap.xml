@@ -2,252 +2,259 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://scala.chobit.com/wiki/20180506/b012-stringInterpolation/</loc>
+    <loc>http://scala.chobit.org/wiki/20180421/index/</loc>
     
-    <lastmod>2018-05-06T13:54:13.778Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://scala.chobit.com/wiki/20180421/index/</loc>
-    
-    <lastmod>2018-05-06T13:51:14.193Z</lastmod>
+    <lastmod>2018-05-07T14:21:53.442Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://scala.chobit.com/wiki/20180506/b009-callByNameAndFunctionValue/</loc>
+    <loc>http://scala.chobit.org/wiki/20180507/a19-partiallyApplyFunction/</loc>
+    
+    <lastmod>2018-05-07T14:21:51.450Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://scala.chobit.org/wiki/20180506/b012-stringInterpolation/</loc>
+    
+    <lastmod>2018-05-06T23:11:10.163Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://scala.chobit.org/wiki/20180506/b009-callByNameAndFunctionValue/</loc>
     
     <lastmod>2018-05-06T11:23:54.888Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://scala.chobit.com/wiki/20180506/b011-namedParam/</loc>
+    <loc>http://scala.chobit.org/wiki/20180506/b011-namedParam/</loc>
     
     <lastmod>2018-05-06T11:14:06.543Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://scala.chobit.com/wiki/20180506/a18-callByName/</loc>
+    <loc>http://scala.chobit.org/wiki/20180506/a18-callByName/</loc>
     
     <lastmod>2018-05-06T10:59:30.758Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://scala.chobit.com/wiki/20180506/b010-defaultParamValue/</loc>
+    <loc>http://scala.chobit.org/wiki/20180506/b010-defaultParamValue/</loc>
     
     <lastmod>2018-05-06T10:56:23.636Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://scala.chobit.com/wiki/20180505/a16-usingOfPackage/</loc>
+    <loc>http://scala.chobit.org/wiki/20180505/a16-usingOfPackage/</loc>
     
     <lastmod>2018-05-05T15:12:09.764Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://scala.chobit.com/wiki/20180505/a17-aboutImport/</loc>
+    <loc>http://scala.chobit.org/wiki/20180505/a17-aboutImport/</loc>
     
     <lastmod>2018-05-05T15:02:11.940Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://scala.chobit.com/wiki/20180505/b008-usageOfUnderscore/</loc>
+    <loc>http://scala.chobit.org/wiki/20180505/b008-usageOfUnderscore/</loc>
     
     <lastmod>2018-05-05T11:31:33.231Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://scala.chobit.com/wiki/20180502/b006-variableLengthParams/</loc>
+    <loc>http://scala.chobit.org/wiki/20180502/b006-variableLengthParams/</loc>
     
     <lastmod>2018-05-05T04:50:18.868Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://scala.chobit.com/wiki/20180501/a15-methodVsFunction/</loc>
+    <loc>http://scala.chobit.org/wiki/20180501/a15-methodVsFunction/</loc>
     
     <lastmod>2018-05-05T02:51:53.954Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://scala.chobit.com/wiki/20180503/b007-pointlessMethod/</loc>
+    <loc>http://scala.chobit.org/wiki/20180503/b007-pointlessMethod/</loc>
     
     <lastmod>2018-05-05T02:38:36.572Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://scala.chobit.com/wiki/20180424/a06-varAndVal/</loc>
+    <loc>http://scala.chobit.org/wiki/20180424/a06-varAndVal/</loc>
     
     <lastmod>2018-05-03T23:02:02.545Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://scala.chobit.com/wiki/20180430/a12-defineMethod/</loc>
+    <loc>http://scala.chobit.org/wiki/20180430/a12-defineMethod/</loc>
     
     <lastmod>2018-05-01T13:42:09.971Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://scala.chobit.com/wiki/20180501/a14-forLoopDetail/</loc>
+    <loc>http://scala.chobit.org/wiki/20180501/a14-forLoopDetail/</loc>
     
     <lastmod>2018-05-01T10:52:10.527Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://scala.chobit.com/wiki/20180429/a13-loopAndLoopControl/</loc>
+    <loc>http://scala.chobit.org/wiki/20180429/a13-loopAndLoopControl/</loc>
     
     <lastmod>2018-05-01T09:06:20.140Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://scala.chobit.com/wiki/20180501/b004-objectMainMethod/</loc>
+    <loc>http://scala.chobit.org/wiki/20180501/b004-objectMainMethod/</loc>
     
     <lastmod>2018-05-01T05:11:55.393Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://scala.chobit.com/wiki/20180501/b005-adaptivePractice/</loc>
+    <loc>http://scala.chobit.org/wiki/20180501/b005-adaptivePractice/</loc>
     
     <lastmod>2018-05-01T04:31:43.481Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://scala.chobit.com/wiki/20180429/b003-equalitySymbol/</loc>
+    <loc>http://scala.chobit.org/wiki/20180429/b003-equalitySymbol/</loc>
     
     <lastmod>2018-04-29T07:17:21.350Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://scala.chobit.com/wiki/20180429/b002-assignmentSymbol/</loc>
+    <loc>http://scala.chobit.org/wiki/20180429/b002-assignmentSymbol/</loc>
     
     <lastmod>2018-04-29T07:17:09.512Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://scala.chobit.com/wiki/20180428/b001-useVeriableArguments/</loc>
+    <loc>http://scala.chobit.org/wiki/20180428/b001-useVeriableArguments/</loc>
     
     <lastmod>2018-04-29T07:16:57.718Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://scala.chobit.com/wiki/20180428/b000-useYield/</loc>
+    <loc>http://scala.chobit.org/wiki/20180428/b000-useYield/</loc>
     
     <lastmod>2018-04-29T07:16:45.817Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://scala.chobit.com/wiki/20180429/a11-accessModifier/</loc>
+    <loc>http://scala.chobit.org/wiki/20180429/a11-accessModifier/</loc>
     
     <lastmod>2018-04-29T01:12:35.993Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://scala.chobit.com/wiki/20180427/a10-independentAndCompanionObject/</loc>
+    <loc>http://scala.chobit.org/wiki/20180427/a10-independentAndCompanionObject/</loc>
     
     <lastmod>2018-04-28T13:34:51.797Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://scala.chobit.com/wiki/20180426/a08-classDefine/</loc>
+    <loc>http://scala.chobit.org/wiki/20180426/a08-classDefine/</loc>
     
     <lastmod>2018-04-27T13:15:45.655Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://scala.chobit.com/wiki/20180427/a09-classExtends/</loc>
+    <loc>http://scala.chobit.org/wiki/20180427/a09-classExtends/</loc>
     
     <lastmod>2018-04-26T22:01:30.575Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://scala.chobit.com/wiki/20180423/a05-operatorsInScala/</loc>
+    <loc>http://scala.chobit.org/wiki/20180423/a05-operatorsInScala/</loc>
     
     <lastmod>2018-04-25T14:33:54.732Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://scala.chobit.com/wiki/20180425/a07-stringAndMultiLineString/</loc>
+    <loc>http://scala.chobit.org/wiki/20180425/a07-stringAndMultiLineString/</loc>
     
     <lastmod>2018-04-24T23:05:11.322Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://scala.chobit.com/wiki/20180423/a04-basicType/</loc>
+    <loc>http://scala.chobit.org/wiki/20180423/a04-basicType/</loc>
     
     <lastmod>2018-04-23T22:54:53.737Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://scala.chobit.com/wiki/20180422/a03-comment/</loc>
+    <loc>http://scala.chobit.org/wiki/20180422/a03-comment/</loc>
     
     <lastmod>2018-04-22T14:16:37.662Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://scala.chobit.com/wiki/20180421/a02-ineractiveCoding/</loc>
+    <loc>http://scala.chobit.org/wiki/20180421/a02-ineractiveCoding/</loc>
     
     <lastmod>2018-04-21T14:05:46.953Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://scala.chobit.com/wiki/20180419/a00-prepareEnv/</loc>
+    <loc>http://scala.chobit.org/wiki/20180419/a00-prepareEnv/</loc>
     
     <lastmod>2018-04-21T13:46:09.577Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://scala.chobit.com/wiki/20180421/a01-quickStart/</loc>
+    <loc>http://scala.chobit.org/wiki/20180421/a01-quickStart/</loc>
     
     <lastmod>2018-04-21T13:45:47.498Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://scala.chobit.com/tags/index.html</loc>
+    <loc>http://scala.chobit.org/tags/index.html</loc>
     
     <lastmod>2018-04-17T15:04:45.229Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://scala.chobit.com/categories/index.html</loc>
+    <loc>http://scala.chobit.org/categories/index.html</loc>
     
     <lastmod>2018-04-17T15:04:45.227Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://scala.chobit.com/about/index.html</loc>
+    <loc>http://scala.chobit.org/about/index.html</loc>
     
     <lastmod>2018-04-17T15:04:45.226Z</lastmod>
     
