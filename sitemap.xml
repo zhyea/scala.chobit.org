@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://scala.chobit.org/wiki/20180421/index/</loc>
+    <loc>http://scala.chobit.org/wiki/20180508/a20-partialFunction/</loc>
     
-    <lastmod>2018-05-08T23:19:26.116Z</lastmod>
+    <lastmod>2018-05-17T14:43:04.331Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://scala.chobit.org/wiki/20180508/a20-partialFunction/</loc>
+    <loc>http://scala.chobit.org/wiki/20180516/c01-particialFuncion/</loc>
     
-    <lastmod>2018-05-08T23:13:27.233Z</lastmod>
+    <lastmod>2018-05-15T23:12:52.038Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://scala.chobit.org/wiki/20180421/index/</loc>
+    
+    <lastmod>2018-05-15T23:05:40.842Z</lastmod>
     
   </url>
   
