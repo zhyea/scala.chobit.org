@@ -2,9 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://scala.chobit.org/wiki/20180423/a05-operatorsInScala/</loc>
+    
+    <lastmod>2018-05-19T14:13:09.316Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://scala.chobit.org/wiki/20180423/a04-basicType/</loc>
+    
+    <lastmod>2018-05-19T14:12:45.420Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://scala.chobit.org/wiki/20180422/a03-comment/</loc>
+    
+    <lastmod>2018-05-19T14:12:34.680Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://scala.chobit.org/wiki/20180421/a02-ineractiveCoding/</loc>
+    
+    <lastmod>2018-05-19T14:12:15.570Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://scala.chobit.org/wiki/20180519/b013-underscoreAndParams/</loc>
+    
+    <lastmod>2018-05-19T14:11:57.033Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://scala.chobit.org/wiki/20180518/a21-currying/</loc>
+    
+    <lastmod>2018-05-19T13:47:27.124Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://scala.chobit.org/wiki/20180508/a20-partialFunction/</loc>
     
-    <lastmod>2018-05-17T14:43:04.331Z</lastmod>
+    <lastmod>2018-05-17T15:14:18.551Z</lastmod>
     
   </url>
   
@@ -205,37 +247,9 @@
   </url>
   
   <url>
-    <loc>http://scala.chobit.org/wiki/20180423/a05-operatorsInScala/</loc>
-    
-    <lastmod>2018-04-25T14:33:54.732Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://scala.chobit.org/wiki/20180425/a07-stringAndMultiLineString/</loc>
     
     <lastmod>2018-04-24T23:05:11.322Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://scala.chobit.org/wiki/20180423/a04-basicType/</loc>
-    
-    <lastmod>2018-04-23T22:54:53.737Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://scala.chobit.org/wiki/20180422/a03-comment/</loc>
-    
-    <lastmod>2018-04-22T14:16:37.662Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://scala.chobit.org/wiki/20180421/a02-ineractiveCoding/</loc>
-    
-    <lastmod>2018-04-21T14:05:46.953Z</lastmod>
     
   </url>
   
