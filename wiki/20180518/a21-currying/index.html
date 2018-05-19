@@ -9,18 +9,18 @@
         <meta name="keywords" content="柯里化,Curry化">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="概述柯里化即Curry化。以发明人 Haskell Curry 命名。 scala里的curry化可以把函数从接收多个参数转换成接收多个参数列表。也就是说我们写的多参数函数不再只是这样子的：1def foo(a: Int, b: Int, c: Int) &amp;#123;???&amp;#125; 而是这样子的：1foo(1)(2)(3) 或者这样的：1foo(1)&amp;#123;2&amp;#125;&amp;#123;3&amp;#">
+    <meta name="description" content="概述Curry化也称柯里化。以Haskell发明人 Haskell Curry 命名。 scala里的curry化可以把函数从接收多个参数转换成接收多个参数列表。也就是说我们写的多参数函数不再只是这样子的：1def foo(a: Int, b: Int, c: Int) &amp;#123;???&amp;#125; 而是可以这样子的：1foo(1)(2)(3) 或者这样的：1foo(1)&amp;#123;2&amp;#125">
 <meta name="keywords" content="柯里化,Curry化">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Curry化">
 <meta property="og:url" content="http://scala.chobit.org/wiki/20180518/a21-currying/index.html">
 <meta property="og:site_name" content="SCALA 手账">
-<meta property="og:description" content="概述柯里化即Curry化。以发明人 Haskell Curry 命名。 scala里的curry化可以把函数从接收多个参数转换成接收多个参数列表。也就是说我们写的多参数函数不再只是这样子的：1def foo(a: Int, b: Int, c: Int) &amp;#123;???&amp;#125; 而是这样子的：1foo(1)(2)(3) 或者这样的：1foo(1)&amp;#123;2&amp;#125;&amp;#123;3&amp;#">
+<meta property="og:description" content="概述Curry化也称柯里化。以Haskell发明人 Haskell Curry 命名。 scala里的curry化可以把函数从接收多个参数转换成接收多个参数列表。也就是说我们写的多参数函数不再只是这样子的：1def foo(a: Int, b: Int, c: Int) &amp;#123;???&amp;#125; 而是可以这样子的：1foo(1)(2)(3) 或者这样的：1foo(1)&amp;#123;2&amp;#125">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-19T13:47:27.124Z">
+<meta property="og:updated_time" content="2018-05-19T14:29:14.747Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Curry化">
-<meta name="twitter:description" content="概述柯里化即Curry化。以发明人 Haskell Curry 命名。 scala里的curry化可以把函数从接收多个参数转换成接收多个参数列表。也就是说我们写的多参数函数不再只是这样子的：1def foo(a: Int, b: Int, c: Int) &amp;#123;???&amp;#125; 而是这样子的：1foo(1)(2)(3) 或者这样的：1foo(1)&amp;#123;2&amp;#125;&amp;#123;3&amp;#">
+<meta name="twitter:description" content="概述Curry化也称柯里化。以Haskell发明人 Haskell Curry 命名。 scala里的curry化可以把函数从接收多个参数转换成接收多个参数列表。也就是说我们写的多参数函数不再只是这样子的：1def foo(a: Int, b: Int, c: Int) &amp;#123;???&amp;#125; 而是可以这样子的：1foo(1)(2)(3) 或者这样的：1foo(1)&amp;#123;2&amp;#125">
     
 
     
@@ -330,9 +330,9 @@ var _hmt = _hmt || [];
             
         
         
-            <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>柯里化即Curry化。以发明人 Haskell Curry 命名。</p>
+            <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>Curry化也称柯里化。以Haskell发明人 Haskell Curry 命名。</p>
 <p>scala里的curry化可以把函数从接收多个参数转换成接收多个参数列表。也就是说我们写的多参数函数不再只是这样子的：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span></span>(a: <span class="type">Int</span>, b: <span class="type">Int</span>, c: <span class="type">Int</span>) &#123;???&#125;</span><br></pre></td></tr></table></figure></p>
-<p>而是这样子的：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">foo(<span class="number">1</span>)(<span class="number">2</span>)(<span class="number">3</span>)</span><br></pre></td></tr></table></figure></p>
+<p>而是可以这样子的：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">foo(<span class="number">1</span>)(<span class="number">2</span>)(<span class="number">3</span>)</span><br></pre></td></tr></table></figure></p>
 <p>或者这样的：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">foo(<span class="number">1</span>)&#123;<span class="number">2</span>&#125;&#123;<span class="number">3</span>&#125;</span><br></pre></td></tr></table></figure></p>
 <p>甚至是这样子的：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">foo&#123;<span class="number">1</span>&#125;&#123;<span class="number">2</span>&#125;&#123;<span class="number">3</span>&#125;</span><br></pre></td></tr></table></figure></p>
 <p>来看个实例好了，下面的代码中定义了一个inject方法。inject方法有三个参数，两个Int型的参数，一个函数值参数。方法体中通过传入的函数对前两个Int型参数进行运算：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">inject</span></span>(a: <span class="type">Int</span>, b: <span class="type">Int</span>, op: (<span class="type">Int</span>, <span class="type">Int</span>) =&gt; <span class="type">Int</span>): <span class="type">Int</span> = &#123;</span><br><span class="line">  op(a, b)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">inject(<span class="number">2</span>, <span class="number">3</span>, (a, b) =&gt; a + b)</span><br></pre></td></tr></table></figure></p>
@@ -343,17 +343,18 @@ var _hmt = _hmt || [];
 <p>将方法转为函数使用时，Curry化的影响就出现了。在scala解释器里看一下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; def inject(a: Int, b: Int, op: (Int, Int) =&gt; Int): Int = &#123;</span><br><span class="line">     |     op(a, b)</span><br><span class="line">     |   &#125;</span><br><span class="line">inject: (a: Int, b: Int, op: (Int, Int) =&gt; Int)Int</span><br><span class="line"></span><br><span class="line">scala&gt; inject _</span><br><span class="line">res0: (Int, Int, (Int, Int) =&gt; Int) =&gt; Int = &lt;function3&gt;</span><br></pre></td></tr></table></figure></p>
 <p>我们在解释器里def了没有做Curry化的inject方法，并用“_”将inject方法转为函数。此时inject方法转成的函数是一个有三个参数的普通函数。  </p>
 <p>再来看看Curry化后的inject方法转成的函数是怎样的：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">scala&gt;   def inject(a: Int, b: Int)(op: (Int, Int) =&gt; Int): Int = &#123;</span><br><span class="line">     |     op(a, b)</span><br><span class="line">     |   &#125;</span><br><span class="line">inject: (a: Int, b: Int)(op: (Int, Int) =&gt; Int)Int</span><br><span class="line"></span><br><span class="line">scala&gt; inject _</span><br><span class="line">res1: (Int, Int) =&gt; ((Int, Int) =&gt; Int) =&gt; Int = &lt;function2&gt;</span><br></pre></td></tr></table></figure></p>
-<p>将两次生成的函数放在一起比较一下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Curry化之前： res0: (Int, Int, (Int, Int) =&gt; Int) =&gt; Int = &lt;function3&gt;</span><br><span class="line">Curry化之后： res1: (Int, Int) =&gt; ((Int, Int) =&gt; Int) =&gt; Int = &lt;function2&gt;</span><br></pre></td></tr></table></figure></p>
-<p>inject方法Curry化之前转成的函数res0是一个三参数函数，继承trait 自Function3；Curry化之后转成的函数res1是一个双参数函数，继承自trait Function2。主要看一下Curry化之后转成的函数res1。</p>
-<p>用ABC来表示下inject方法的参数也许更直观些。inject方法的最初是这样的：inject(A, B, C)； curry化以后的结构是这样的：inject(A, B)(C)。inject方法curry化以后对应的函数res1为：</p>
+<p>将两次生成的函数值对象res0和res1放在一起比较一下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Curry化之前： res0: (Int, Int, (Int, Int) =&gt; Int) =&gt; Int = &lt;function3&gt;</span><br><span class="line">Curry化之后： res1: (Int, Int) =&gt; ((Int, Int) =&gt; Int) =&gt; Int = &lt;function2&gt;</span><br></pre></td></tr></table></figure></p>
+<p>inject方法Curry化之前转成的函数res0是一个三参数函数，继承自trait Function3；Curry化之后转成的函数res1是一个双参数函数，继承自trait Function2。  </p>
+<p>用ABC来表示下inject方法的参数也许更直观些。inject方法最初为：inject(A, B, C)； curry化以后的结构是为：inject(A, B)(C)。inject方法curry化以后对应的函数res1为：</p>
 <blockquote>
-<p>(A, B)=&gt; (C)=&gt; Int<br>可以看到res1实质上是被分解多个函数，每个inject方法的每个参数列表都对应一个函数，几个函数按参数列表顺序从右到左逐层嵌套，最左侧的参数列表即为最外侧的函数的参数。  </p>
+<p>(A, B)=&gt; (C)=&gt; Int</p>
 </blockquote>
+<p>可以看到res1实质上是被分解多个函数，inject方法的每个参数列表都对应一个函数，几个函数按参数列表顺序从右到左逐层嵌套，最左侧的参数列表即为最外侧的函数的参数。  </p>
 <p>以上的内容说的是对方法进行Curry化。Scala也支持对函数进行Curry化。scala的多参数函数trait，包括Function2 ~ FuntionN都有一个curried方法，用来将函数的每个参数进行curry化。下面的代码是Function3的curried方法的实现：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">curried</span></span>: <span class="type">T1</span> =&gt; <span class="type">T2</span> =&gt; <span class="type">T3</span> =&gt; <span class="type">R</span> = &#123;</span><br><span class="line">  (x1: <span class="type">T1</span>) =&gt; (x2: <span class="type">T2</span>) =&gt; (x3: <span class="type">T3</span>) =&gt; apply(x1, x2, x3)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>在curried方法中，Function3的每个参数都被拆分成一个独立的参数列表，每个参数列表对应的函数逐层嵌套形成了新的函数。</p>
-<p>调用下前面的res1函数的curried方法：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; res1.curried</span><br><span class="line">res2: Int =&gt; (Int =&gt; (((Int, Int) =&gt; Int) =&gt; Int)) = &lt;function1&gt;</span><br></pre></td></tr></table></figure></p>
+<p>调用下前面的函数res1的curried方法：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; res1.curried</span><br><span class="line">res2: Int =&gt; (Int =&gt; (((Int, Int) =&gt; Int) =&gt; Int)) = &lt;function1&gt;</span><br></pre></td></tr></table></figure></p>
 <p>res1调用curried方法后生成的新函数res2类型为Function1，并且函数体又多了一层嵌套。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>Curry化的本质是将多参数函数转为多个单参数函数的级联，以便于进行lambda运算。这是官方的说法。  </p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>Curry化的本质是将多参数函数转为多个单参数函数的级联，以便于进行lambda运算——这是官方的说法。  </p>
 <p>说下自己的理解：Curry化更多的情况下是一种语法糖而已，和部分应用函数一样，在scala中并不是一种支撑性的角色。我们可以将多个单参数函数组合在一起，也可以使用函数递归来解决一些特定的问题，但是不必要将这种用法称为curry化。当然，这只是我的一偏之见。如有不同意见，欢迎一起讨论。</p>
 
             </div>
