@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://scala.chobit.org/"/>
-  <updated>2018-05-19T14:11:57.033Z</updated>
+  <updated>2018-05-19T23:35:54.874Z</updated>
   <id>http://scala.chobit.org/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Executor Aroud模式</title>
+    <link href="http://scala.chobit.org/wiki/20180520/a22-executorAroudMode/"/>
+    <id>http://scala.chobit.org/wiki/20180520/a22-executorAroudMode/</id>
+    <published>2018-05-19T23:15:02.000Z</published>
+    <updated>2018-05-19T23:35:54.874Z</updated>
+    
+    <content type="html"><![CDATA[<p>我们访问资源需要关注对资源的锁定、对资源的申请和释放，还要考虑可能遇到的各种异常。这些事项本身与代码的逻辑操作无关，但我们不能遗漏。也就是说需要在进入方法时获取资源，退出方法时释放资源。这种处理就进入了Execute Around模式的范畴。</p><p>在scala里可以用函数值实现这种模式。下面是一个示例，使用Resource类演示了事务的开启和释放：</p><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Resource</span> <span class="title">private</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  println(<span class="string">"Starting transaction..."</span>)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> <span class="function"><span class="keyword">def</span> <span class="title">cleanUp</span></span>() &#123;</span><br><span class="line">    println(<span class="string">"Ending transaction..."</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">op1</span> </span>= println(<span class="string">"Operation 1"</span>)</span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">op2</span> </span>= println(<span class="string">"Operation 2"</span>)</span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">op3</span> </span>= println(<span class="string">"Operation 3"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">object</span> <span class="title">Resource</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">use</span></span>(codeBlock: <span class="type">Resource</span> =&gt; <span class="type">Unit</span>) &#123;</span><br><span class="line">    <span class="keyword">val</span> resource = <span class="keyword">new</span> <span class="type">Resource</span> </span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      codeBlock(resource)</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">      resource.cleanUp()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这段代码里将Resource类的构造器标记为private，这样就只能在Resource类内部和它的伴生类中创建实例。因为只能在这两个地方创建实例，就可以保证按照确定的方式使用这个类的对象，即可以保证其行为是按照确定的方式执行。cleanUp()方法也被标记为private，确保不会被意外调用。Resource类第一行的print语句是具体事务操作的占位符。调用构造函数时，事务启动；调用cleanUp()函数时，事务终结。此外Resource类中还准备了一些实例方法，如op1()、op2()等。</p><p>在伴生对象里有一个默认public的方法use，它接收一个函数值作为参数。use()方法创建了一个Resource的实例，在try和finally块的保护之下，把这个实例传给了给定的函数值。在finally块里，调用了Resource私有实例方法cleanUp()。</p><p>看一下是如何使用Resource类的：</p><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Resource</span>.use &#123; resource =&gt;</span><br><span class="line">  resource.op1</span><br><span class="line">  resource.op2</span><br><span class="line">  resource.op3</span><br><span class="line">  resource.op1</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>代码执行结果是：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Starting transaction...</span><br><span class="line">Operation 1</span><br><span class="line">Operation 2</span><br><span class="line">Operation 3</span><br><span class="line">Operation 1</span><br><span class="line">Ending transaction...</span><br></pre></td></tr></table></figure><p>调用Resource的伴生对象的use方法时，会自动创建一个Resource实例，等到传递的函数值执行结束后，会自动调用cleanUp方法释放占用的资源。</p><p>上面模式的一个变体是Loan（借贷）模式。如果想确保非内存资源得到确定性释放，就可以使用这个模式。可以这样认为：这种资源密集型的对象是借给你的，用过之后应该立即归还。</p><p>下面是一个Loan模式的例子：</p><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io._</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">writeToFile</span></span>(fileName: <span class="type">String</span>)(codeBlock: <span class="type">PrintWriter</span> =&gt; <span class="type">Unit</span>) = &#123;</span><br><span class="line">  <span class="keyword">val</span> writer = <span class="keyword">new</span> <span class="type">PrintWriter</span>(<span class="keyword">new</span> <span class="type">File</span>(fileName))</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    codeBlock(writer)</span><br><span class="line">  &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">    writer.close()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>现在调用writeToFile()将一些内容写入文件：</p><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">writeToFile(<span class="string">"output.txt"</span>) &#123; writer =&gt; writer write <span class="string">"hello from Scala"</span> &#125;</span><br></pre></td></tr></table></figure><p>这行这段代码会创建一个名为output.txt的文件，并在文件中写入一行文字“hello from Scala”。</p><p>作为writeToFile()方法的使用者，我们不必操心文件的关闭。在代码块里，这个文件是借给我们用的。我们可以用得到的PrintWriter实例进行写操作，一旦从这个块返回，方法就会自动关闭文件。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;我们访问资源需要关注对资源的锁定、对资源的申请和释放，还要考虑可能遇到的各种异常。这些事项本身与代码的逻辑操作无关，但我们不能遗漏。也就是说需要在进入方法时获取资源，退出方法时释放资源。这种处理就进入了Execute Around模式的范畴。&lt;/p&gt;
+&lt;p&gt;在scala里可
+      
+    
+    </summary>
+    
+      <category term="scala学习" scheme="http://scala.chobit.org/categories/scala%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>下划线和参数</title>
@@ -489,29 +513,6 @@
     </summary>
     
       <category term="scala技巧" scheme="http://scala.chobit.org/categories/scala%E6%8A%80%E5%B7%A7/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>方法的定义</title>
-    <link href="http://scala.chobit.org/wiki/20180430/a12-defineMethod/"/>
-    <id>http://scala.chobit.org/wiki/20180430/a12-defineMethod/</id>
-    <published>2018-04-30T09:23:00.000Z</published>
-    <updated>2018-05-01T13:42:09.971Z</updated>
-    
-    <content type="html"><![CDATA[<p>scala的方法关键字def声明开始。大致结构如下：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">methodName</span> </span>([list of parameters]) : [<span class="keyword">return</span> <span class="class"><span class="keyword">type</span>] </span>= &#123;</span><br><span class="line">   method body</span><br><span class="line">   [<span class="keyword">return</span> [expr]]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>scala方法名可以包含字符、数字以及各种符号。方法名不能以数字开头。虽然scala的方法名不能以数字开头，但是可以以特殊字符开头。可用的特殊字符如：+，++，~，&amp;，- ， – ，\，/，:等。  </p><p>scala的方法参数都是val类型，而不是var类型，因此在函数体内不可以修改参数的值。  </p><p>关于scala的返回值有如下几个特点：</p><ul><li>scala的方法是一定有返回值的，看起来返回值为空时返回的是值类型Unit；</li><li>方法定义时返回值类型可以省略掉，scala会根据方法体中的内容推断出返回值类型；</li><li>显式声明了返回值类型时，方法定义中的“等号”不可以省略掉；</li><li>没有显式声明返回值类型时，则默认方法返回值为Unit，此时方法定义中的“=”也可省略掉；</li><li>使用return可以显式返回，但是不推荐这样做；</li><li>方法中的return关键字是可以省略掉的，默认方法中的最后一行就是函数的值；</li><li>对于递归方法，必须显式指明返回值类型。</li></ul><p>多提一点：在scala中分号也是可选的，不必在每个语句的后面都写上分号，这样会使代码更简洁。如果语句太长或者包含多行的话可以换行继续写，scala能够识别语句是否完整。通常使用分号的场景就是一行内有多条语句。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;scala的方法关键字def声明开始。大致结构如下：&lt;br&gt;&lt;figure class=&quot;highlight scala&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span cla
-      
-    
-    </summary>
-    
-      <category term="scala学习" scheme="http://scala.chobit.org/categories/scala%E5%AD%A6%E4%B9%A0/"/>
     
     
   </entry>

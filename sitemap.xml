@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://scala.chobit.org/wiki/20180520/a22-executorAroudMode/</loc>
+    
+    <lastmod>2018-05-19T23:35:54.874Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://scala.chobit.org/wiki/20180518/a21-currying/</loc>
     
     <lastmod>2018-05-19T14:29:14.747Z</lastmod>
