@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="SCALA 手账">
 <meta property="og:description" content="概念关于闭包的概念，我手边scala的书如是说：  闭包是一种特殊的函数值，闭包中封闭或绑定了在另一个作用域或上下文中定义的变量。    在维基百科中的说法是：  在计算机科学中，闭包（英语：Closure），又称词法闭包（Lexical Closure）或函数闭包（function closures），是引用了自由变量的函数。这个被引用的自由变量将和这个函数一同存在，即使已经离开了创造它的环境也">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-25T14:43:59.996Z">
+<meta property="og:updated_time" content="2018-05-26T02:48:25.763Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="闭包">
 <meta name="twitter:description" content="概念关于闭包的概念，我手边scala的书如是说：  闭包是一种特殊的函数值，闭包中封闭或绑定了在另一个作用域或上下文中定义的变量。    在维基百科中的说法是：  在计算机科学中，闭包（英语：Closure），又称词法闭包（Lexical Closure）或函数闭包（function closures），是引用了自由变量的函数。这个被引用的自由变量将和这个函数一同存在，即使已经离开了创造它的环境也">
@@ -323,6 +323,11 @@ var _hmt = _hmt || [];
         
         
             
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">文章目录</strong>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用"><span class="toc-number">2.</span> <span class="toc-text">使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他"><span class="toc-number">3.</span> <span class="toc-text">其他</span></a></li></ol>
+                </div>
+            
         
         
             <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>关于闭包的概念，我手边scala的书如是说：</p>
@@ -333,7 +338,7 @@ var _hmt = _hmt || [];
 <blockquote>
 <p>在计算机科学中，闭包（英语：Closure），又称词法闭包（Lexical Closure）或函数闭包（function closures），是引用了自由变量的函数。这个被引用的自由变量将和这个函数一同存在，即使已经离开了创造它的环境也不例外。所以，有另一种说法认为闭包是由函数和与其相关的引用环境组合而成的实体。</p>
 </blockquote>
-<p>这两种说法前者说闭包是一个函数，后者说闭包是函数和自由变量一同构成的实体。我个人是比较倾向于后者的。不过细细思考下来，二者也没什么差别，都描述了闭包的几个特征：</p>
+<p>前者说闭包是一个函数，后者说闭包是函数和自由变量一同构成的实体。我个人是比较倾向于后者的。不过细细思考下来，二者也没什么差别，都描述了闭包的几个特征：</p>
 <ol>
 <li>闭包中有一个特殊的<strong>函数</strong>；</li>
 <li>存在一个<strong>封闭</strong>的作用域，函数就在这个封闭的作用域中；</li>
@@ -357,8 +362,9 @@ var _hmt = _hmt || [];
 <p>但是这里的bar方法需要通过类A的对象来调用，它本质上是类A的一个实例成员，而非是一个独立的函数；另外这里的bar方法引用的变量i是绑定在类A的对象上，而非绑定在bar方法上，所以从根本上这种形式就不满足闭包的定义，所以不是闭包！？</p>
 <p>对于这样定义的类是否是闭包，以上是两种观点，也是我纠结之处。也查了些资料，然而各种说法莫衷一是。思考了一段时间后决定停止这种纠结，仅从一点出发：<strong>只在函数作为头等公民的语境中来讨论闭包</strong>。</p>
 <p>对象和函数各有自己不同的使用场景。在scala这种既支持函数又面向对象的语言中，使用对象可以减少一些复杂度，使用函数可以提升一些灵活性。但是把函数的概念放到面向对象的语境中，或者反过来都是没有意义的事情。</p>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>目前想到的关于的闭包的用法主要有两种：一种是将函数作为闭包的返回值，就如前面的例子；另一种是将函数作为参数，如下面的例子：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span></span>(op:(<span class="type">Int</span>, <span class="type">Int</span>)=&gt;<span class="type">Int</span>):<span class="type">Int</span> = &#123;</span><br><span class="line">  <span class="keyword">val</span> a = <span class="number">1</span></span><br><span class="line">  <span class="keyword">val</span> b = <span class="number">2</span></span><br><span class="line">  op(a, b)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">val</span> sum = (a:<span class="type">Int</span>, b:<span class="type">Int</span>)=&gt; a + b</span><br><span class="line"></span><br><span class="line">foo(sum)</span><br></pre></td></tr></table></figure></p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>目前想到的关于的闭包的用法主要有两种：一种是将闭包作为返回值，就如前面的例子；另一种是将闭包作为参数，如下面的例子：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> max = <span class="number">10</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span></span>(f: (<span class="type">Int</span>) =&gt; <span class="type">Boolean</span>): <span class="type">Unit</span> = &#123;</span><br><span class="line">  <span class="keyword">val</span> arr = <span class="type">Array</span>(<span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">13</span>, <span class="number">21</span>, <span class="number">34</span>, <span class="number">55</span>)</span><br><span class="line">  arr.filter(f).foreach(println)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">val</span> bar = (num: <span class="type">Int</span>) =&gt; num &gt; max</span><br><span class="line"></span><br><span class="line">foo(bar)</span><br></pre></td></tr></table></figure></p>
 <p>又想到了一个应用场景，比如在一些对于面向对象支持不是很好的语言，可以用闭包来构建对象（用scala来举这个例子，有些费力，懒得写了）。严格来说，这种用法也是将函数用作闭包的返回值。</p>
+<p>另外scala的curry化也是闭包的一种应用。</p>
 <h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>在知乎上有各路大神对闭包进行了讨论，有兴趣可以看一下：<a href="https://www.zhihu.com/question/34210214" rel="external nofollow noopener noreferrer" target="_blank">什么是闭包</a></p>
 
             </div>
