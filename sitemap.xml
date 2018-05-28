@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://scala.chobit.org/wiki/20180521/a23-closure/</loc>
+    <loc>http://scala.chobit.org/wiki/20180527/a24-array/</loc>
     
-    <lastmod>2018-05-26T02:48:25.763Z</lastmod>
+    <lastmod>2018-05-28T14:20:31.915Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://scala.chobit.org/wiki/20180421/index/</loc>
     
-    <lastmod>2018-05-25T14:41:10.523Z</lastmod>
+    <lastmod>2018-05-28T14:19:55.048Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://scala.chobit.org/wiki/20180521/a23-closure/</loc>
+    
+    <lastmod>2018-05-26T02:48:25.763Z</lastmod>
     
   </url>
   

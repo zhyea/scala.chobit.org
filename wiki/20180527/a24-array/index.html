@@ -3,24 +3,24 @@
 <head>
     <meta charset="utf-8">
     
-    <title>类定义和构造器 | SCALA 手账</title>
+    <title>数组 | SCALA 手账</title>
     
     
-        <meta name="keywords" content="scala, scala学习, scala教程">
+        <meta name="keywords" content="数组">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="这次会通过与Java比较的方式来说明scala是如何创建类的。 类定义假设我们要定义一个学生类，先来看一下使用Java是如何定义的：123456789101112131415161718192021222324252627public class Student &amp;#123;        private String name;        private int age;    public">
-<meta name="keywords" content="scala, scala学习, scala教程">
+    <meta name="description" content="简单说下scala中的数组。 声明数组声明数组的语法：1val arr = new Array[String]\(3\) 声明数组时必须指定数组的长度。数组的类型可以不指定，但是不指定的话，数组就是无用的，因为此时数组元素的类型是Nothing。 这样声明的数组其元素初始为字符串的默认值，即null。可以这样调整数组元素的值：123arr(0) = &quot;com&quot;arr(1) = &quot;zhyea&quot;arr">
+<meta name="keywords" content="数组">
 <meta property="og:type" content="article">
-<meta property="og:title" content="类定义和构造器">
-<meta property="og:url" content="http://scala.chobit.org/wiki/20180426/a08-classDefine/index.html">
+<meta property="og:title" content="数组">
+<meta property="og:url" content="http://scala.chobit.org/wiki/20180527/a24-array/index.html">
 <meta property="og:site_name" content="SCALA 手账">
-<meta property="og:description" content="这次会通过与Java比较的方式来说明scala是如何创建类的。 类定义假设我们要定义一个学生类，先来看一下使用Java是如何定义的：123456789101112131415161718192021222324252627public class Student &amp;#123;        private String name;        private int age;    public">
+<meta property="og:description" content="简单说下scala中的数组。 声明数组声明数组的语法：1val arr = new Array[String]\(3\) 声明数组时必须指定数组的长度。数组的类型可以不指定，但是不指定的话，数组就是无用的，因为此时数组元素的类型是Nothing。 这样声明的数组其元素初始为字符串的默认值，即null。可以这样调整数组元素的值：123arr(0) = &quot;com&quot;arr(1) = &quot;zhyea&quot;arr">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-27T13:15:45.655Z">
+<meta property="og:updated_time" content="2018-05-28T14:20:31.915Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="类定义和构造器">
-<meta name="twitter:description" content="这次会通过与Java比较的方式来说明scala是如何创建类的。 类定义假设我们要定义一个学生类，先来看一下使用Java是如何定义的：123456789101112131415161718192021222324252627public class Student &amp;#123;        private String name;        private int age;    public">
+<meta name="twitter:title" content="数组">
+<meta name="twitter:description" content="简单说下scala中的数组。 声明数组声明数组的语法：1val arr = new Array[String]\(3\) 声明数组时必须指定数组的长度。数组的类型可以不指定，但是不指定的话，数组就是无用的，因为此时数组元素的类型是Nothing。 这样声明的数组其元素初始为字符串的默认值，即null。可以这样调整数组元素的值：123arr(0) = &quot;com&quot;arr(1) = &quot;zhyea&quot;arr">
     
 
     
@@ -186,7 +186,7 @@ var _hmt = _hmt || [];
                             &nbsp;
                             scala学习
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/20180419/a00-prepareEnv/">准备开发环境</a></li>  <li class="file"><a href="/wiki/20180421/a01-quickStart/">快速体验Scala - Scasite</a></li>  <li class="file"><a href="/wiki/20180421/a02-ineractiveCoding/">快速体验Scala - 交互式编程</a></li>  <li class="file"><a href="/wiki/20180422/a03-comment/">使用注释</a></li>  <li class="file"><a href="/wiki/20180423/a04-basicType/">基本类型</a></li>  <li class="file"><a href="/wiki/20180423/a05-operatorsInScala/">运算符和优先级</a></li>  <li class="file"><a href="/wiki/20180424/a06-varAndVal/">var和val变量</a></li>  <li class="file"><a href="/wiki/20180425/a07-stringAndMultiLineString/">字符串和多行字符串</a></li>  <li class="file active"><a href="/wiki/20180426/a08-classDefine/">类定义和构造器</a></li>  <li class="file"><a href="/wiki/20180427/a09-classExtends/">类继承</a></li>  <li class="file"><a href="/wiki/20180427/a10-independentAndCompanionObject/">单例、独立对象和伴生对象</a></li>  <li class="file"><a href="/wiki/20180429/a11-accessModifier/">访问修饰符</a></li>  <li class="file"><a href="/wiki/20180429/a13-loopAndLoopControl/">循环和循环控制</a></li>  <li class="file"><a href="/wiki/20180430/a12-defineMethod/">方法的定义</a></li>  <li class="file"><a href="/wiki/20180501/a14-forLoopDetail/">for循环详述</a></li>  <li class="file"><a href="/wiki/20180501/a15-methodVsFunction/">方法VS函数</a></li>  <li class="file"><a href="/wiki/20180505/a16-usingOfPackage/">package的使用</a></li>  <li class="file"><a href="/wiki/20180505/a17-aboutImport/">关于import</a></li>  <li class="file"><a href="/wiki/20180506/a18-callByName/">传名参数 =>Unit</a></li>  <li class="file"><a href="/wiki/20180507/a19-partialApplyFunction/">部分应用函数</a></li>  <li class="file"><a href="/wiki/20180508/a20-partialFunction/">偏函数</a></li>  <li class="file"><a href="/wiki/20180518/a21-currying/">Curry化</a></li>  <li class="file"><a href="/wiki/20180520/a22-executorAroudMode/">Executor Aroud模式</a></li>  <li class="file"><a href="/wiki/20180521/a23-closure/">闭包</a></li>  <li class="file"><a href="/wiki/20180527/a24-array/">数组</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/20180419/a00-prepareEnv/">准备开发环境</a></li>  <li class="file"><a href="/wiki/20180421/a01-quickStart/">快速体验Scala - Scasite</a></li>  <li class="file"><a href="/wiki/20180421/a02-ineractiveCoding/">快速体验Scala - 交互式编程</a></li>  <li class="file"><a href="/wiki/20180422/a03-comment/">使用注释</a></li>  <li class="file"><a href="/wiki/20180423/a04-basicType/">基本类型</a></li>  <li class="file"><a href="/wiki/20180423/a05-operatorsInScala/">运算符和优先级</a></li>  <li class="file"><a href="/wiki/20180424/a06-varAndVal/">var和val变量</a></li>  <li class="file"><a href="/wiki/20180425/a07-stringAndMultiLineString/">字符串和多行字符串</a></li>  <li class="file"><a href="/wiki/20180426/a08-classDefine/">类定义和构造器</a></li>  <li class="file"><a href="/wiki/20180427/a09-classExtends/">类继承</a></li>  <li class="file"><a href="/wiki/20180427/a10-independentAndCompanionObject/">单例、独立对象和伴生对象</a></li>  <li class="file"><a href="/wiki/20180429/a11-accessModifier/">访问修饰符</a></li>  <li class="file"><a href="/wiki/20180429/a13-loopAndLoopControl/">循环和循环控制</a></li>  <li class="file"><a href="/wiki/20180430/a12-defineMethod/">方法的定义</a></li>  <li class="file"><a href="/wiki/20180501/a14-forLoopDetail/">for循环详述</a></li>  <li class="file"><a href="/wiki/20180501/a15-methodVsFunction/">方法VS函数</a></li>  <li class="file"><a href="/wiki/20180505/a16-usingOfPackage/">package的使用</a></li>  <li class="file"><a href="/wiki/20180505/a17-aboutImport/">关于import</a></li>  <li class="file"><a href="/wiki/20180506/a18-callByName/">传名参数 =>Unit</a></li>  <li class="file"><a href="/wiki/20180507/a19-partialApplyFunction/">部分应用函数</a></li>  <li class="file"><a href="/wiki/20180508/a20-partialFunction/">偏函数</a></li>  <li class="file"><a href="/wiki/20180518/a21-currying/">Curry化</a></li>  <li class="file"><a href="/wiki/20180520/a22-executorAroudMode/">Executor Aroud模式</a></li>  <li class="file"><a href="/wiki/20180521/a23-closure/">闭包</a></li>  <li class="file active"><a href="/wiki/20180527/a24-array/">数组</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -277,7 +277,7 @@ var _hmt = _hmt || [];
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main"><article id="post-a08-classDefine" class="article article-type-post" itemscope="" itemprop="blogPost">
+            <section id="main"><article id="post-a24-array" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -291,11 +291,16 @@ var _hmt = _hmt || [];
     </div>
 
                         
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/数组/">数组</a>
+    </div>
+
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/wiki/20180426/a08-classDefine/">
-            <time datetime="2018-04-25T22:05:15.000Z" itemprop="datePublished">2018-04-26</time>
+        <a href="/wiki/20180527/a24-array/">
+            <time datetime="2018-05-27T14:04:05.000Z" itemprop="datePublished">2018-05-27</time>
         </a>
     </div>
 
@@ -307,7 +312,7 @@ var _hmt = _hmt || [];
                 
     
         <h1 class="article-title" itemprop="name">
-            类定义和构造器
+            数组
         </h1>
     
 
@@ -320,28 +325,28 @@ var _hmt = _hmt || [];
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">文章目录</strong>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#类定义"><span class="toc-number">1.</span> <span class="toc-text">类定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#构造器"><span class="toc-number">2.</span> <span class="toc-text">构造器</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#声明数组"><span class="toc-number">1.</span> <span class="toc-text">声明数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多维数组"><span class="toc-number">2.</span> <span class="toc-text">多维数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#变长数组"><span class="toc-number">3.</span> <span class="toc-text">变长数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数组应用"><span class="toc-number">4.</span> <span class="toc-text">数组应用</span></a></li></ol>
                 </div>
             
         
         
-            <p>这次会通过与Java比较的方式来说明scala是如何创建类的。</p>
-<h2 id="类定义"><a href="#类定义" class="headerlink" title="类定义"></a>类定义</h2><p>假设我们要定义一个学生类，先来看一下使用Java是如何定义的：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">(String name, <span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>很基础的一个Bean定义，大概用了27行代码。  </p>
-<p>再来看一下如何用scala定义这个学生类：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span>(<span class="params">val name: <span class="type">String</span>, val age: <span class="type">Int</span></span>)</span></span><br></pre></td></tr></table></figure></p>
-<p>是的，只用一行就完成了类的定义，连大括号都不需要。并且在类定义的时候就完成了类构造器的创建。这里和类定义一起实现的构造器也叫作主构造器。  </p>
-<h2 id="构造器"><a href="#构造器" class="headerlink" title="构造器"></a>构造器</h2><p>除了主构造器，我们也可以在类的内部添加新的构造器。  </p>
-<p>现在我们为Student类新增一个类成员变量gender，并添加一个新的构造函数：</p>
-<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span>(<span class="params">val name: <span class="type">String</span>, val age: <span class="type">Int</span></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> gender: <span class="type">Short</span> = _</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">this</span></span>(name: <span class="type">String</span>, age: <span class="type">Int</span>, gender: <span class="type">Short</span>) &#123;</span><br><span class="line">    <span class="keyword">this</span>(name, age)</span><br><span class="line">    <span class="keyword">this</span>.gender = gender</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>区别于主构造函数，在类内部新定义的构造函数被称为副构造函数。  </p>
-<p>稍稍关注下副构造函数的实现：如果有主构造函数的话，那么副构造函数的第一行必须是主构造函数或者其它副构造函数的调用。这一点和java继承父类时有点相似。  </p>
-<p>此外还值得注意的就是成员变量gender的声明，把这一行单独拎出来看看吧：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> gender: <span class="type">Short</span> = _</span><br></pre></td></tr></table></figure></p>
-<p>这里比较有趣的是初始化赋值，赋的值是一个“_”——下划线。在这里“_”代表相应类型的默认值。对于Int，它的值是0；对于Double，它的值是0.0；对于String，它的值就是null。通过使用“_”，可以很方便地为var成员变量设置初始默认值。  </p>
-<p>不过不能为val成员使用“_”，因为val成员不允许修改，所以必须显式指定初始值。  </p>
-<p>如果构造器中的成员变量没有使用var或val修饰，将被视为类内部私有的val变量。  </p>
-<p>另外，放到类定义中的所有可执行语句或表达式都会被视为类的构造器的组成部分。如下面的代码：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span>(<span class="params">val name: <span class="type">String</span>, val age: <span class="type">Int</span></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  println(<span class="string">"Create a new student instance."</span>)</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="type">Student</span>(<span class="string">"robin"</span>, <span class="number">20</span>)</span><br></pre></td></tr></table></figure></p>
-<p>这段代码在定义Student类以后，又创建了一个Student实例。看下执行结果：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Create</span> a <span class="keyword">new</span> student instance.</span><br><span class="line"></span><br><span class="line"><span class="type">Process</span> finished <span class="keyword">with</span> exit code <span class="number">0</span></span><br></pre></td></tr></table></figure></p>
-<p>在创建实例的时候输出了类定义中的print语句，因为这段print语句是构造器的一部分。</p>
+            <p>简单说下scala中的数组。</p>
+<h2 id="声明数组"><a href="#声明数组" class="headerlink" title="声明数组"></a>声明数组</h2><p>声明数组的语法：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> arr = <span class="keyword">new</span> <span class="type">Array</span>[<span class="type">String</span>]\(<span class="number">3</span>\)</span><br></pre></td></tr></table></figure></p>
+<p>声明数组时必须指定数组的长度。数组的类型可以不指定，但是不指定的话，数组就是无用的，因为此时数组元素的类型是Nothing。</p>
+<p>这样声明的数组其元素初始为字符串的默认值，即null。可以这样调整数组元素的值：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">arr(<span class="number">0</span>) = <span class="string">"com"</span></span><br><span class="line">arr(<span class="number">1</span>) = <span class="string">"zhyea"</span></span><br><span class="line">arr(<span class="number">2</span>) = <span class="string">"robin"</span></span><br></pre></td></tr></table></figure></p>
+<p>可以看到scala中获取数组元素的方法是：数组名 + 小括号 + 索引值。这里究其根本还是调用了Array类的apply(i:Int)方法，因此索引值也可以是一个表达式，比如arr(4/2)。</p>
+<p>也可以在创建数组时完成初始化：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> arr = <span class="type">Array</span>[<span class="type">String</span>](<span class="string">"com"</span>, <span class="string">"zhyea"</span>, <span class="string">"robin"</span>)</span><br></pre></td></tr></table></figure></p>
+<h2 id="多维数组"><a href="#多维数组" class="headerlink" title="多维数组"></a>多维数组</h2><p>调用object Array的ofDim方法可以创建一维到五维的数组。如下是一个创建二维数组的示例：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> matrix = <span class="type">Array</span>.ofDim[<span class="type">Int</span>](<span class="number">2</span>, <span class="number">2</span>)</span><br></pre></td></tr></table></figure></p>
+<p>值的一提的是，在scala中本质上也是没有多维数组的。同java一样，所谓的多维数组其实质也是一维数组的嵌套（或者说是数组的数组）。这在object Array的二维数组的实现中可以很明显地看出来：</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">ofDim</span></span>[<span class="type">T</span>: <span class="type">ClassTag</span>](n1: <span class="type">Int</span>, n2: <span class="type">Int</span>): <span class="type">Array</span>[<span class="type">Array</span>[<span class="type">T</span>]] = &#123;</span><br><span class="line">  <span class="keyword">val</span> arr: <span class="type">Array</span>[<span class="type">Array</span>[<span class="type">T</span>]] = (<span class="keyword">new</span> <span class="type">Array</span>[<span class="type">Array</span>[<span class="type">T</span>]](n1): <span class="type">Array</span>[<span class="type">Array</span>[<span class="type">T</span>]])</span><br><span class="line">  <span class="keyword">for</span> (i &lt;- <span class="number">0</span> until n1) arr(i) = <span class="keyword">new</span> <span class="type">Array</span>[<span class="type">T</span>](n2)</span><br><span class="line">  arr</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="变长数组"><a href="#变长数组" class="headerlink" title="变长数组"></a>变长数组</h2><p>这里说的变长数组就是ArrayBuffer。ArrayBuffer更应该被归类到集合里面，但是既然看到了就一起写出来好了。在使用方式上ArrayBuffer有些类似于java里的ArrayList，但是要更灵活一些：</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> scala.collection.mutable.<span class="type">ArrayBuffer</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">object</span> <span class="title">MyApp</span> <span class="keyword">extends</span> <span class="title">App</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">val</span> arr = <span class="type">ArrayBuffer</span>[<span class="type">Int</span>]()</span><br><span class="line"></span><br><span class="line">  arr += <span class="number">1</span> <span class="comment">//尾端添加一个元素</span></span><br><span class="line"></span><br><span class="line">  arr ++= <span class="type">Array</span>[<span class="type">Int</span>](<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>) <span class="comment">//尾端添加一个数组</span></span><br><span class="line"></span><br><span class="line">  arr += (<span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>) <span class="comment">// 尾端添加多个元素</span></span><br><span class="line"></span><br><span class="line">  println(arr.mkString(<span class="string">", "</span>))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最终执行结果为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1, 2, 3, 4, 5, 6, 7</span><br></pre></td></tr></table></figure></p>
+<p>ArrayBuffer和Array可以互相转换，只需分别调用toArray()和toBuffer()方法即可。</p>
+<h2 id="数组应用"><a href="#数组应用" class="headerlink" title="数组应用"></a>数组应用</h2><p>关于数组觉得比较有趣的一个应用是在和变量一起的使用的时候，比如下面：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> <span class="type">Array</span>(a, b, c) = <span class="type">Array</span>[<span class="type">Int</span>](<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">println(a)</span><br><span class="line">println(b)</span><br><span class="line">println(c)</span><br></pre></td></tr></table></figure></p>
+<p>代码中通过一个数组完成了a、b、c三个变量的赋值。</p>
+<p>执行结果如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td></tr></table></figure></p>
+<p>至于数组其他的应用，如循环、拼接、copy等操作，在使用的时候可以翻看一下API。</p>
 
             </div>
         
@@ -354,19 +359,10 @@ var _hmt = _hmt || [];
     
 <nav id="article-nav">
     
-        <a href="/wiki/20180427/a09-classExtends/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">上一篇</strong>
-            <div class="article-nav-title">
-                
-                    类继承
-                
-            </div>
-        </a>
     
-    
-        <a href="/wiki/20180425/a07-stringAndMultiLineString/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/wiki/20180521/a23-closure/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">字符串和多行字符串</div>
+            <div class="article-nav-title">闭包</div>
         </a>
     
 </nav>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://scala.chobit.org/"/>
-  <updated>2018-05-26T02:48:25.763Z</updated>
+  <updated>2018-05-28T14:20:31.915Z</updated>
   <id>http://scala.chobit.org/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数组</title>
+    <link href="http://scala.chobit.org/wiki/20180527/a24-array/"/>
+    <id>http://scala.chobit.org/wiki/20180527/a24-array/</id>
+    <published>2018-05-27T14:04:05.000Z</published>
+    <updated>2018-05-28T14:20:31.915Z</updated>
+    
+    <content type="html"><![CDATA[<p>简单说下scala中的数组。</p><h2 id="声明数组"><a href="#声明数组" class="headerlink" title="声明数组"></a>声明数组</h2><p>声明数组的语法：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> arr = <span class="keyword">new</span> <span class="type">Array</span>[<span class="type">String</span>]\(<span class="number">3</span>\)</span><br></pre></td></tr></table></figure></p><p>声明数组时必须指定数组的长度。数组的类型可以不指定，但是不指定的话，数组就是无用的，因为此时数组元素的类型是Nothing。</p><p>这样声明的数组其元素初始为字符串的默认值，即null。可以这样调整数组元素的值：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">arr(<span class="number">0</span>) = <span class="string">"com"</span></span><br><span class="line">arr(<span class="number">1</span>) = <span class="string">"zhyea"</span></span><br><span class="line">arr(<span class="number">2</span>) = <span class="string">"robin"</span></span><br></pre></td></tr></table></figure></p><p>可以看到scala中获取数组元素的方法是：数组名 + 小括号 + 索引值。这里究其根本还是调用了Array类的apply(i:Int)方法，因此索引值也可以是一个表达式，比如arr(4/2)。</p><p>也可以在创建数组时完成初始化：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> arr = <span class="type">Array</span>[<span class="type">String</span>](<span class="string">"com"</span>, <span class="string">"zhyea"</span>, <span class="string">"robin"</span>)</span><br></pre></td></tr></table></figure></p><h2 id="多维数组"><a href="#多维数组" class="headerlink" title="多维数组"></a>多维数组</h2><p>调用object Array的ofDim方法可以创建一维到五维的数组。如下是一个创建二维数组的示例：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> matrix = <span class="type">Array</span>.ofDim[<span class="type">Int</span>](<span class="number">2</span>, <span class="number">2</span>)</span><br></pre></td></tr></table></figure></p><p>值的一提的是，在scala中本质上也是没有多维数组的。同java一样，所谓的多维数组其实质也是一维数组的嵌套（或者说是数组的数组）。这在object Array的二维数组的实现中可以很明显地看出来：</p><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">ofDim</span></span>[<span class="type">T</span>: <span class="type">ClassTag</span>](n1: <span class="type">Int</span>, n2: <span class="type">Int</span>): <span class="type">Array</span>[<span class="type">Array</span>[<span class="type">T</span>]] = &#123;</span><br><span class="line">  <span class="keyword">val</span> arr: <span class="type">Array</span>[<span class="type">Array</span>[<span class="type">T</span>]] = (<span class="keyword">new</span> <span class="type">Array</span>[<span class="type">Array</span>[<span class="type">T</span>]](n1): <span class="type">Array</span>[<span class="type">Array</span>[<span class="type">T</span>]])</span><br><span class="line">  <span class="keyword">for</span> (i &lt;- <span class="number">0</span> until n1) arr(i) = <span class="keyword">new</span> <span class="type">Array</span>[<span class="type">T</span>](n2)</span><br><span class="line">  arr</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="变长数组"><a href="#变长数组" class="headerlink" title="变长数组"></a>变长数组</h2><p>这里说的变长数组就是ArrayBuffer。ArrayBuffer更应该被归类到集合里面，但是既然看到了就一起写出来好了。在使用方式上ArrayBuffer有些类似于java里的ArrayList，但是要更灵活一些：</p><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> scala.collection.mutable.<span class="type">ArrayBuffer</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">object</span> <span class="title">MyApp</span> <span class="keyword">extends</span> <span class="title">App</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">val</span> arr = <span class="type">ArrayBuffer</span>[<span class="type">Int</span>]()</span><br><span class="line"></span><br><span class="line">  arr += <span class="number">1</span> <span class="comment">//尾端添加一个元素</span></span><br><span class="line"></span><br><span class="line">  arr ++= <span class="type">Array</span>[<span class="type">Int</span>](<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>) <span class="comment">//尾端添加一个数组</span></span><br><span class="line"></span><br><span class="line">  arr += (<span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>) <span class="comment">// 尾端添加多个元素</span></span><br><span class="line"></span><br><span class="line">  println(arr.mkString(<span class="string">", "</span>))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>最终执行结果为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1, 2, 3, 4, 5, 6, 7</span><br></pre></td></tr></table></figure></p><p>ArrayBuffer和Array可以互相转换，只需分别调用toArray()和toBuffer()方法即可。</p><h2 id="数组应用"><a href="#数组应用" class="headerlink" title="数组应用"></a>数组应用</h2><p>关于数组觉得比较有趣的一个应用是在和变量一起的使用的时候，比如下面：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> <span class="type">Array</span>(a, b, c) = <span class="type">Array</span>[<span class="type">Int</span>](<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">println(a)</span><br><span class="line">println(b)</span><br><span class="line">println(c)</span><br></pre></td></tr></table></figure></p><p>代码中通过一个数组完成了a、b、c三个变量的赋值。</p><p>执行结果如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td></tr></table></figure></p><p>至于数组其他的应用，如循环、拼接、copy等操作，在使用的时候可以翻看一下API。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;简单说下scala中的数组。&lt;/p&gt;
+&lt;h2 id=&quot;声明数组&quot;&gt;&lt;a href=&quot;#声明数组&quot; class=&quot;headerlink&quot; title=&quot;声明数组&quot;&gt;&lt;/a&gt;声明数组&lt;/h2&gt;&lt;p&gt;声明数组的语法：&lt;br&gt;&lt;figure class=&quot;highlight sca
+      
+    
+    </summary>
+    
+      <category term="scala学习" scheme="http://scala.chobit.org/categories/scala%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="数组" scheme="http://scala.chobit.org/tags/%E6%95%B0%E7%BB%84/"/>
+    
+  </entry>
   
   <entry>
     <title>闭包</title>
@@ -489,33 +515,6 @@
     </summary>
     
       <category term="scala学习" scheme="http://scala.chobit.org/categories/scala%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>scala中的自适应做法</title>
-    <link href="http://scala.chobit.org/wiki/20180501/b005-adaptivePractice/"/>
-    <id>http://scala.chobit.org/wiki/20180501/b005-adaptivePractice/</id>
-    <published>2018-04-30T23:21:13.000Z</published>
-    <updated>2018-05-01T04:31:43.481Z</updated>
-    
-    <content type="html"><![CDATA[<p>scala有一些默认做法，会让代码更简洁、更易读写，下面列出了这样几个特性：</p><ol><li><p>支持脚本。scala支持脚本，因此无须将所有的代码都放到类里。如果脚本可以满足需求，就将代码放到一个脚本里，无须再创建一个冗余的类。</p></li><li><p>return是可选的。如果没有写return关键字，方法调用会自动返回最后一个求值的表达式——如果它符合方法声明的返回值类型。</p></li><li><p>分号“；”是可选的。不必在每个语句的后面都写上分号，这样会使代码更简洁。如果语句太长或者包含多行的话可以换行继续写，scala能够识别语句是否完整。通常使用分号的场景就是一行内有多条语句。</p></li><li><p>类和方法默认是public的，不必显式使用public关键字。</p></li><li><p>Scala提供了轻量级的语法创建JavaBean——用更少的代码创建变量和final属性。 </p></li><li><p>Scala不会强制捕获一些不关心的异常，降低了代码规模，也避免了不恰当的异常处理。  </p></li></ol><p>另外，默认情况下，scala会导入两个包和一个对象。导入顺序如下：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">java.lang</span><br><span class="line">scala</span><br><span class="line">scala.<span class="type">Predef</span></span><br></pre></td></tr></table></figure></p><p>两个包是：java.lang和scala，一个对象是scala.Predef。  </p><p>因为有这个默认导入的机制，使用这两个包中的类不需要使用全限定类名。比如使用String类时，就不需要使用java.lang.String，也不必显式导入。因为默认导入了scala包中的全部内容，所以可以很容易的使用scala中的类型。  </p><p>Predef对象（是对象不是类哦）包含了类型、隐式转换以及一些常用的方法。因为已经默认导入了，所以使用时无需导入也不需要任何前缀即可使用这些方法和转换。这些操作非常便捷，以至于在刚开始使用时会将之视为scala语言的一部分，实际上他们是scala程序库的一部分。  </p><p>Predef对象也为诸如scala.collection.immutable.Set和scala.collection. immutable.Map这样的东西提供了别名。比如，引用Set或Map，实际上引用的是他们在Predef中的定义，它们会依次转换为其在scala.collection.immutable包里的定义。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;scala有一些默认做法，会让代码更简洁、更易读写，下面列出了这样几个特性：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;支持脚本。scala支持脚本，因此无须将所有的代码都放到类里。如果脚本可以满足需求，就将代码放到一个脚本里，无须再创建一个冗余的类。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;
-      
-    
-    </summary>
-    
-      <category term="scala技巧" scheme="http://scala.chobit.org/categories/scala%E6%8A%80%E5%B7%A7/"/>
     
     
   </entry>
