@@ -2,6 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://scala.chobit.org/wiki/20180529/a26-traitSelectiveMixedIn/</loc>
+    
+    <lastmod>2018-05-29T13:54:16.021Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://scala.chobit.org/wiki/20180528/a25-traitSummary/</loc>
+    
+    <lastmod>2018-05-29T13:51:17.612Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://scala.chobit.org/wiki/20180423/a05-operatorsInScala/</loc>
+    
+    <lastmod>2018-05-28T22:28:29.608Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://scala.chobit.org/wiki/20180518/a21-currying/</loc>
+    
+    <lastmod>2018-05-28T22:27:42.763Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://scala.chobit.org/wiki/20180422/a03-comment/</loc>
+    
+    <lastmod>2018-05-28T22:27:08.824Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://scala.chobit.org/wiki/20180527/a24-array/</loc>
     
     <lastmod>2018-05-28T14:20:31.915Z</lastmod>
@@ -30,30 +65,9 @@
   </url>
   
   <url>
-    <loc>http://scala.chobit.org/wiki/20180518/a21-currying/</loc>
-    
-    <lastmod>2018-05-19T14:29:14.747Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://scala.chobit.org/wiki/20180423/a05-operatorsInScala/</loc>
-    
-    <lastmod>2018-05-19T14:13:09.316Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://scala.chobit.org/wiki/20180423/a04-basicType/</loc>
     
     <lastmod>2018-05-19T14:12:45.420Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://scala.chobit.org/wiki/20180422/a03-comment/</loc>
-    
-    <lastmod>2018-05-19T14:12:34.680Z</lastmod>
     
   </url>
   
