@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://scala.chobit.org/wiki/20180421/index/</loc>
+    <loc>http://scala.chobit.org/wiki/20180530/a27-traitDelayBinding/</loc>
     
-    <lastmod>2018-05-29T14:29:01.781Z</lastmod>
+    <lastmod>2018-05-29T23:14:01.166Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://scala.chobit.org/wiki/20180529/a26-traitSelectiveMixedIn/</loc>
     
-    <lastmod>2018-05-29T14:26:20.234Z</lastmod>
+    <lastmod>2018-05-29T22:59:49.089Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://scala.chobit.org/wiki/20180421/index/</loc>
+    
+    <lastmod>2018-05-29T14:29:01.781Z</lastmod>
     
   </url>
   
