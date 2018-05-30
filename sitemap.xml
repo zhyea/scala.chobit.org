@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://scala.chobit.org/wiki/20180530/a28-traitAndAbstractClass/</loc>
+    
+    <lastmod>2018-05-30T14:22:44.260Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://scala.chobit.org/wiki/20180530/a27-traitDelayBinding/</loc>
     
-    <lastmod>2018-05-29T23:14:01.166Z</lastmod>
+    <lastmod>2018-05-30T13:54:17.402Z</lastmod>
     
   </url>
   

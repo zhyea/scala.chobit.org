@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://scala.chobit.org/"/>
-  <updated>2018-05-29T23:14:01.166Z</updated>
+  <updated>2018-05-30T14:22:44.260Z</updated>
   <id>http://scala.chobit.org/</id>
   
   <author>
@@ -17,26 +17,58 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>a27-traitDelayBinding</title>
-    <link href="http://scala.chobit.org/wiki/20180530/a27-traitDelayBinding/"/>
-    <id>http://scala.chobit.org/wiki/20180530/a27-traitDelayBinding/</id>
-    <published>2018-05-29T23:14:00.000Z</published>
-    <updated>2018-05-29T23:14:01.166Z</updated>
+    <title>trait和抽象类</title>
+    <link href="http://scala.chobit.org/wiki/20180530/a28-traitAndAbstractClass/"/>
+    <id>http://scala.chobit.org/wiki/20180530/a28-traitAndAbstractClass/</id>
+    <published>2018-05-30T13:59:06.000Z</published>
+    <updated>2018-05-30T14:22:44.260Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><blockquote><ul><li><a href=""></a></li><li><a href=""></a></li></ul></blockquote>]]></content>
+    <content type="html"><![CDATA[<p>发现前面多次提到了抽象类，可是却从没有正式的介绍过抽象类这个概念。在这里一起说下。</p><h2 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h2><p>scala的抽象类的定义和Java的差不多。使用了关键词abstract声明的类叫作抽象类。如果一个类里包含了一个或多个抽象方法，该类就必须被定义为抽象类。抽象方法属于一种不完整的方法，抽象方法只有方法声明，没有方法体。</p><p>下面的代码演示了抽象类的定义和实现：</p><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Teacher</span>(<span class="params">val name: <span class="type">String</span></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">val</span> age: <span class="type">Int</span></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">teach</span></span>(): <span class="type">Unit</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MathTeacher</span>(<span class="params">override val name: <span class="type">String</span></span>) <span class="keyword">extends</span> <span class="title">Teacher</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">override</span> <span class="keyword">val</span> age = <span class="number">29</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">override</span> <span class="function"><span class="keyword">def</span> <span class="title">teach</span></span>(): <span class="type">Unit</span> = println(<span class="string">"teaching Math"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">object</span> <span class="title">MyApp</span> <span class="keyword">extends</span> <span class="title">App</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">val</span> teacher = <span class="keyword">new</span> <span class="type">MathTeacher</span>(<span class="string">"tom"</span>)</span><br><span class="line"></span><br><span class="line">  teacher.teach</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>在上面的代码中定义了抽象类Teacher，抽象类中有抽象字段（name和age）和抽象方法（teach()方法）。</p><p>抽象类有如下几个特征：</p><ol><li>在普通类中 字段必须赋值(包括赋具体的值和使用下划线为var变量赋默认值) </li><li>抽象类不需要初始化</li><li>抽象类中可以有抽象方法 </li><li>只定义不赋值的字段为抽象字段 </li><li>只声明而不实现的方法为抽象方法；和java不同，scala的抽象方法不强制使用abstract关键字声明，只需不写方法体即可</li></ol><h2 id="trait和抽象类"><a href="#trait和抽象类" class="headerlink" title="trait和抽象类"></a>trait和抽象类</h2><p>介绍下trait和抽象方法的异同。</p><p>二者的相似之处：</p><ol><li>都可以有普通方法和抽象方法；</li><li>都可以有普通成员变量和抽象变量；</li><li>抽象类能做的事情trait都能做。</li></ol><p>二者的不同之处：</p><ol><li>trait可以多重混入，抽象类只能单继承；</li><li>抽象类可以定义构造函数；</li><li>trait可以混入实例，抽象类不可以。</li></ol><p>那什么时候用trait，什么时候用抽象类呢：</p><ol><li>优先使用trait。一个类扩展多个trait是很方便的，但却只能扩展一个抽象类。</li><li>如果你需要构造函数参数，使用抽象类。因为抽象类可以定义带参数的构造函数，而trait不行。例如，不能定义trait T(i: Int) {}，参数i是非法的。</li></ol>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;参考资料&quot;&gt;&lt;a href=&quot;#参考资料&quot; class=&quot;headerlink&quot; title=&quot;参考资料&quot;&gt;&lt;/a&gt;参考资料&lt;/h2&gt;&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/l
+        &lt;p&gt;发现前面多次提到了抽象类，可是却从没有正式的介绍过抽象类这个概念。在这里一起说下。&lt;/p&gt;
+&lt;h2 id=&quot;抽象类&quot;&gt;&lt;a href=&quot;#抽象类&quot; class=&quot;headerlink&quot; title=&quot;抽象类&quot;&gt;&lt;/a&gt;抽象类&lt;/h2&gt;&lt;p&gt;scala的抽象类的定义和Java
       
     
     </summary>
     
+      <category term="scala学习" scheme="http://scala.chobit.org/categories/scala%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="trait" scheme="http://scala.chobit.org/tags/trait/"/>
+    
+      <category term="抽象类" scheme="http://scala.chobit.org/tags/%E6%8A%BD%E8%B1%A1%E7%B1%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>trait方法延迟绑定</title>
+    <link href="http://scala.chobit.org/wiki/20180530/a27-traitDelayBinding/"/>
+    <id>http://scala.chobit.org/wiki/20180530/a27-traitDelayBinding/</id>
+    <published>2018-05-29T23:14:00.000Z</published>
+    <updated>2018-05-30T13:54:17.402Z</updated>
+    
+    <content type="html"><![CDATA[<p>关于延迟绑定上一节已经提到过了。这次再专门说一下。  </p><p>延迟绑定简单来说就是先混入的trait的方法会后调用。</p><p>再来看一个例子：</p><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Writer</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">write</span></span>(message: <span class="type">String</span>): <span class="type">String</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">trait</span> <span class="title">UpperWriter</span> <span class="keyword">extends</span> <span class="title">Writer</span> </span>&#123;</span><br><span class="line">  <span class="keyword">abstract</span> <span class="keyword">override</span> <span class="function"><span class="keyword">def</span> <span class="title">write</span></span>(message: <span class="type">String</span>): <span class="type">String</span> = <span class="keyword">super</span>.write(message.toUpperCase)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">trait</span> <span class="title">FilterWriter</span> <span class="keyword">extends</span> <span class="title">Writer</span> </span>&#123;</span><br><span class="line">  <span class="keyword">abstract</span> <span class="keyword">override</span> <span class="function"><span class="keyword">def</span> <span class="title">write</span></span>(message: <span class="type">String</span>): <span class="type">String</span> = <span class="keyword">super</span>.write(message.replace('o', '-'))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">trait</span> <span class="title">StringWriter</span> <span class="keyword">extends</span> <span class="title">Writer</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">write</span></span>(message: <span class="type">String</span>): <span class="type">String</span> = message</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">object</span> <span class="title">MyTrait</span> <span class="keyword">extends</span> <span class="title">App</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">val</span> myWriter1 = <span class="keyword">new</span> <span class="type">StringWriter</span> <span class="keyword">with</span> <span class="type">UpperWriter</span> <span class="keyword">with</span> <span class="type">FilterWriter</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">val</span> myWriter2 = <span class="keyword">new</span> <span class="type">StringWriter</span> <span class="keyword">with</span> <span class="type">FilterWriter</span> <span class="keyword">with</span> <span class="type">UpperWriter</span></span><br><span class="line"></span><br><span class="line">  println(myWriter1.write(<span class="string">"Hello World!"</span>))</span><br><span class="line"></span><br><span class="line">  println(myWriter2.write(<span class="string">"Hello World!"</span>))</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>在代码中定义了一个抽象类和三个trait。</p><p>其中抽象类Writer仅定义了一个抽象方法，并没有提供具体的实现。继承抽象类Writer的trait需要实现write方法。</p><p>UpperWriter的write方法实现了将传入的英文字符转为大写；</p><p>FilterWriter的write方法实现了将小写的“o”替换为“-”；</p><p>StringWriter则只是将传入的字符串原样返回。</p><p>看下执行结果：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HELL- W-RLD!</span><br><span class="line">HELLO WORLD!</span><br></pre></td></tr></table></figure><p>验证了我们的说法：延迟绑定就是先混入的trait会后执行。</p><p>myWriter1的执行顺序：FilterWriter –&gt; UpperWriter –&gt; StringWriter；</p><p>myWriter2的执行顺序：UpperWriter –&gt; FilterWriter –&gt; StringWriter。</p><p>从trait的延迟绑定很容易会想到java的父类与子类的初始化顺序。又或者是java中的责任链模式。因此想想用java来实现这一点并不难：可以采用不同顺序的责任链，也可以是使用不同的继承顺序来实现。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;关于延迟绑定上一节已经提到过了。这次再专门说一下。  &lt;/p&gt;
+&lt;p&gt;延迟绑定简单来说就是先混入的trait的方法会后调用。&lt;/p&gt;
+&lt;p&gt;再来看一个例子：&lt;/p&gt;
+&lt;figure class=&quot;highlight scala&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;
+      
+    
+    </summary>
+    
+      <category term="scala学习" scheme="http://scala.chobit.org/categories/scala%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="trait" scheme="http://scala.chobit.org/tags/trait/"/>
     
   </entry>
   
@@ -491,31 +523,6 @@
     </summary>
     
       <category term="scala学习" scheme="http://scala.chobit.org/categories/scala%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>方法的点和括号是可选的</title>
-    <link href="http://scala.chobit.org/wiki/20180503/b007-pointlessMethod/"/>
-    <id>http://scala.chobit.org/wiki/20180503/b007-pointlessMethod/</id>
-    <published>2018-05-03T14:04:13.000Z</published>
-    <updated>2018-05-05T02:38:36.572Z</updated>
-    
-    <content type="html"><![CDATA[<p>在scala中，如果方法只有0或1个参数，点和括号就是可选的；如果方法的参数多于1个，就必须使用括号，但是点仍然是可选的。   </p><p>比如我们常见的 1 + 2，实际上就是在执行 1.+(2) 。  </p><p>这样做的优势也很明显：代码读起来更加自然，在展现上不至于显得杂乱。</p><p>下面是一段示例代码：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Teacher</span>(<span class="params">val name: <span class="type">String</span></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">teach</span></span>(subject: <span class="type">String</span>) = println(<span class="string">s"<span class="subst">$name</span> teaches <span class="subst">$subject</span>."</span>)</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">teach</span></span>(subject: <span class="type">String</span>, student: <span class="type">String</span>*) = println(<span class="string">s"<span class="subst">$name</span> teaches <span class="subst">$&#123;student.mkString(",")&#125;</span> to learn <span class="subst">$subject</span>"</span>)</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">val</span> teacher = <span class="keyword">new</span> <span class="type">Teacher</span>(<span class="string">"Mr.Chang"</span>)</span><br><span class="line"></span><br><span class="line">teacher teach <span class="string">"Mathematics"</span></span><br><span class="line"></span><br><span class="line">teacher teach (<span class="string">"Mathematics"</span>, <span class="string">"robin"</span>)</span><br></pre></td></tr></table></figure></p><p>执行结果如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Mr.Chang teaches Mathematics.</span><br><span class="line">Mr.Chang teaches robin to learn Mathematics</span><br></pre></td></tr></table></figure></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;在scala中，如果方法只有0或1个参数，点和括号就是可选的；如果方法的参数多于1个，就必须使用括号，但是点仍然是可选的。   &lt;/p&gt;
-&lt;p&gt;比如我们常见的 1 + 2，实际上就是在执行 1.+(2) 。  &lt;/p&gt;
-&lt;p&gt;这样做的优势也很明显：代码读起来更加自然，在展现
-      
-    
-    </summary>
-    
-      <category term="scala技巧" scheme="http://scala.chobit.org/categories/scala%E6%8A%80%E5%B7%A7/"/>
     
     
   </entry>
