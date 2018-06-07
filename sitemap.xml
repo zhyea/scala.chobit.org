@@ -2,9 +2,65 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://scala.chobit.org/wiki/20180427/a10-independentAndCompanionObject/</loc>
+    
+    <lastmod>2018-06-07T14:31:50.116Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://scala.chobit.org/wiki/20180427/a09-classExtends/</loc>
+    
+    <lastmod>2018-06-07T14:31:18.173Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://scala.chobit.org/wiki/20180426/a08-classDefine/</loc>
+    
+    <lastmod>2018-06-07T14:31:07.343Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://scala.chobit.org/wiki/20180424/a06-varAndVal/</loc>
+    
+    <lastmod>2018-06-07T14:30:45.359Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://scala.chobit.org/wiki/20180425/a07-stringAndMultiLineString/</loc>
+    
+    <lastmod>2018-06-07T14:30:36.911Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://scala.chobit.org/wiki/20180421/index/</loc>
+    
+    <lastmod>2018-06-07T14:30:07.505Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://scala.chobit.org/wiki/20180531/a29-implicit/</loc>
+    
+    <lastmod>2018-06-07T14:26:40.069Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://scala.chobit.org/wiki/20180530/a28-traitAndAbstractClass/</loc>
     
-    <lastmod>2018-05-30T14:22:44.260Z</lastmod>
+    <lastmod>2018-06-06T13:49:00.766Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://scala.chobit.org/wiki/20180529/a26-traitSelectiveMixedIn/</loc>
+    
+    <lastmod>2018-05-31T13:40:25.994Z</lastmod>
     
   </url>
   
@@ -12,20 +68,6 @@
     <loc>http://scala.chobit.org/wiki/20180530/a27-traitDelayBinding/</loc>
     
     <lastmod>2018-05-30T13:54:17.402Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://scala.chobit.org/wiki/20180529/a26-traitSelectiveMixedIn/</loc>
-    
-    <lastmod>2018-05-29T22:59:49.089Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://scala.chobit.org/wiki/20180421/index/</loc>
-    
-    <lastmod>2018-05-29T14:29:01.781Z</lastmod>
     
   </url>
   
@@ -198,13 +240,6 @@
   </url>
   
   <url>
-    <loc>http://scala.chobit.org/wiki/20180424/a06-varAndVal/</loc>
-    
-    <lastmod>2018-05-03T23:02:02.545Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://scala.chobit.org/wiki/20180430/a12-defineMethod/</loc>
     
     <lastmod>2018-05-01T13:42:09.971Z</lastmod>
@@ -271,34 +306,6 @@
     <loc>http://scala.chobit.org/wiki/20180429/a11-accessModifier/</loc>
     
     <lastmod>2018-04-29T01:12:35.993Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://scala.chobit.org/wiki/20180427/a10-independentAndCompanionObject/</loc>
-    
-    <lastmod>2018-04-28T13:34:51.797Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://scala.chobit.org/wiki/20180426/a08-classDefine/</loc>
-    
-    <lastmod>2018-04-27T13:15:45.655Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://scala.chobit.org/wiki/20180427/a09-classExtends/</loc>
-    
-    <lastmod>2018-04-26T22:01:30.575Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://scala.chobit.org/wiki/20180425/a07-stringAndMultiLineString/</loc>
-    
-    <lastmod>2018-04-24T23:05:11.322Z</lastmod>
     
   </url>
   
