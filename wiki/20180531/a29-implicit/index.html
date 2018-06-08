@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     
-    <title>implicit scala隐式处理 | SCALA 手账</title>
+    <title>implicit-scala隐式处理 | SCALA 手账</title>
     
     
         <meta name="keywords" content="implicit">
@@ -12,14 +12,14 @@
     <meta name="description" content="概述先来看看下面的内容：122 days “ago”5 days “from_now” 这段内容大家怎么看。首先这确定是一段代码（不是代码也没有必要提了），但是也可以确定的是scala的整型是没有days这样的方法的——在Int、RichInt还有Java的Integer中都没有days方法。   那么是怎样为整型值添加days方法的，或者说是如何扩展整型的方法的。   在scala中我们可以使用">
 <meta name="keywords" content="implicit">
 <meta property="og:type" content="article">
-<meta property="og:title" content="implicit scala隐式处理">
+<meta property="og:title" content="implicit-scala隐式处理">
 <meta property="og:url" content="http://scala.chobit.org/wiki/20180531/a29-implicit/index.html">
 <meta property="og:site_name" content="SCALA 手账">
 <meta property="og:description" content="概述先来看看下面的内容：122 days “ago”5 days “from_now” 这段内容大家怎么看。首先这确定是一段代码（不是代码也没有必要提了），但是也可以确定的是scala的整型是没有days这样的方法的——在Int、RichInt还有Java的Integer中都没有days方法。   那么是怎样为整型值添加days方法的，或者说是如何扩展整型的方法的。   在scala中我们可以使用">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-07T14:26:40.069Z">
+<meta property="og:updated_time" content="2018-06-07T14:40:31.072Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="implicit scala隐式处理">
+<meta name="twitter:title" content="implicit-scala隐式处理">
 <meta name="twitter:description" content="概述先来看看下面的内容：122 days “ago”5 days “from_now” 这段内容大家怎么看。首先这确定是一段代码（不是代码也没有必要提了），但是也可以确定的是scala的整型是没有days这样的方法的——在Int、RichInt还有Java的Integer中都没有days方法。   那么是怎样为整型值添加days方法的，或者说是如何扩展整型的方法的。   在scala中我们可以使用">
     
 
@@ -186,7 +186,7 @@ var _hmt = _hmt || [];
                             &nbsp;
                             scala学习
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/20180419/a00-prepareEnv/">准备开发环境</a></li>  <li class="file"><a href="/wiki/20180421/a01-quickStart/">快速体验Scala - Scasite</a></li>  <li class="file"><a href="/wiki/20180421/a02-ineractiveCoding/">快速体验Scala - 交互式编程</a></li>  <li class="file"><a href="/wiki/20180422/a03-comment/">使用注释</a></li>  <li class="file"><a href="/wiki/20180423/a04-basicType/">基本类型</a></li>  <li class="file"><a href="/wiki/20180423/a05-operatorsInScala/">运算符和优先级</a></li>  <li class="file"><a href="/wiki/20180424/a06-varAndVal/">var和val变量</a></li>  <li class="file"><a href="/wiki/20180425/a07-stringAndMultiLineString/">字符串和多行字符串</a></li>  <li class="file"><a href="/wiki/20180426/a08-classDefine/">类定义和构造器</a></li>  <li class="file"><a href="/wiki/20180427/a09-classExtends/">类继承</a></li>  <li class="file"><a href="/wiki/20180427/a10-independentAndCompanionObject/">单例、独立对象和伴生对象</a></li>  <li class="file"><a href="/wiki/20180429/a11-accessModifier/">访问修饰符</a></li>  <li class="file"><a href="/wiki/20180429/a13-loopAndLoopControl/">循环和循环控制</a></li>  <li class="file"><a href="/wiki/20180430/a12-defineMethod/">方法的定义</a></li>  <li class="file"><a href="/wiki/20180501/a14-forLoopDetail/">for循环详述</a></li>  <li class="file"><a href="/wiki/20180501/a15-methodVsFunction/">方法VS函数</a></li>  <li class="file"><a href="/wiki/20180505/a16-usingOfPackage/">package的使用</a></li>  <li class="file"><a href="/wiki/20180505/a17-aboutImport/">关于import</a></li>  <li class="file"><a href="/wiki/20180506/a18-callByName/">传名参数 =>Unit</a></li>  <li class="file"><a href="/wiki/20180507/a19-partialApplyFunction/">部分应用函数</a></li>  <li class="file"><a href="/wiki/20180508/a20-partialFunction/">偏函数</a></li>  <li class="file"><a href="/wiki/20180518/a21-currying/">Curry化</a></li>  <li class="file"><a href="/wiki/20180520/a22-executorAroudMode/">Executor Aroud模式</a></li>  <li class="file"><a href="/wiki/20180521/a23-closure/">闭包</a></li>  <li class="file"><a href="/wiki/20180527/a24-array/">数组</a></li>  <li class="file"><a href="/wiki/20180528/a25-traitSummary/">Trait</a></li>  <li class="file"><a href="/wiki/20180529/a26-traitSelectiveMixedIn/">trait选择性混入</a></li>  <li class="file"><a href="/wiki/20180530/a27-traitDelayBinding/">trait方法延迟绑定</a></li>  <li class="file"><a href="/wiki/20180530/a28-traitAndAbstractClass/">trait和抽象类</a></li>  <li class="file active"><a href="/wiki/20180531/a29-implicit/">implicit scala隐式处理</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/20180419/a00-prepareEnv/">准备开发环境</a></li>  <li class="file"><a href="/wiki/20180421/a01-quickStart/">快速体验Scala - Scasite</a></li>  <li class="file"><a href="/wiki/20180421/a02-ineractiveCoding/">快速体验Scala - 交互式编程</a></li>  <li class="file"><a href="/wiki/20180422/a03-comment/">使用注释</a></li>  <li class="file"><a href="/wiki/20180423/a04-basicType/">基本类型</a></li>  <li class="file"><a href="/wiki/20180423/a05-operatorsInScala/">运算符和优先级</a></li>  <li class="file"><a href="/wiki/20180424/a06-varAndVal/">var和val变量</a></li>  <li class="file"><a href="/wiki/20180425/a07-stringAndMultiLineString/">字符串和多行字符串</a></li>  <li class="file"><a href="/wiki/20180426/a08-classDefine/">类定义和构造器</a></li>  <li class="file"><a href="/wiki/20180427/a09-classExtends/">类继承</a></li>  <li class="file"><a href="/wiki/20180427/a10-independentAndCompanionObject/">单例、独立对象和伴生对象</a></li>  <li class="file"><a href="/wiki/20180429/a11-accessModifier/">访问修饰符</a></li>  <li class="file"><a href="/wiki/20180429/a13-loopAndLoopControl/">循环和循环控制</a></li>  <li class="file"><a href="/wiki/20180430/a12-defineMethod/">方法的定义</a></li>  <li class="file"><a href="/wiki/20180501/a14-forLoopDetail/">for循环详述</a></li>  <li class="file"><a href="/wiki/20180501/a15-methodVsFunction/">方法VS函数</a></li>  <li class="file"><a href="/wiki/20180505/a16-usingOfPackage/">package的使用</a></li>  <li class="file"><a href="/wiki/20180505/a17-aboutImport/">关于import</a></li>  <li class="file"><a href="/wiki/20180506/a18-callByName/">传名参数 =>Unit</a></li>  <li class="file"><a href="/wiki/20180507/a19-partialApplyFunction/">部分应用函数</a></li>  <li class="file"><a href="/wiki/20180508/a20-partialFunction/">偏函数</a></li>  <li class="file"><a href="/wiki/20180518/a21-currying/">Curry化</a></li>  <li class="file"><a href="/wiki/20180520/a22-executorAroudMode/">Executor Aroud模式</a></li>  <li class="file"><a href="/wiki/20180521/a23-closure/">闭包</a></li>  <li class="file"><a href="/wiki/20180527/a24-array/">数组</a></li>  <li class="file"><a href="/wiki/20180528/a25-traitSummary/">Trait</a></li>  <li class="file"><a href="/wiki/20180529/a26-traitSelectiveMixedIn/">trait选择性混入</a></li>  <li class="file"><a href="/wiki/20180530/a27-traitDelayBinding/">trait方法延迟绑定</a></li>  <li class="file"><a href="/wiki/20180530/a28-traitAndAbstractClass/">trait和抽象类</a></li>  <li class="file active"><a href="/wiki/20180531/a29-implicit/">implicit-scala隐式处理</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -195,7 +195,7 @@ var _hmt = _hmt || [];
                             &nbsp;
                             scala技巧
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/20180428/b000-useYield/">使用yield关键字</a></li>  <li class="file"><a href="/wiki/20180428/b001-useVeriableArguments/">使用变长参数</a></li>  <li class="file"><a href="/wiki/20180429/b002-assignmentSymbol/">scala赋值符号“=”</a></li>  <li class="file"><a href="/wiki/20180429/b003-equalitySymbol/">scala等于符号“==”</a></li>  <li class="file"><a href="/wiki/20180501/b004-objectMainMethod/">object中的main方法</a></li>  <li class="file"><a href="/wiki/20180501/b005-adaptivePractice/">scala中的自适应做法</a></li>  <li class="file"><a href="/wiki/20180502/b006-variableLengthParams/">可变长度参数</a></li>  <li class="file"><a href="/wiki/20180503/b007-pointlessMethod/">方法的点和括号是可选的</a></li>  <li class="file"><a href="/wiki/20180505/b008-usageOfUnderscore/">下划线的作用</a></li>  <li class="file"><a href="/wiki/20180506/b009-callByNameAndFunctionValue/">参数中的 =>U 和 ()=>U</a></li>  <li class="file"><a href="/wiki/20180506/b010-defaultParamValue/">参数默认值</a></li>  <li class="file"><a href="/wiki/20180506/b011-namedParam/">带名称的参数值</a></li>  <li class="file"><a href="/wiki/20180506/b012-stringInterpolation/">scala字符串插值</a></li>  <li class="file"><a href="/wiki/20180519/b013-underscoreAndParams/">下划线和参数</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/20180428/b000-useYield/">使用yield关键字</a></li>  <li class="file"><a href="/wiki/20180428/b001-useVeriableArguments/">使用变长参数</a></li>  <li class="file"><a href="/wiki/20180429/b002-assignmentSymbol/">scala赋值符号“=”</a></li>  <li class="file"><a href="/wiki/20180429/b003-equalitySymbol/">scala等于符号“==”</a></li>  <li class="file"><a href="/wiki/20180501/b004-objectMainMethod/">object中的main方法</a></li>  <li class="file"><a href="/wiki/20180501/b005-adaptivePractice/">scala中的自适应做法</a></li>  <li class="file"><a href="/wiki/20180502/b006-variableLengthParams/">可变长度参数</a></li>  <li class="file"><a href="/wiki/20180503/b007-pointlessMethod/">方法的点和括号是可选的</a></li>  <li class="file"><a href="/wiki/20180505/b008-usageOfUnderscore/">下划线的作用</a></li>  <li class="file"><a href="/wiki/20180506/b009-callByNameAndFunctionValue/">参数中的 =>U 和 ()=>U</a></li>  <li class="file"><a href="/wiki/20180506/b010-defaultParamValue/">参数默认值</a></li>  <li class="file"><a href="/wiki/20180506/b011-namedParam/">带名称的参数值</a></li>  <li class="file"><a href="/wiki/20180506/b012-stringInterpolation/">scala字符串插值</a></li>  <li class="file"><a href="/wiki/20180519/b013-underscoreAndParams/">下划线和参数</a></li>  <li class="file"><a href="/wiki/20180607/b014-applyMethod/">apply方法</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -312,7 +312,7 @@ var _hmt = _hmt || [];
                 
     
         <h1 class="article-title" itemprop="name">
-            implicit scala隐式处理
+            implicit-scala隐式处理
         </h1>
     
 
@@ -338,10 +338,10 @@ var _hmt = _hmt || [];
 <p>隐式类型转换可以帮助我们扩展语言，创建“专用于特定应用和领域”的词汇或语法，也可以帮助我们创建属于自己的领域专用语言。</p>
 </blockquote>
 <p>这句话说明了隐式类型转换的主要作用。</p>
-<p>再来看看隐式类型转换具体是怎样发挥作用的。还以最初的那段代码为例，来看看是怎样为整型添加days方法的。</p>
+<p>再来看看隐式类型转换具体是怎样发挥作用的。还以最初的那段代码为例，看一下是怎样为整型添加days方法的。</p>
 <p>首先，我们需要创建一个DateHelper类：</p>
 <figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DateHelper</span>(<span class="params">number: <span class="type">Int</span></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">days</span></span>(when: <span class="type">String</span>): <span class="type">Date</span> = &#123;</span><br><span class="line">    <span class="keyword">val</span> date = <span class="type">Calendar</span>.getInstance()</span><br><span class="line">    when <span class="keyword">match</span> &#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">"ago"</span> =&gt; date.add(<span class="type">Calendar</span>.<span class="type">DAY_OF_MONTH</span>, -number)</span><br><span class="line">      <span class="keyword">case</span> <span class="string">"from_now"</span> =&gt; date.add(<span class="type">Calendar</span>.<span class="type">DAY_OF_MONTH</span>, number)</span><br><span class="line">      <span class="keyword">case</span> _ =&gt; date</span><br><span class="line">    &#125;</span><br><span class="line">    date.getTime()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>可以看到在DateHelper方法中定义了days方法。DateHelper类还有一个整型值的构造器。那么怎样使用隐式类型转换让整型值可以调用DateHelper的days方法？我们需要使用<strong>implicit</strong>关键字，如下：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">implicit</span> <span class="function"><span class="keyword">def</span> <span class="title">convertInt2DateHelper</span></span>(number: <span class="type">Int</span>): <span class="type">DateHelper</span> = <span class="keyword">new</span> <span class="type">DateHelper</span>(number)</span><br></pre></td></tr></table></figure></p>
+<p>可以看到在DateHelper方法中定义了days方法。可以明确地说这个days方法就是一开始的示例中的days方法。DateHelper类还有一个整型值的构造器。那么怎样使用隐式类型转换让整型值可以调用DateHelper的days方法？我们需要使用<strong>implicit</strong>关键字，如下：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">implicit</span> <span class="function"><span class="keyword">def</span> <span class="title">convertInt2DateHelper</span></span>(number: <span class="type">Int</span>): <span class="type">DateHelper</span> = <span class="keyword">new</span> <span class="type">DateHelper</span>(number)</span><br></pre></td></tr></table></figure></p>
 <p>此时再调用days方法就可以了：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">implicit</span> <span class="function"><span class="keyword">def</span> <span class="title">convertInt2DateHelper</span></span>(number: <span class="type">Int</span>): <span class="type">DateHelper</span> = <span class="keyword">new</span> <span class="type">DateHelper</span>(number)</span><br><span class="line"></span><br><span class="line">println(<span class="number">1</span> days <span class="string">"ago"</span>)</span><br></pre></td></tr></table></figure></p>
 <p>输出结果如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Tue Jun 05 07:09:29 CST 2018</span><br></pre></td></tr></table></figure></p>
 <h2 id="隐式转换函数"><a href="#隐式转换函数" class="headerlink" title="隐式转换函数"></a>隐式转换函数</h2><p>刚才的例子就是一个隐式转换函数的实例。在这个例子中定义的隐式转换函数为convertInt2DateHelper。通过这个函数我们可以将DateHelper类的能力提供给一个整型值。另外，需要啰嗦一下：隐式转换函数的名称对其功能没有任何影响，只要能表达其含义，具备可读性即可。</p>
@@ -389,6 +389,15 @@ var _hmt = _hmt || [];
 
     
 <nav id="article-nav">
+    
+        <a href="/wiki/20180607/b014-applyMethod/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    apply方法
+                
+            </div>
+        </a>
     
     
         <a href="/wiki/20180530/a28-traitAndAbstractClass/" id="article-nav-older" class="article-nav-link-wrap">

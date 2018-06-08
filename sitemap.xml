@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://scala.chobit.org/wiki/20180607/b014-applyMethod/</loc>
+    
+    <lastmod>2018-06-07T23:29:49.498Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://scala.chobit.org/wiki/20180531/a29-implicit/</loc>
+    
+    <lastmod>2018-06-07T14:40:31.072Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://scala.chobit.org/wiki/20180427/a10-independentAndCompanionObject/</loc>
     
     <lastmod>2018-06-07T14:31:50.116Z</lastmod>
@@ -40,13 +54,6 @@
     <loc>http://scala.chobit.org/wiki/20180421/index/</loc>
     
     <lastmod>2018-06-07T14:30:07.505Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://scala.chobit.org/wiki/20180531/a29-implicit/</loc>
-    
-    <lastmod>2018-06-07T14:26:40.069Z</lastmod>
     
   </url>
   
