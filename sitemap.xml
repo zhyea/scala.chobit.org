@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://scala.chobit.org/wiki/20180628/b019-tryCatchException/</loc>
+    <loc>http://scala.chobit.org/wiki/20180421/index/</loc>
     
-    <lastmod>2018-06-28T23:25:41.409Z</lastmod>
+    <lastmod>2018-06-28T23:43:19.087Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://scala.chobit.org/wiki/20180628/a32-caseConstant/</loc>
     
-    <lastmod>2018-06-28T23:13:23.497Z</lastmod>
+    <lastmod>2018-06-28T23:40:50.429Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://scala.chobit.org/wiki/20180628/b019-tryCatchException/</loc>
+    
+    <lastmod>2018-06-28T23:25:41.409Z</lastmod>
     
   </url>
   
@@ -26,13 +33,6 @@
     <loc>http://scala.chobit.org/wiki/20180611/b018-methodsEndWithColon/</loc>
     
     <lastmod>2018-06-28T13:35:05.525Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://scala.chobit.org/wiki/20180421/index/</loc>
-    
-    <lastmod>2018-06-17T13:31:57.559Z</lastmod>
     
   </url>
   
