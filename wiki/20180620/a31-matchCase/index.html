@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    
+    <title>模式匹配 | SCALA 手账</title>
+    
+    
+        <meta name="keywords" content="match,case,模式匹配">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="概述在java中有switch/case这样的模式匹配语句，可以匹配的类型包括int,byte,char,short, enum，在java8又支持了字符串。 在scala中也有类似的模式匹配语句，即match-case。scala中的match-case匹配的类型更为广泛：它是对Any类型起作用的。 来看个例子： 123456789101112def activity(day: String)">
+<meta name="keywords" content="match,case,模式匹配">
+<meta property="og:type" content="article">
+<meta property="og:title" content="模式匹配">
+<meta property="og:url" content="http://scala.chobit.org/wiki/20180620/a31-matchCase/index.html">
+<meta property="og:site_name" content="SCALA 手账">
+<meta property="og:description" content="概述在java中有switch/case这样的模式匹配语句，可以匹配的类型包括int,byte,char,short, enum，在java8又支持了字符串。 在scala中也有类似的模式匹配语句，即match-case。scala中的match-case匹配的类型更为广泛：它是对Any类型起作用的。 来看个例子： 123456789101112def activity(day: String)">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-06-28T22:37:38.585Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="模式匹配">
+<meta name="twitter:description" content="概述在java中有switch/case这样的模式匹配语句，可以匹配的类型包括int,byte,char,short, enum，在java8又支持了字符串。 在scala中也有类似的模式匹配语句，即match-case。scala中的match-case匹配的类型更为广泛：它是对Any类型起作用的。 来看个例子： 123456789101112def activity(day: String)">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="SCALA 手账" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="/images/favicon.ico">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-118765535-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+    
+        <script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?580ccff0585d80176b36536ea443032c";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+
+
+</head>
+</html>
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">SCALA 手账</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id="categories">
+        <h3 class="widget-title">
+            <span>分类</span>
+            &nbsp;
+            <a id="allExpand" href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree"> 
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            scala学习
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/20180419/a00-prepareEnv/">准备开发环境</a></li>  <li class="file"><a href="/wiki/20180421/a01-quickStart/">快速体验Scala - Scasite</a></li>  <li class="file"><a href="/wiki/20180421/a02-ineractiveCoding/">快速体验Scala - 交互式编程</a></li>  <li class="file"><a href="/wiki/20180422/a03-comment/">使用注释</a></li>  <li class="file"><a href="/wiki/20180423/a04-basicType/">基本类型</a></li>  <li class="file"><a href="/wiki/20180423/a05-operatorsInScala/">运算符和优先级</a></li>  <li class="file"><a href="/wiki/20180424/a06-varAndVal/">var和val变量</a></li>  <li class="file"><a href="/wiki/20180425/a07-stringAndMultiLineString/">字符串和多行字符串</a></li>  <li class="file"><a href="/wiki/20180426/a08-classDefine/">类定义和构造器</a></li>  <li class="file"><a href="/wiki/20180427/a09-classExtends/">类继承</a></li>  <li class="file"><a href="/wiki/20180427/a10-independentAndCompanionObject/">单例、独立对象和伴生对象</a></li>  <li class="file"><a href="/wiki/20180429/a11-accessModifier/">访问修饰符</a></li>  <li class="file"><a href="/wiki/20180429/a13-loopAndLoopControl/">循环和循环控制</a></li>  <li class="file"><a href="/wiki/20180430/a12-defineMethod/">方法的定义</a></li>  <li class="file"><a href="/wiki/20180501/a14-forLoopDetail/">for循环详述</a></li>  <li class="file"><a href="/wiki/20180501/a15-methodVsFunction/">方法VS函数</a></li>  <li class="file"><a href="/wiki/20180505/a16-usingOfPackage/">package的使用</a></li>  <li class="file"><a href="/wiki/20180505/a17-aboutImport/">关于import</a></li>  <li class="file"><a href="/wiki/20180506/a18-callByName/">传名参数 =>Unit</a></li>  <li class="file"><a href="/wiki/20180507/a19-partialApplyFunction/">部分应用函数</a></li>  <li class="file"><a href="/wiki/20180508/a20-partialFunction/">偏函数</a></li>  <li class="file"><a href="/wiki/20180518/a21-currying/">Curry化</a></li>  <li class="file"><a href="/wiki/20180520/a22-executorAroundMode/">Executor Aroud模式</a></li>  <li class="file"><a href="/wiki/20180521/a23-closure/">闭包</a></li>  <li class="file"><a href="/wiki/20180527/a24-array/">数组</a></li>  <li class="file"><a href="/wiki/20180528/a25-traitSummary/">Trait</a></li>  <li class="file"><a href="/wiki/20180529/a26-traitSelectiveMixedIn/">trait选择性混入</a></li>  <li class="file"><a href="/wiki/20180530/a27-traitDelayBinding/">trait方法延迟绑定</a></li>  <li class="file"><a href="/wiki/20180530/a28-traitAndAbstractClass/">trait和抽象类</a></li>  <li class="file"><a href="/wiki/20180531/a29-implicit/">implicit-scala隐式处理</a></li>  <li class="file"><a href="/wiki/20180608/a30-collectionOverview/">scala集合概述</a></li>  <li class="file active"><a href="/wiki/20180620/a31-matchCase/">模式匹配</a></li>  <li class="file"><a href="/wiki/20180628/a32-caseConstant/">case表达式里的模式变量和常量</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            scala技巧
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/20180428/b000-useYield/">使用yield关键字</a></li>  <li class="file"><a href="/wiki/20180428/b001-useVeriableArguments/">使用变长参数</a></li>  <li class="file"><a href="/wiki/20180429/b002-assignmentSymbol/">scala赋值符号“=”</a></li>  <li class="file"><a href="/wiki/20180429/b003-equalitySymbol/">scala等于符号“==”</a></li>  <li class="file"><a href="/wiki/20180501/b004-objectMainMethod/">object中的main方法</a></li>  <li class="file"><a href="/wiki/20180501/b005-adaptivePractice/">scala中的自适应做法</a></li>  <li class="file"><a href="/wiki/20180502/b006-variableLengthParams/">可变长度参数</a></li>  <li class="file"><a href="/wiki/20180503/b007-pointlessMethod/">方法的点和括号是可选的</a></li>  <li class="file"><a href="/wiki/20180505/b008-usageOfUnderscore/">下划线的作用</a></li>  <li class="file"><a href="/wiki/20180506/b009-callByNameAndFunctionValue/">参数中的 =>U 和 ()=>U</a></li>  <li class="file"><a href="/wiki/20180506/b010-defaultParamValue/">参数默认值</a></li>  <li class="file"><a href="/wiki/20180506/b011-namedParam/">带名称的参数值</a></li>  <li class="file"><a href="/wiki/20180506/b012-stringInterpolation/">scala字符串插值</a></li>  <li class="file"><a href="/wiki/20180519/b013-underscoreAndParams/">下划线和参数</a></li>  <li class="file"><a href="/wiki/20180607/b014-applyMethod/">apply方法</a></li>  <li class="file"><a href="/wiki/20180611/b015-updateMethod/">update方法</a></li>  <li class="file"><a href="/wiki/20180611/b016-unapplyMethod/">unapply方法</a></li>  <li class="file"><a href="/wiki/20180611/b017-unaryMethod/">一元操作符</a></li>  <li class="file"><a href="/wiki/20180611/b018-methodsEndWithColon/">以冒号结尾的方法</a></li>  <li class="file"><a href="/wiki/20180628/b019-tryCatchException/">异常处理</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            scala探索
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/20180516/c01-particialFuncion/">偏函数</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/20180421/index/">scala手账 - 主页</a></li>  </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-a31-matchCase" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/scala学习/">scala学习</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/case/">case</a>, <a class="tag-link" href="/tags/match/">match</a>, <a class="tag-link" href="/tags/模式匹配/">模式匹配</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/20180620/a31-matchCase/">
+            <time datetime="2018-06-20T13:45:14.000Z" itemprop="datePublished">2018-06-20</time>
+        </a>
+    </div>
+
+
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            模式匹配
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">文章目录</strong>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多类型匹配"><span class="toc-number">2.</span> <span class="toc-text">多类型匹配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#匹配时类型声明和卫述语句"><span class="toc-number">3.</span> <span class="toc-text">匹配时类型声明和卫述语句</span></a></li></ol>
+                </div>
+            
+        
+        
+            <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>在java中有switch/case这样的模式匹配语句，可以匹配的类型包括int,byte,char,short, enum，在java8又支持了字符串。</p>
+<p>在scala中也有类似的模式匹配语句，即match-case。scala中的match-case匹配的类型更为广泛：它是对Any类型起作用的。</p>
+<p>来看个例子：</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">activity</span></span>(day: <span class="type">String</span>) &#123;</span><br><span class="line">  day <span class="keyword">match</span> &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">"Sunday"</span> =&gt; println(<span class="string">"Eat, sleep, repeat... "</span>)</span><br><span class="line">    <span class="keyword">case</span> <span class="string">"Saturday"</span> =&gt; println(<span class="string">"Hang out with friends... "</span>)</span><br><span class="line">    <span class="keyword">case</span> <span class="string">"Monday"</span> =&gt; println(<span class="string">"...code for fun..."</span>)</span><br><span class="line">    <span class="keyword">case</span> <span class="string">"Friday"</span> =&gt; println(<span class="string">"...read a good book..."</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">List</span>(<span class="string">"Monday"</span>, <span class="string">"Sunday"</span>, <span class="string">"Saturday"</span>).foreach &#123;</span><br><span class="line">  activity</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这段代码的执行结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">...code for fun...</span><br><span class="line">Eat, sleep, repeat... </span><br><span class="line">Hang out with friends... </span><br><span class="line"></span><br><span class="line">Exception in thread &quot;main&quot; scala.MatchError: Tuesday (of class java.lang.String)</span><br><span class="line">	at com.zhyea.MyApp$.activity(MyApp.scala:7)</span><br><span class="line">	at com.zhyea.MyApp$$anonfun$1.apply(MyApp.scala:16)</span><br><span class="line">	at com.zhyea.MyApp$$anonfun$1.apply(MyApp.scala:16)</span><br></pre></td></tr></table></figure>
+<p>有没有注意到，这里和java是有些不一样的，最大的区别是没有用到break关键字。但是在scala中默认是匹配上了后就不会继续匹配了。窃以为这是比java做得好的地方。</p>
+<p>通过执行结果可以看到scala的模式匹配有一个需要注意的地方：没有匹配到会抛出异常。这一点在使用的时候要小心。</p>
+<p>在Java的switch/case中，可以用<strong>default</strong>关键字来执行默认通用匹配处理。在scala中也有符号起到了类似的作用，就是“_”。继续修改下上面的代码：</p>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">def activity(<span class="built_in">day</span>: <span class="keyword">String</span>) &#123;</span><br><span class="line">  <span class="built_in">day</span> <span class="built_in">match</span> &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">"Sunday"</span> =&gt; <span class="built_in">println</span>(<span class="string">"Eat, sleep, repeat... "</span>)</span><br><span class="line">    <span class="keyword">case</span> <span class="string">"Saturday"</span> =&gt; <span class="built_in">println</span>(<span class="string">"Hangout with friends... "</span>)</span><br><span class="line">    <span class="keyword">case</span> <span class="string">"Monday"</span> =&gt; <span class="built_in">println</span>(<span class="string">"...code for fun..."</span>)</span><br><span class="line">    <span class="keyword">case</span> <span class="string">"Friday"</span> =&gt; <span class="built_in">println</span>(<span class="string">"...read a good book..."</span>)</span><br><span class="line">    <span class="keyword">case</span> _ =&gt; <span class="built_in">println</span>(<span class="string">"...nothing..."</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">List(<span class="string">"Monday"</span>, <span class="string">"Sunday"</span>, <span class="string">"Saturday"</span>, <span class="string">"Tuesday"</span>).foreach &#123;</span><br><span class="line">  activity</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>就不贴执行结果了。</p>
+<h2 id="多类型匹配"><a href="#多类型匹配" class="headerlink" title="多类型匹配"></a>多类型匹配</h2><p>case表达式并不限于在match语句里使用。这里，包含case表达式的代码块就是一个简单函数值。这一点在前面学习<a href="wiki/20180508/a20-partialFunction/">偏函数</a>的时候也有提到过。</p>
+<p>刚才说过match-case支持的类型是Any。在java支持的基本类型、枚举和字符串之外，scala还支持支持其他任意类型的模式匹配，比如列表和元组：</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">processCoordinates</span></span>(input: <span class="type">Any</span>) &#123;</span><br><span class="line">  input <span class="keyword">match</span> &#123;</span><br><span class="line">    <span class="keyword">case</span> (a, b) =&gt; printf(<span class="string">"Processing (%d, %d)... "</span>, a, b)</span><br><span class="line">    <span class="keyword">case</span> <span class="type">List</span>(<span class="string">"red"</span>, <span class="string">"blue"</span>, <span class="string">"white"</span>) =&gt; println(<span class="string">"Stars and Stripes..."</span>)</span><br><span class="line">    <span class="keyword">case</span> <span class="type">List</span>(<span class="string">"red"</span>, <span class="string">"blue"</span>, _*) =&gt; println(<span class="string">"colors red, blue, ... "</span>)</span><br><span class="line">    <span class="keyword">case</span> <span class="string">"done"</span> =&gt; println(<span class="string">"done"</span>)</span><br><span class="line">    <span class="keyword">case</span> _ =&gt; <span class="literal">null</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">processCoordinates((<span class="number">39</span>, <span class="number">-104</span>))</span><br><span class="line">processCoordinates(<span class="string">"done"</span>)</span><br><span class="line">processCoordinates(<span class="type">List</span>(<span class="string">"red"</span>, <span class="string">"blue"</span>, <span class="string">"green"</span>))</span><br><span class="line">processCoordinates(<span class="type">List</span>(<span class="string">"red"</span>, <span class="string">"blue"</span>, <span class="string">"white"</span>))</span><br></pre></td></tr></table></figure>
+<p>看下执行结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Processing (39, -104)... done</span><br><span class="line">colors red, blue, ... </span><br><span class="line">Stars and Stripes...</span><br><span class="line"></span><br><span class="line">Process finished with exit code 0</span><br></pre></td></tr></table></figure>
+<h2 id="匹配时类型声明和卫述语句"><a href="#匹配时类型声明和卫述语句" class="headerlink" title="匹配时类型声明和卫述语句"></a>匹配时类型声明和卫述语句</h2><p>上面的代码还是有些不足之处，对元组的匹配还可以更细致些，比如针对不同类型的值可以做不同的处理：</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">process</span></span>(input: <span class="type">Any</span>) &#123;</span><br><span class="line">  input <span class="keyword">match</span> &#123;</span><br><span class="line">    <span class="keyword">case</span> (a: <span class="type">Int</span>, b: <span class="type">Int</span>) =&gt; println(<span class="string">"Processing (int, int)... "</span>)</span><br><span class="line">    <span class="keyword">case</span> (a: <span class="type">Double</span>, b: <span class="type">Double</span>) =&gt; println(<span class="string">"Processing (double, double)... "</span>)</span><br><span class="line">    <span class="keyword">case</span> msg: <span class="type">Int</span> <span class="keyword">if</span> (msg &gt; <span class="number">1000000</span>) =&gt; println(<span class="string">"Processing int &gt; 1000000"</span>)</span><br><span class="line">    <span class="keyword">case</span> msg: <span class="type">Int</span> =&gt; println(<span class="string">"Processing int... "</span>)</span><br><span class="line">    <span class="keyword">case</span> msg: <span class="type">String</span> =&gt; println(<span class="string">"Processing string... "</span>)</span><br><span class="line">    <span class="keyword">case</span> _ =&gt; printf(<span class="string">"Can't handle %s... "</span>, input)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">process((<span class="number">34.2</span>, <span class="number">-159.3</span>))</span><br><span class="line">process(<span class="number">0</span>)</span><br><span class="line">process(<span class="number">1000001</span>)</span><br><span class="line">process(<span class="number">2.2</span>)</span><br></pre></td></tr></table></figure>
+<p>代码中演示了在case语句里如何为单一的值和元组元素指定类型。除了类型之外，还可以使用卫述句（guard）。卫述句用if从句表示，在模式匹配里，对表达式求值前必须满足卫述句。</p>
+<p>代码中用到了占位符，即：a, b, msg。通过占位符可以比较方便地调用进行匹配的值。</p>
+<p>看下结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Processing (double, double)... </span><br><span class="line">Processing int... </span><br><span class="line">Processing int &gt; 1000000</span><br><span class="line">Can&apos;t handle 2.2... </span><br><span class="line">Process finished with exit code 0</span><br></pre></td></tr></table></figure>
+<p>case的顺序很重要。Scala会自上而下地求值。所以，上面代码中的5和6两行是不能交换的。</p>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/wiki/20180628/b019-tryCatchException/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    异常处理
+                
+            </div>
+        </a>
+    
+    
+        <a href="/wiki/20180611/b016-unapplyMethod/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">unapply方法</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            robin &copy; 2018 
+            <br> Powered by <a href="http://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a>. Theme - <a href="https://github.com/zthxxx/hexo-theme-Wikitten" rel="external nofollow noopener noreferrer" target="_blank">wikitten</a>
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>

@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://scala.chobit.org/wiki/20180628/b019-tryCatchException/</loc>
+    
+    <lastmod>2018-06-28T23:25:41.409Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://scala.chobit.org/wiki/20180628/a32-caseConstant/</loc>
+    
+    <lastmod>2018-06-28T23:13:23.497Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://scala.chobit.org/wiki/20180620/a31-matchCase/</loc>
+    
+    <lastmod>2018-06-28T22:37:38.585Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://scala.chobit.org/wiki/20180611/b018-methodsEndWithColon/</loc>
+    
+    <lastmod>2018-06-28T13:35:05.525Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://scala.chobit.org/wiki/20180421/index/</loc>
     
     <lastmod>2018-06-17T13:31:57.559Z</lastmod>
@@ -26,13 +54,6 @@
     <loc>http://scala.chobit.org/wiki/20180611/b017-unaryMethod/</loc>
     
     <lastmod>2018-06-11T14:12:12.392Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://scala.chobit.org/wiki/20180611/b018-methodsEndWithColon/</loc>
-    
-    <lastmod>2018-06-11T14:04:40.888Z</lastmod>
     
   </url>
   
@@ -156,7 +177,7 @@
   </url>
   
   <url>
-    <loc>http://scala.chobit.org/wiki/20180520/a22-executorAroudMode/</loc>
+    <loc>http://scala.chobit.org/wiki/20180520/a22-executorAroundMode/</loc>
     
     <lastmod>2018-05-19T23:35:54.874Z</lastmod>
     
