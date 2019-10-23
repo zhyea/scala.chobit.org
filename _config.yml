@@ -87,21 +87,3 @@ time_format: HH:mm:ss
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: Wikitten
-
-# Deployment
-## Docs: https://hexo.io/docs/deployment.html
-deploy:
-  - type: git
-    repo: git@scalachobit.github.com:scalachobit/scalachobit.github.io.git
-    branch: master
-  - type: git
-    repo: git@git.coding.net:scalachobit/scalachobit.git
-    branch: master
-  # - type: ftpsync
-  #   host: 66.112.217.222
-  #   user: scalachobit
-  #   pass: zhangrui_9
-  #   remote: /home/wwwroot/scala.chobit.org
-  #   port: 21
-  #   connections: 1
-  #   verbose: false
