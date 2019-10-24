@@ -61,6 +61,7 @@ scala技巧：
 1. [一元操作符](wiki/20180611/b017-unaryMethod/)
 1. [以冒号结尾的方法](wiki/20180611/b018-methodsEndWithColon/)
 1. [异常处理](wiki/20180628/b019-tryCatchException/)
+1. [判断相等：eq、equals和==](wiki/20191023/b020-equalitycompare/)
 
 
 This is Home Page.  
