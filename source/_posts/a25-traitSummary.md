@@ -31,7 +31,7 @@ class Dog(val name: String) extends HumanFriend
 
 我们先定义了一个名为人类的朋友（HumanFriend）的trait，朋友的主要特征就是陪伴，所以在这个trait里面定义了一个方法accompany并做了实现。Dog（狗）具有人类的好朋友这个特质，所以可以混入trait HumanFriend。在scala中继承某个trait，通常也称为混入某个trait。
 
-在trait HumanFriend中定义了一个val变量name。这个name没有默认值，我们可以认为它是抽象的，可以等到其他类混入这个trait时再为其赋值。
+在trait HumanFriend中定义了一个val变量name。这个name没有默认值，我们可以认为它是抽象的，可以等到其他类混入这个trait时再为其赋值。（这个地方怪怪的，给人的感觉是定义了一个抽象方法。应是scala在实现trait时做的一次妥协）
 
 混入trait的类可以直接调用trait的方法：
 ```scala
